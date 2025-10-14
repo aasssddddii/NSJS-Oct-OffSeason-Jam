@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://x72ypy7y7gih"]
+
+[ext_resource type="Script" uid="uid://n4ubedintyk7" path="res://Scripts/player_controller.gd" id="1_ftml7"]
+[ext_resource type="Texture2D" uid="uid://bvrfya1b6deal" path="res://sprites/test sprites/cover.png" id="1_mov8k"]
+
+[node name="Player" type="RigidBody2D"]
+mass = 3.0
+gravity_scale = 0.0
+script = ExtResource("1_ftml7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("1_mov8k")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-17.315, 17.145, 0, 10.67, 16.92, 17.29, 0, -17.43)
+
+[node name="Camera2D" type="Camera2D" parent="."]

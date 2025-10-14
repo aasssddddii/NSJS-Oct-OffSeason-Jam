@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://f2q8t37hxp45"]
+
+[ext_resource type="PackedScene" uid="uid://dfxqgwgng77rm" path="res://Prefabs/player_3d.tscn" id="1_byp1c"]
+[ext_resource type="Texture2D" uid="uid://cjoyfs0bftmct" path="res://sprites/test sprites/bg.webp" id="2_74t83"]
+
+[node name="Test_Scene_3d" type="Node3D"]
+
+[node name="Player3D" parent="." instance=ExtResource("1_byp1c")]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.2080746)
+texture = ExtResource("2_74t83")

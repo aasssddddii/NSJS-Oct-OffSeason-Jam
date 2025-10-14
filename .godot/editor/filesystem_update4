@@ -1,0 +1,9 @@
+res://Prefabs/player_prefab.tscn
+res://Scenes/test_scene.tscn
+res://Scripts/Character_Controller.gd
+res://Prefabs/player_controller.gd
+res://Scripts/planet.gd
+res://Scenes/test_scene_3d.tscn
+res://Prefabs/player_3d.tscn
+res://Scripts/player_controller.gd
+res://Scripts/camera_controller.gd

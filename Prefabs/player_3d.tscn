@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfxqgwgng77rm"]
+
+[ext_resource type="Script" uid="uid://n4ubedintyk7" path="res://Scripts/player_controller.gd" id="1_j8lsp"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_m1qop"]
+
+[node name="Player3D" type="RigidBody3D"]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+mass = 5.0
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 10
+angular_damp = 2.0
+script = ExtResource("1_j8lsp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.2, 0, 0, 0)
+mesh = SubResource("PrismMesh_m1qop")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="."]
+depth = 0.3
+polygon = PackedVector2Array(-0.5, -0.5, 0.5, -0.5, 0, 0.5)

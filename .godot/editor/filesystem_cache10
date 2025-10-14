@@ -1,4 +1,19 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1760442122
+::res://::1760452755
 icon.svg::CompressedTexture2D::3668133926585970205::1760442119::1760442122::1::::<><><>0<>0<>7a6b4cb4ad31441ece9972589ba015e1<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile::-1::1760442011::0::1::::<><><>0<>0<><>::
+::res://Prefabs/::1760453169
+player_prefab.tscn::PackedScene::1682086536075898415::1760447440::0::1::::<><><>0<>0<><>::uid://n4ubedintyk7::::res://Scripts/player_controller.gd<>uid://bvrfya1b6deal::::res://sprites/test sprites/cover.png
+player_3d.tscn::PackedScene::7558670309643036238::1760453169::0::1::::<><><>0<>0<><>::uid://n4ubedintyk7::::res://Scripts/player_controller.gd
+::res://Scenes/::1760453550
+test_scene_3d.tscn::PackedScene::407713863295287516::1760453565::0::1::::<><><>0<>0<><>::uid://dfxqgwgng77rm::::res://Prefabs/player_3d.tscn
+test_scene.tscn::PackedScene::2751121924648058054::1760450574::0::1::::<><><>0<>0<><>::uid://x72ypy7y7gih::::res://Prefabs/player_prefab.tscn<>uid://cjoyfs0bftmct::::res://sprites/test sprites/bg.webp<>uid://4fbfw4o2ec2l::::res://sprites/test sprites/circle_noun_001_02738.png<>uid://36rg5kglhpow::::res://Scripts/planet.gd
+::res://Scripts/::1760453550
+Character_Controller.gd::GDScript::7060160526160520715::1760453319::0::1::::CharacterController<>RigidBody3D<><>0<>0<><>::
+planet.gd::GDScript::2030327827317372758::1760452550::0::1::::Planet<>StaticBody3D<><>0<>0<><>::
+player_controller.gd::GDScript::973538262920833148::1760453550::0::1::::<>CharacterController<><>0<>0<><>::
+::res://sprites/::1760442408
+::res://sprites/test sprites/::1760447383
+bg.webp::CompressedTexture2D::5434909369574540879::1760444977::1760453591::1::::<><><>0<>0<>da49adf07e1f5af69f36a9396220de39<>res://.godot/imported/bg.webp-966520266ed8a339de1c325c401d9e4a.s3tc.ctex::
+circle_noun_001_02738.png::CompressedTexture2D::2045869201220897657::1760447379::1760447380::1::::<><><>0<>0<>f9b8746c0ea9313e891cf736a0d8ab6f<>res://.godot/imported/circle_noun_001_02738.png-4abfad2396fc30a345bc79faec746dcf.ctex::
+cover.png::CompressedTexture2D::3895827306180246339::1760442434::1760442434::1::::<><><>0<>0<>dc00a8bbcd574f7abcd7b233bd4323de<>res://.godot/imported/cover.png-fe8d6c8501afde8dd5fc6a457df58c69.ctex::
