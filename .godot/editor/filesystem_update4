@@ -7,3 +7,9 @@ res://Scenes/test_scene_3d.tscn
 res://Prefabs/player_3d.tscn
 res://Scripts/player_controller.gd
 res://Scripts/camera_controller.gd
+res://Prefabs/planet_template.tscn
+res://Resources/Planet_Resource_Template.gd
+res://Resources/Test_Planet.tres
+res://Resources/Test_Planet_2.tres
+res://Prefabs/gravity_arrow.tscn
+res://Scripts/gravity_arrow.gd

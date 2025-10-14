@@ -1,17 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://f2q8t37hxp45"]
+[gd_scene load_steps=5 format=3 uid="uid://f2q8t37hxp45"]
 
 [ext_resource type="PackedScene" uid="uid://dfxqgwgng77rm" path="res://Prefabs/player_3d.tscn" id="1_byp1c"]
 [ext_resource type="Texture2D" uid="uid://cjoyfs0bftmct" path="res://sprites/test sprites/bg.webp" id="2_74t83"]
+[ext_resource type="PackedScene" uid="uid://c1wvgevhcgjj2" path="res://Prefabs/planet_template.tscn" id="3_4ql7k"]
 [ext_resource type="Script" uid="uid://dpk0jhx0nvune" path="res://Scripts/camera_controller.gd" id="3_oyc4c"]
-[ext_resource type="Script" uid="uid://36rg5kglhpow" path="res://Scripts/planet.gd" id="3_wxoy5"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_74t83"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_oyc4c"]
-radius = 4.898943
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_wxoy5"]
-radius = 14.09889
 
 [node name="Test_Scene_3d" type="Node3D"]
 
@@ -23,37 +15,8 @@ transform = Transform3D(14.147878, 0, 0, 0, 14.147878, 0, 0, 0, 14.147878, 0, 0,
 visible = false
 texture = ExtResource("2_74t83")
 
-[node name="Planet" type="StaticBody3D" parent="." groups=["Planet"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.018927, 11.515174, 1.9073486e-06)
-script = ExtResource("3_wxoy5")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Planet"]
-transform = Transform3D(9.754949, 0, 0, 0, 9.754949, 0, 0, 0, 9.754949, 0, 0, 0)
-mesh = SubResource("SphereMesh_74t83")
-
-[node name="surface" type="CollisionShape3D" parent="Planet"]
-shape = SubResource("SphereShape3D_oyc4c")
-
-[node name="Gravity Field" type="Area3D" parent="Planet"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Planet/Gravity Field"]
-shape = SubResource("SphereShape3D_wxoy5")
-
-[node name="Planet2" type="StaticBody3D" parent="." groups=["Planet"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.027402878, 33.933743, 1.9073486e-06)
-script = ExtResource("3_wxoy5")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Planet2"]
-transform = Transform3D(9.754949, 0, 0, 0, 9.754949, 0, 0, 0, 9.754949, 0, 0, 0)
-mesh = SubResource("SphereMesh_74t83")
-
-[node name="surface" type="CollisionShape3D" parent="Planet2"]
-shape = SubResource("SphereShape3D_oyc4c")
-
-[node name="Gravity Field" type="Area3D" parent="Planet2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Planet2/Gravity Field"]
-shape = SubResource("SphereShape3D_wxoy5")
+[node name="Planet" parent="." instance=ExtResource("3_4ql7k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.352173, 28.189514, 1.9073486e-06)
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.339757)

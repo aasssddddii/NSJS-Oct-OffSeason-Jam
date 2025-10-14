@@ -10,7 +10,7 @@ var current_thrust
 
 const rotate_power:int = 10
 const boost_power = 20
-const break_power = 25 #higher number = longer slowdown time
+const break_power = 50 #higher number = longer slowdown time
 
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	gravity_force = Vector3.ZERO
@@ -18,8 +18,8 @@ func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 		var direction = global_position - planet.global_position
 		var distance = direction.length()
 		if distance > 0: 
-			var gravity_constant = planet.gravity_strength 
-			var gravity_amount = (gravity_constant * planet.mass) / distance
+			var gravity_constant = planet.planet_resource.gravity_strength 
+			var gravity_amount = (gravity_constant * planet.planet_resource.mass) / distance
 			gravity_force += direction.normalized() * gravity_amount
 	# Apply gravity to velocity
 	state.linear_velocity -= gravity_force

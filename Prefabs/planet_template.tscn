@@ -1,20 +1,22 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1wvgevhcgjj2"]
+[gd_scene load_steps=6 format=3 uid="uid://c1wvgevhcgjj2"]
 
 [ext_resource type="Script" uid="uid://36rg5kglhpow" path="res://Scripts/planet.gd" id="1_u6g6f"]
+[ext_resource type="Resource" uid="uid://ci3d2riso5r1b" path="res://Resources/Test_Planet.tres" id="2_8ffa6"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_74t83"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_oyc4c"]
-radius = 4.898943
+radius = 10.100076
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wxoy5"]
-radius = 14.09889
+radius = 28.672031
 
 [node name="Planet" type="StaticBody3D" groups=["Planet"]]
 script = ExtResource("1_u6g6f")
+planet_resource = ExtResource("2_8ffa6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(9.754949, 0, 0, 0, 9.754949, 0, 0, 0, 9.754949, 0, 0, 0)
+transform = Transform3D(20.025, 0, 0, 0, 20.025, 0, 0, 0, 20.025, 0, 0, 0)
 mesh = SubResource("SphereMesh_74t83")
 
 [node name="surface" type="CollisionShape3D" parent="."]
