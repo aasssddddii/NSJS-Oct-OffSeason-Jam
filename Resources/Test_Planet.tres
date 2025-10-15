@@ -5,6 +5,4 @@
 [resource]
 script = ExtResource("1_w2qws")
 name = "Test"
-gravity_strength = 1.0
-mass = 0.7
 metadata/_custom_type_script = "uid://x8s0y2cuh4sr"

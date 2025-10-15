@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1wvgevhcgjj2"]
+[gd_scene load_steps=8 format=3 uid="uid://c1wvgevhcgjj2"]
 
 [ext_resource type="Script" uid="uid://36rg5kglhpow" path="res://Scripts/planet.gd" id="1_u6g6f"]
 [ext_resource type="Resource" uid="uid://ci3d2riso5r1b" path="res://Resources/Test_Planet.tres" id="2_8ffa6"]
@@ -10,6 +10,11 @@ radius = 10.100076
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wxoy5"]
 radius = 28.672031
+
+[sub_resource type="BoxMesh" id="BoxMesh_8ffa6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oq3uq"]
+size = Vector3(3.0019531, 0.9452362, 1)
 
 [node name="Planet" type="StaticBody3D" groups=["Planet"]]
 script = ExtResource("1_u6g6f")
@@ -26,3 +31,16 @@ shape = SubResource("SphereShape3D_oyc4c")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Gravity Field"]
 shape = SubResource("SphereShape3D_wxoy5")
+
+[node name="Interactables" type="Node3D" parent="."]
+
+[node name="refuel_pad" type="StaticBody3D" parent="Interactables" groups=["Planet", "Refuel"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interactables/refuel_pad"]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.931667, 0)
+mesh = SubResource("BoxMesh_8ffa6")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interactables/refuel_pad"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.966863, 0)
+shape = SubResource("BoxShape3D_oq3uq")

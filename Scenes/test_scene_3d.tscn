@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://f2q8t37hxp45"]
+[gd_scene load_steps=7 format=3 uid="uid://f2q8t37hxp45"]
 
 [ext_resource type="PackedScene" uid="uid://dfxqgwgng77rm" path="res://Prefabs/player_3d.tscn" id="1_byp1c"]
 [ext_resource type="Texture2D" uid="uid://cjoyfs0bftmct" path="res://sprites/test sprites/bg.webp" id="2_74t83"]
 [ext_resource type="PackedScene" uid="uid://c1wvgevhcgjj2" path="res://Prefabs/planet_template.tscn" id="3_4ql7k"]
 [ext_resource type="Script" uid="uid://dpk0jhx0nvune" path="res://Scripts/camera_controller.gd" id="3_oyc4c"]
+[ext_resource type="FontFile" uid="uid://d1dtrbtiwueww" path="res://fonts/SPACE.ttf" id="5_4ql7k"]
+
+[sub_resource type="Theme" id="Theme_mj635"]
+default_font = ExtResource("5_4ql7k")
+default_font_size = 30
 
 [node name="Test_Scene_3d" type="Node3D"]
 
@@ -18,7 +23,51 @@ texture = ExtResource("2_74t83")
 [node name="Planet" parent="." instance=ExtResource("3_4ql7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.352173, 28.189514, 1.9073486e-06)
 
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
+[node name="Planet2" parent="." instance=ExtResource("3_4ql7k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.163336, 47.247375, 1.9073486e-06)
+
+[node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.339757)
 script = ExtResource("3_oyc4c")
-target = NodePath("../Player3D")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Camera3D"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="SubViewport" parent="Camera3D/SubViewportContainer"]
+transparent_bg = true
+size = Vector2i(1152, 648)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/SubViewportContainer/CanvasLayer"]
+offset_left = 13.0
+offset_top = 20.0
+offset_right = 164.0
+offset_bottom = 62.0
+
+[node name="LeftContainer" type="VBoxContainer" parent="Camera3D/SubViewportContainer/CanvasLayer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Fuel Label" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = SubResource("Theme_mj635")
+text = "fuel: "
+horizontal_alignment = 2
+
+[node name="Health Label" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = SubResource("Theme_mj635")
+text = "health: "
+horizontal_alignment = 2
+
+[node name="RightContainer" type="VBoxContainer" parent="Camera3D/SubViewportContainer/CanvasLayer/HBoxContainer"]
+layout_mode = 2
+
+[node name="ui_fuel" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme = SubResource("Theme_mj635")
+text = "-"
+
+[node name="ui_health" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme = SubResource("Theme_mj635")
+text = "-"

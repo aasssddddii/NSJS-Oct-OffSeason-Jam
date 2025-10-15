@@ -13,3 +13,5 @@ res://Resources/Test_Planet.tres
 res://Resources/Test_Planet_2.tres
 res://Prefabs/gravity_arrow.tscn
 res://Scripts/gravity_arrow.gd
+res://Resources/Player_Resource.gd
+res://Resources/PlayerResource.tres

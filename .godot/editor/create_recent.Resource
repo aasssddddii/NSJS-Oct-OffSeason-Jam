@@ -1,1 +1,2 @@
+PlayerResource
 PlanetResource

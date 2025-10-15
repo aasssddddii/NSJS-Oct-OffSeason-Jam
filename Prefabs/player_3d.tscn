@@ -1,23 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfxqgwgng77rm"]
+[gd_scene load_steps=6 format=3 uid="uid://dfxqgwgng77rm"]
 
 [ext_resource type="Script" uid="uid://n4ubedintyk7" path="res://Scripts/player_controller.gd" id="1_j8lsp"]
 
-[sub_resource type="PrismMesh" id="PrismMesh_m1qop"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j8lsp"]
+bounce = 0.1
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_j8lsp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mt41p"]
+size = Vector3(0.5058594, 1, 0.37329102)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j8lsp"]
+size = Vector3(0.08569336, 0.047210693, 0.15014648)
 
 [node name="Player3D" type="RigidBody3D"]
 axis_lock_angular_x = true
 axis_lock_angular_y = true
-mass = 5.0
+mass = 6.0
+physics_material_override = SubResource("PhysicsMaterial_j8lsp")
 gravity_scale = 0.0
+can_sleep = false
 contact_monitor = true
 max_contacts_reported = 10
 angular_damp = 2.0
 script = ExtResource("1_j8lsp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.2, 0, 0, 0)
-mesh = SubResource("PrismMesh_m1qop")
+transform = Transform3D(0.505, 0, 0, 0, 0.505, 0, 0, 0, 0.505, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_j8lsp")
 
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="."]
-depth = 0.3
-polygon = PackedVector2Array(-0.5, -0.5, 0.5, -0.5, 0, 0.5)
+[node name="CollisionPolygon3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_mt41p")
+
+[node name="refuel_prob" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="refuel_prob"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5061493, 0)
+shape = SubResource("BoxShape3D_j8lsp")
