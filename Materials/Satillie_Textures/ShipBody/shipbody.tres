@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://db3d45yhc5w5l"]
+
+[ext_resource type="Texture2D" uid="uid://b2najm8lmkpm4" path="res://Materials/Satillie_Textures/ShipBody/ShipBody_BaseColor.png" id="1_8cb8j"]
+[ext_resource type="Texture2D" uid="uid://bjd0ptonb3wbp" path="res://Materials/Satillie_Textures/ShipBody/ShipBody_Metallic.png" id="2_5n4s8"]
+
+[resource]
+albedo_texture = ExtResource("1_8cb8j")
+metallic = 1.0
+metallic_texture = ExtResource("2_5n4s8")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0qtl77ml08vt"]
+
+[ext_resource type="Script" uid="uid://x8h7ypkj0gor" path="res://Scripts/spawn_refuel_pad.gd" id="1_b3o6x"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8ffa6"]
+size = Vector3(3, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oq3uq"]
+size = Vector3(3, 1, 1)
+
+[node name="refuel_pad" type="StaticBody3D" groups=["Planet", "Refuel"]]
+script = ExtResource("1_b3o6x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_8ffa6")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_oq3uq")

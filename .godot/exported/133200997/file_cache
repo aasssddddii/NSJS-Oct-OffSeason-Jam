@@ -1,9 +1,9 @@
 res://Prefabs/player_prefab.tscn::83da8b4d88386f793dd83c65606f4ede::1760447440::res://.godot/exported/133200997/export-268df29f6b6f2aaa3ade03c2943f6438-player_prefab.scn
-res://Prefabs/player_3d.tscn::f69ffbc1c7f5725d9097d7240992a7da::1760476094::res://.godot/exported/133200997/export-093fe6072c39a99b774dfa30d7cb4e87-player_3d.scn
-res://Prefabs/planet_template.tscn::7b535a7e373840189a401789ac57a832::1760471282::res://.godot/exported/133200997/export-288dca9eab17ac6a32d43482c1ba0c60-planet_template.scn
+res://Prefabs/player_3d.tscn::0d1f09fcb13a47c3b73bfd06a8bbc1e1::1760488875::res://.godot/exported/133200997/export-093fe6072c39a99b774dfa30d7cb4e87-player_3d.scn
+res://Prefabs/planet_template.tscn::2bccb93bf23e54d301a0965faabdcf37::1760486568::res://.godot/exported/133200997/export-288dca9eab17ac6a32d43482c1ba0c60-planet_template.scn
 res://Prefabs/gravity_arrow.tscn::cf81c95ec367156c1e63747aad1c2599::1760476527::res://.godot/exported/133200997/export-b2e8de40fdb062d00e7aaec30f676d1d-gravity_arrow.scn
-res://Resources/PlayerResource.tres::e46f38ffaaec12590a18e97c21984122::1760482106::res://.godot/exported/133200997/export-4f995d095a2f520310ffb2408d07e009-PlayerResource.res
+res://Resources/PlayerResource.tres::aa4e273762374484a8bc59191dc5f21c::1760484616::res://.godot/exported/133200997/export-4f995d095a2f520310ffb2408d07e009-PlayerResource.res
 res://Resources/Test_Planet_2.tres::e3084a3ff22fcefdf0fd966d91352462::1760465947::res://.godot/exported/133200997/export-16f15b2f3a38679aec3b3c622e1f3aae-Test_Planet_2.res
-res://Resources/Test_Planet.tres::a8f2baab0b457d0f1d4e48629ad82ca7::1760470945::res://.godot/exported/133200997/export-8e975d97d159c9021aa1144af87a3fec-Test_Planet.res
-res://Scenes/test_scene_3d.tscn::1c09b63d444f3fb198619cd5a9db3371::1760482106::res://.godot/exported/133200997/export-e574e9e9009d830787df9a9904fbe146-test_scene_3d.scn
+res://Resources/Test_Planet.tres::bb935292944d1c4a1a5eda07b0b14229::1760485898::res://.godot/exported/133200997/export-8e975d97d159c9021aa1144af87a3fec-Test_Planet.res
+res://Scenes/test_scene_3d.tscn::a3dda5b4a470772a8455d2ecdbd9031b::1760488900::res://.godot/exported/133200997/export-e574e9e9009d830787df9a9904fbe146-test_scene_3d.scn
 res://Scenes/test_scene.tscn::e55cbb72413bdc74ef39ad1763cfabc8::1760450574::res://.godot/exported/133200997/export-f355e2b0241559ee806d6869746e0f8a-test_scene.scn

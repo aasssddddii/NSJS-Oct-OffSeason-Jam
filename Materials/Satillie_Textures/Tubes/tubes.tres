@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bv3e2h3qbqyp6"]
+
+[ext_resource type="Texture2D" uid="uid://dlxcxvqve6yd1" path="res://Materials/Satillie_Textures/Tubes/Tubes_BaseColor.png" id="1_dkbqx"]
+
+[resource]
+albedo_texture = ExtResource("1_dkbqx")

@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_w2qws")
 name = "Test"
+refuel_pad = true
 metadata/_custom_type_script = "uid://x8s0y2cuh4sr"

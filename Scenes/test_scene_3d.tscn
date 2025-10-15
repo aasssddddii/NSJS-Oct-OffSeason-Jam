@@ -24,7 +24,7 @@ texture = ExtResource("2_74t83")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.352173, 28.189514, 1.9073486e-06)
 
 [node name="Planet2" parent="." instance=ExtResource("3_4ql7k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.163336, 47.247375, 1.9073486e-06)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.634933, 66.09106, 1.9073486e-06)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.339757)
@@ -36,7 +36,9 @@ offset_bottom = 40.0
 
 [node name="CanvasLayer" type="SubViewport" parent="Camera3D/SubViewportContainer"]
 transparent_bg = true
+handle_input_locally = false
 size = Vector2i(1152, 648)
+render_target_update_mode = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/SubViewportContainer/CanvasLayer"]
 offset_left = 13.0
@@ -71,3 +73,5 @@ text = "-"
 layout_mode = 2
 theme = SubResource("Theme_mj635")
 text = "-"
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D"]

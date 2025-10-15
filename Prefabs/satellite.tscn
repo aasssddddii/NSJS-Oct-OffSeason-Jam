@@ -1,0 +1,28 @@
+[gd_scene load_steps=12 format=3 uid="uid://c2w8285c5ar3x"]
+
+[ext_resource type="PackedScene" uid="uid://respwj0mejqy" path="res://Prefabs/3D files/Satellite.fbx" id="1_vbp0n"]
+[ext_resource type="Material" uid="uid://62605nichpos" path="res://Materials/Satillie_Textures/Body/body.tres" id="2_5wk85"]
+[ext_resource type="Material" uid="uid://dwdwa6nr8fykg" path="res://Materials/Satillie_Textures/BottomMouth/bottom_mouth.tres" id="3_tvusw"]
+[ext_resource type="Material" uid="uid://dy8oqpu8ssrt4" path="res://Materials/Satillie_Textures/Booster/Booster.tres" id="4_qqlgw"]
+[ext_resource type="Material" uid="uid://c21cwou7su0w2" path="res://Materials/Satillie_Textures/InsideSatellite/inside satallite.tres" id="5_kruf3"]
+[ext_resource type="Material" uid="uid://b5oyiiube8mbf" path="res://Materials/Satillie_Textures/Nails/nails.tres" id="6_kh7xy"]
+[ext_resource type="Material" uid="uid://bv3e2h3qbqyp6" path="res://Materials/Satillie_Textures/Tubes/tubes.tres" id="7_87bjl"]
+[ext_resource type="Material" uid="uid://56noy7mw4inw" path="res://Materials/Satillie_Textures/SolarPanelRim/panel base.tres" id="8_p44kt"]
+[ext_resource type="Material" uid="uid://cqh4v85omtvh7" path="res://Materials/Satillie_Textures/TopMouth/topmouth.tres" id="9_kwmab"]
+[ext_resource type="Material" uid="uid://3nxlkjumg0b5" path="res://Materials/Satillie_Textures/BaseSolarPanel/BaseSolarPanel.tres" id="10_lae7x"]
+[ext_resource type="Material" uid="uid://db3d45yhc5w5l" path="res://Materials/Satillie_Textures/ShipBody/shipbody.tres" id="11_2efri"]
+
+[node name="Satellite" instance=ExtResource("1_vbp0n")]
+transform = Transform3D(-8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="Satellite" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_5wk85")
+surface_material_override/1 = ExtResource("3_tvusw")
+surface_material_override/2 = ExtResource("4_qqlgw")
+surface_material_override/3 = ExtResource("5_kruf3")
+surface_material_override/4 = ExtResource("6_kh7xy")
+surface_material_override/5 = ExtResource("7_87bjl")
+surface_material_override/6 = ExtResource("8_p44kt")
+surface_material_override/7 = ExtResource("9_kwmab")
+surface_material_override/8 = ExtResource("10_lae7x")
+surface_material_override/9 = ExtResource("11_2efri")

@@ -1,7 +1,7 @@
 extends Camera3D
 
 @export var target:CharacterController
-const camera_offset:=10
+const camera_offset:=7
 
 @onready var ui_fuel = $SubViewportContainer/CanvasLayer/HBoxContainer/RightContainer/ui_fuel
 

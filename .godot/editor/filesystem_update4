@@ -15,3 +15,14 @@ res://Prefabs/gravity_arrow.tscn
 res://Scripts/gravity_arrow.gd
 res://Resources/Player_Resource.gd
 res://Resources/PlayerResource.tres
+res://Prefabs/refuel_pad.tscn
+res://Scripts/interactable.gd
+res://Scripts/spawn_refuel_pad.gd
+res://Materials/Satillie_Textures/Body/body.tres
+res://Materials/Satillie_Textures/BaseSolarPanel/BaseSolarPanel.tres
+res://Materials/Satillie_Textures/Booster/Booster.tres
+res://Materials/Satillie_Textures/BottomMouth/bottom_mouth.tres
+res://Materials/Satillie_Textures/InsideSatellite/inside satallite.tres
+res://Materials/Satillie_Textures/ShipBody/shipbody.tres
+res://Materials/Satillie_Textures/Tubes/tubes.tres
+res://Prefabs/satellite.tscn

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://dy8oqpu8ssrt4"]
+
+[ext_resource type="Texture2D" uid="uid://c6hv6vsye20at" path="res://Materials/Satillie_Textures/Booster/Booster_BaseColor.png" id="1_eihrf"]
+[ext_resource type="Texture2D" uid="uid://ccoron54c5cjq" path="res://Materials/Satillie_Textures/Booster/Booster_Metallic.png" id="2_6djhp"]
+
+[resource]
+albedo_texture = ExtResource("1_eihrf")
+metallic = 1.0
+metallic_texture = ExtResource("2_6djhp")
