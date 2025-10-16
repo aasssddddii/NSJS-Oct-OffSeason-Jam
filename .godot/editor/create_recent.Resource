@@ -1,2 +1,3 @@
+ResearchSampleResource
 PlayerResource
 PlanetResource

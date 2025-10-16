@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdvyau68sgek6"]
+
+[ext_resource type="Script" uid="uid://cvwgk5u0llkbg" path="res://Scripts/research_sample.gd" id="1_kly31"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_42rye"]
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kly31"]
+size = Vector3(0.3017578, 0.29882813, 0.296875)
+
+[node name="research_sample_template" type="RigidBody3D" groups=["Sample"]]
+collision_layer = 2
+collision_mask = 2
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+mass = 2.0
+gravity_scale = 0.0
+can_sleep = false
+script = ExtResource("1_kly31")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_42rye")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_kly31")

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PlanetResource" load_steps=2 format=3 uid="uid://i62jqvof1fow"]
+
+[ext_resource type="Script" uid="uid://x8s0y2cuh4sr" path="res://Resources/Planet_Resource_Template.gd" id="1_cqhf3"]
+
+[resource]
+script = ExtResource("1_cqhf3")
+name = "EARth"
+gravity_strength = 0.6
+mass = 0.6
+sample_density = 0
+home_planet = true
+metadata/_custom_type_script = "uid://x8s0y2cuh4sr"

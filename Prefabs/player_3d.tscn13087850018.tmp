@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://dfxqgwgng77rm"]
+
+[ext_resource type="Script" uid="uid://n4ubedintyk7" path="res://Scripts/player_controller.gd" id="1_j8lsp"]
+[ext_resource type="PackedScene" uid="uid://devlho18yfe5f" path="res://Prefabs/satellite2.tscn" id="2_mt41p"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j8lsp"]
+bounce = 0.1
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mt41p"]
+radius = 0.30322266
+height = 1.1159668
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mt41p"]
+size = Vector3(0.6455078, 0.22766113, 0.69433594)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j8lsp"]
+size = Vector3(0.08569336, 0.0900116, 0.15014648)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mt41p"]
+radius = 0.25191817
+
+[node name="Player3D" type="RigidBody3D"]
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+mass = 6.0
+physics_material_override = SubResource("PhysicsMaterial_j8lsp")
+gravity_scale = 0.0
+can_sleep = false
+contact_monitor = true
+max_contacts_reported = 10
+angular_damp = 3.0
+script = ExtResource("1_j8lsp")
+
+[node name="sat1" parent="." instance=ExtResource("2_mt41p")]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionPolygon3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024383545, 0.14086914, 0)
+shape = SubResource("CapsuleShape3D_mt41p")
+
+[node name="CollisionPolygon3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024383545, -0.41304347, 0)
+shape = SubResource("BoxShape3D_mt41p")
+
+[node name="refuel_prob" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="refuel_prob"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.52754974, 0)
+shape = SubResource("BoxShape3D_j8lsp")
+
+[node name="sample_probe" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57402503, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sample_probe"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.11954975, 0)
+shape = SubResource("SphereShape3D_mt41p")

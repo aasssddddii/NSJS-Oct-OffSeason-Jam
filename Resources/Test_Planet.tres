@@ -5,5 +5,6 @@
 [resource]
 script = ExtResource("1_w2qws")
 name = "Test"
-refuel_pad = true
+sample_density = 5
+asteroid_density = 2
 metadata/_custom_type_script = "uid://x8s0y2cuh4sr"

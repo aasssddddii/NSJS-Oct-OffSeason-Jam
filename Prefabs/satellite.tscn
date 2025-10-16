@@ -15,7 +15,11 @@
 [node name="Satellite" instance=ExtResource("1_vbp0n")]
 transform = Transform3D(-8.742278e-09, 0.2, 0, -0.2, -8.742278e-09, 0, 0, 0, 0.2, 0, 0, 0)
 
+[node name="Skeleton3D" parent="Armature" index="0"]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
 [node name="Satellite" parent="." index="1"]
+skeleton = NodePath("../Armature/Skeleton3D")
 surface_material_override/0 = ExtResource("2_5wk85")
 surface_material_override/1 = ExtResource("3_tvusw")
 surface_material_override/2 = ExtResource("4_qqlgw")

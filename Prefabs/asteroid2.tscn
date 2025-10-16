@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8dqis2xn2a33"]
+
+[ext_resource type="Script" uid="uid://d7i0624tin2h" path="res://Scripts/asteroid.gd" id="1_4y8f7"]
+[ext_resource type="PhysicsMaterial" uid="uid://dj4b65l7mfwm1" path="res://Materials/Physics/asteroid_bounce.tres" id="1_ggt0i"]
+[ext_resource type="PackedScene" uid="uid://h4nlbfqhbkwo" path="res://Prefabs/3D files/Asteroids/ast2.glb" id="1_phsfh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4y8f7"]
+radius = 1.4074463
+
+[node name="Asteroid" type="RigidBody3D" groups=["Asteroid"]]
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+mass = 20.0
+physics_material_override = ExtResource("1_ggt0i")
+gravity_scale = 0.0
+script = ExtResource("1_4y8f7")
+
+[node name="ast2" parent="." instance=ExtResource("1_phsfh")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18863308, 0.12629801, 0)
+shape = SubResource("SphereShape3D_4y8f7")

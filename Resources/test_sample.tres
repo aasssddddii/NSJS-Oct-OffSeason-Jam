@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ResearchSampleResource" load_steps=4 format=3 uid="uid://d1tbbcq48dvmu"]
+
+[ext_resource type="Script" uid="uid://cnwjofrbr7ew8" path="res://Resources/Sample_Template.gd" id="1_hcgaq"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hcgaq"]
+radius = 0.15
+
+[sub_resource type="SphereMesh" id="SphereMesh_hcgaq"]
+radius = 0.15
+height = 0.3
+
+[resource]
+script = ExtResource("1_hcgaq")
+sample_name = "Tester"
+sample_description = "This is a test"
+replacement_mesh = SubResource("SphereMesh_hcgaq")
+replacement_collider = SubResource("SphereShape3D_hcgaq")
+mass = 2.0
+metadata/_custom_type_script = "uid://cnwjofrbr7ew8"

@@ -1,9 +1,9 @@
 extends CharacterController
 
 const stage_2_duration:=1
-const stage_2_timeout:=2
+const stage_2_timeout:=5
 const thruster_fuel_burn:=.01
-const refuel_speed:=.05
+const refuel_speed:=.2
 var time_since_stage_2:float
 var time_in_stage_2:float
 var can_stage_2:bool
@@ -21,19 +21,29 @@ var player_resource = load("res://Resources/PlayerResource.tres")
 
 var on_fuel:bool
 @onready var refuel_prob = $refuel_prob
+@onready var sample_range_area = $sample_range
+@onready var sample_probe = $sample_probe
 
+@onready var player_animator = $"sat1/AnimationPlayer"
+
+var arrow_shaft
 
 func _ready() -> void:
 	#setup camera dynamically
 	player_cam.target = self
-	body_entered.connect(collision_handler)
-	body_exited.connect(planet_disconnecter)
+	#body_entered.connect(collision_handler)
+	#body_exited.connect(planet_disconnecter)
 	refuel_prob.body_entered.connect(refuelable_source)
 	refuel_prob.body_exited.connect(off_refuelable_source)
+	sample_probe.body_entered.connect(collect_sample)
+	sample_range_area.body_entered.connect(open_mouth)
+	sample_range_area.body_exited.connect(close_mouth)
 	arrow_pivot = arrow_prefab.instantiate()
 	get_parent_node_3d().add_child.call_deferred(arrow_pivot)
 	arrow_pivot.setup_arrow(self)
+	arrow_shaft = arrow_pivot.get_child(0)
 	
+
 
 func _process(delta: float) -> void:
 	#checking for closest planet
@@ -56,28 +66,47 @@ func _process(delta: float) -> void:
 		else:
 			time_in_stage_2 += delta
 			print("i am stage 2 ing")
+	else:
+		if time_since_stage_2 > stage_2_timeout:
+			can_stage_2 = true
+		else:
+			time_since_stage_2 += delta
 	player_cam.ui_fuel.text = var_to_str(int(player_resource.fuel))
+	player_cam.ui_stage_2_cooldown.text = String.num((time_since_stage_2/stage_2_timeout),2)
 	#refueling
 	if on_fuel:
 		refuel(refuel_speed)
+		
+	arrow_shaft.visible = orbital_lock
+		
 
 func process_movement(state: PhysicsDirectBodyState3D) -> void:
 	if player_resource.fuel > 0:
 		rotation_dir = Input.get_axis("player_left","player_right")
 		#print("rotation direction: ", rotation_dir)
 		current_thrust = Vector3.ZERO
+		
+		if Input.is_action_pressed("orbital_lock"):
+			if closest_planet != null:
+				print("distanceto closest: ",global_position.distance_to(closest_planet.global_position))
+				if global_position.distance_to(closest_planet.global_position) > closest_planet.planet_resource.radius+5:
+					orbit_planet = closest_planet
+					orbital_lock = true
+		if !Input.is_action_pressed("orbital_lock"):
+			orbit_planet = null
+			orbital_lock = false
 		if Input.is_action_pressed("player_thruster"):
 			current_thrust = global_transform.basis.y * boost_power
 			reduce_fuel(thruster_fuel_burn)
 		if Input.is_action_just_pressed("stage_2"):
 			#do stage 2 booster
 			if can_stage_2:
+				can_stage_2 = false
 				in_stage_2 = true
 				time_in_stage_2 = 0
+				time_since_stage_2 = 0
 			else:
 				print("no booosto :'(")
-			#print("BOOOSTO!!!!: ")
-			#can_stage_2 = false
 		if in_stage_2:
 			current_thrust = global_transform.basis.y * boost_power * 2
 			
@@ -89,8 +118,15 @@ func process_movement(state: PhysicsDirectBodyState3D) -> void:
 		
 		if rotation_dir != 0:
 			apply_torque(Vector3(0,0,-rotation_dir * rotate_power))
-		apply_force(current_thrust)
-		#constant_force = current_thrust
+			
+			
+			
+		
+			
+			
+		apply_central_force(current_thrust)
+		
+
 
 func reduce_fuel(amount):
 	player_resource.fuel -= amount
@@ -99,23 +135,53 @@ func refuel(amount):
 	if player_resource.fuel < player_resource.max_fuel:
 		player_resource.fuel += amount
 
-func collision_handler(body:PhysicsBody3D):
-	if body.is_in_group("Planet"):
-		can_stage_2 = true
-		planet_connected = true
-		print("body: ",body)
-
-func planet_disconnecter(body:PhysicsBody3D):
-	if body.is_in_group("Planet"):
-		planet_connected = false
-		can_stage_2 = false
+#func collision_handler(body:PhysicsBody3D):
+	#if body.is_in_group("Planet"):
+		#can_stage_2 = true
+		#planet_connected = true
+		##print("body: ",body)
+#
+#func planet_disconnecter(body:PhysicsBody3D):
+	#if body.is_in_group("Planet"):
+		#planet_connected = false
+		#can_stage_2 = false
 		
 func refuelable_source(body:PhysicsBody3D):
 	if body.is_in_group("Refuel"):
 		on_fuel = true
-		print("player on fuel source: ", on_fuel)
+		#print("player on fuel source: ", on_fuel)
 		
 func off_refuelable_source(body:PhysicsBody3D):
 	if body.is_in_group("Refuel"):
 		on_fuel = false
-		print("player on fuel source: ", on_fuel)
+		#print("player on fuel source: ", on_fuel)
+		
+		
+func collect_sample(body:PhysicsBody3D):#(sample:ResearchSample):
+	if body.is_in_group("Sample"):
+		player_resource.samples.append(body.research_resource)
+		print("sample collected player now has samples: ", player_resource.samples)
+		body.queue_free()
+
+
+
+func open_mouth(body):
+	if body.is_in_group("Sample"):
+		player_animator.play("open_mouth")
+func close_mouth(body):
+	if body.is_in_group("Sample"):
+		player_animator.play("close_mouth")
+
+	
+# Delete after testing VVVVV
+#var test_toggler:bool = true
+#func _unhandled_input(e):
+	#if e.is_action_pressed("ui_accept"):
+		#orbit_planet = closest_planet
+		#orbital_lock = true
+	#if e.is_action_released("ui_accept"):
+		#orbit_planet = null
+		#orbital_lock = false
+		#print("opening bone: ", test_toggler)
+		#open_mouth(test_toggler)
+		#test_toggler = !test_toggler

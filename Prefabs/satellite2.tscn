@@ -1,0 +1,74 @@
+[gd_scene load_steps=16 format=3 uid="uid://devlho18yfe5f"]
+
+[ext_resource type="PackedScene" uid="uid://ccxqa8u6utuhc" path="res://Prefabs/3D files/sat1.glb" id="1_pgaoh"]
+[ext_resource type="Material" uid="uid://62605nichpos" path="res://Materials/Satillie_Textures/Body/body.tres" id="2_4ij78"]
+[ext_resource type="Material" uid="uid://dwdwa6nr8fykg" path="res://Materials/Satillie_Textures/BottomMouth/bottom_mouth.tres" id="3_4vmr6"]
+[ext_resource type="Material" uid="uid://dy8oqpu8ssrt4" path="res://Materials/Satillie_Textures/Booster/Booster.tres" id="4_86l6e"]
+[ext_resource type="Material" uid="uid://c21cwou7su0w2" path="res://Materials/Satillie_Textures/InsideSatellite/inside satallite.tres" id="5_dfbsq"]
+[ext_resource type="Material" uid="uid://b5oyiiube8mbf" path="res://Materials/Satillie_Textures/Nails/nails.tres" id="6_akxnr"]
+[ext_resource type="Material" uid="uid://bv3e2h3qbqyp6" path="res://Materials/Satillie_Textures/Tubes/tubes.tres" id="7_3jbwi"]
+[ext_resource type="Material" uid="uid://56noy7mw4inw" path="res://Materials/Satillie_Textures/SolarPanelRim/panel base.tres" id="8_dlp5t"]
+[ext_resource type="Material" uid="uid://cqh4v85omtvh7" path="res://Materials/Satillie_Textures/TopMouth/topmouth.tres" id="9_227vf"]
+[ext_resource type="Material" uid="uid://3nxlkjumg0b5" path="res://Materials/Satillie_Textures/BaseSolarPanel/BaseSolarPanel.tres" id="10_7ir12"]
+[ext_resource type="Material" uid="uid://db3d45yhc5w5l" path="res://Materials/Satillie_Textures/ShipBody/shipbody.tres" id="11_f5kdb"]
+
+[sub_resource type="Animation" id="Animation_4vmr6"]
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Bone")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0.707, 0.707)
+
+[sub_resource type="Animation" id="Animation_4ij78"]
+resource_name = "open_mouth"
+length = 0.3
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Bone")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -1.2486824e-07, 7.4966856e-08, 0.70710677, 0.70710677, 0.3, 1, 0, 0, 0.99, 0.139)
+
+[sub_resource type="Animation" id="Animation_86l6e"]
+resource_name = "close_mouth"
+length = 0.3
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Armature/Skeleton3D:Bone")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0.99, 0.139, 0.3, 1, -1.2486824e-07, 7.4966856e-08, 0.70710677, 0.70710677)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_86l6e"]
+_data = {
+&"RESET": SubResource("Animation_4vmr6"),
+&"close_mouth": SubResource("Animation_86l6e"),
+&"open_mouth": SubResource("Animation_4ij78")
+}
+
+[node name="sat1" instance=ExtResource("1_pgaoh")]
+
+[node name="Skeleton3D" parent="Armature" index="0"]
+bones/0/rotation = Quaternion(-7.1065005e-15, 8.883126e-15, 0.7071068, 0.7071068)
+
+[node name="Satellite" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = ExtResource("2_4ij78")
+surface_material_override/1 = ExtResource("3_4vmr6")
+surface_material_override/2 = ExtResource("4_86l6e")
+surface_material_override/3 = ExtResource("5_dfbsq")
+surface_material_override/4 = ExtResource("6_akxnr")
+surface_material_override/5 = ExtResource("7_3jbwi")
+surface_material_override/6 = ExtResource("8_dlp5t")
+surface_material_override/7 = ExtResource("9_227vf")
+surface_material_override/8 = ExtResource("10_7ir12")
+surface_material_override/9 = ExtResource("11_f5kdb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_86l6e")
+}

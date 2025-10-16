@@ -4,6 +4,8 @@ extends Camera3D
 const camera_offset:=7
 
 @onready var ui_fuel = $SubViewportContainer/CanvasLayer/HBoxContainer/RightContainer/ui_fuel
+@onready var ui_health = $SubViewportContainer/CanvasLayer/HBoxContainer/RightContainer/ui_health
+@onready var ui_stage_2_cooldown = $SubViewportContainer/CanvasLayer/HBoxContainer/RightContainer/ui_stage_2_cooldown
 
 func _process(_delta: float) -> void:
 	if target != null:
