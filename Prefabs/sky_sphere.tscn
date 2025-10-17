@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://rslhovh15gu8"]
+
+[ext_resource type="PackedScene" uid="uid://cd4fdkapl6e5t" path="res://Prefabs/3D files/backgrounds/starrybg222.glb" id="1_2vjok"]
+[ext_resource type="Texture2D" uid="uid://cnusseeiibjfr" path="res://Prefabs/3D files/backgrounds/starrybg222_Sky_SphereTexture.png" id="2_p2rl3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vwjsf"]
+albedo_texture = ExtResource("2_p2rl3")
+
+[node name="starrybg222" instance=ExtResource("1_2vjok")]
+
+[node name="Sky_Sphere" parent="." index="0"]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_vwjsf")

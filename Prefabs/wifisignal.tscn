@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp76drh7s2iu6"]
+
+[ext_resource type="PackedScene" uid="uid://ckqqyu1b3utgd" path="res://Prefabs/3D files/wifisignal/wifisigfull.glb" id="1_pgu8e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pgu8e"]
+transparency = 1
+blend_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.34117648, 0.8156863, 0.8627451, 0.42352942)
+
+[node name="wifisigfull" instance=ExtResource("1_pgu8e")]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, -0.2, 0, 0.2, -8.742278e-09, 0, 0, 0)
+
+[node name="Torus" parent="." index="0"]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_pgu8e")
+
+[node name="Torus_001" parent="." index="1"]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_pgu8e")
+
+[node name="Torus_002" parent="." index="2"]
+visible = false
+surface_material_override/0 = SubResource("StandardMaterial3D_pgu8e")

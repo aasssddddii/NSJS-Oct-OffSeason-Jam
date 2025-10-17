@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MeshNMaterials" load_steps=2 format=3 uid="uid://db003gvnc8q7o"]
+
+[ext_resource type="Script" uid="uid://yv1it0loh8ml" path="res://Resources/mesh_n_materials.gd" id="1_0vidf"]
+
+[resource]
+script = ExtResource("1_0vidf")
+metadata/_custom_type_script = "uid://yv1it0loh8ml"

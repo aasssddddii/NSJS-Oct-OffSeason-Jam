@@ -1,8 +1,14 @@
-res://Materials/Physics
-D:/Exported Games/NSJSOCTOFFSEASON
 res://Scripts
 res://Prefabs
+res://Prefabs/3D files
+res://Materials/Fire
+res://Scenes
+D:/Exported Games/NSJSOCTOFFSEASON
 res://Resources
+res://Materials/Planets
+res://Prefabs/3D files/samples
+res://fonts/themes
+res://Materials/Physics
 res://Materials/Satillie_Textures/ShipBody
 res://Materials/Satillie_Textures/BaseSolarPanel
 res://Materials/Satillie_Textures/TopMouth
@@ -13,4 +19,3 @@ res://Materials/Satillie_Textures/InsideSatellite
 res://Materials/Satillie_Textures/Booster
 res://Materials/Satillie_Textures/BottomMouth
 res://Materials/Satillie_Textures/Body
-res://Scenes

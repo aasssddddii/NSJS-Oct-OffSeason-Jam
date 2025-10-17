@@ -1,7 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfxqgwgng77rm"]
+[gd_scene load_steps=13 format=3 uid="uid://dfxqgwgng77rm"]
 
 [ext_resource type="Script" uid="uid://n4ubedintyk7" path="res://Scripts/player_controller.gd" id="1_j8lsp"]
 [ext_resource type="PackedScene" uid="uid://devlho18yfe5f" path="res://Prefabs/satellite2.tscn" id="2_mt41p"]
+[ext_resource type="PackedScene" uid="uid://bafbg1yxv78yb" path="res://Prefabs/fire_test.tscn" id="3_axey2"]
+[ext_resource type="PackedScene" uid="uid://dxgbomo353pn0" path="res://Prefabs/air_brake.tscn" id="4_yr3sb"]
+[ext_resource type="Script" uid="uid://cxfm2f2jarlap" path="res://Scripts/data_signal_manager.gd" id="5_c45gv"]
+[ext_resource type="PackedScene" uid="uid://bp76drh7s2iu6" path="res://Prefabs/wifisignal.tscn" id="5_s3ulf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j8lsp"]
 bounce = 0.1
@@ -67,3 +71,29 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sample_range"]
 shape = SubResource("SphereShape3D_axey2")
+
+[node name="Fire" parent="." instance=ExtResource("3_axey2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7241244, 0)
+
+[node name="Air_brakes" type="Node3D" parent="."]
+
+[node name="airbrake" parent="Air_brakes" instance=ExtResource("4_yr3sb")]
+transform = Transform3D(-4.371139e-08, -0.9659258, 0.25881907, 0, 0.25881907, 0.9659258, -1, 4.222196e-08, -1.1313341e-08, 0.38098824, -0.12472844, 0)
+
+[node name="airbrake2" parent="Air_brakes" instance=ExtResource("4_yr3sb")]
+transform = Transform3D(-4.371139e-08, 0.96592575, 0.25881904, 0, 0.25881904, -0.96592575, -1, -4.2221956e-08, -1.13133405e-08, -0.41251862, -0.12472844, 0)
+
+[node name="airbrake3" parent="Air_brakes" instance=ExtResource("4_yr3sb")]
+transform = Transform3D(-4.371139e-08, -0.9659258, 0.25881907, 0, 0.25881907, 0.9659258, -1, 4.222196e-08, -1.1313341e-08, 0.303078, 0.57273555, 0)
+
+[node name="airbrake4" parent="Air_brakes" instance=ExtResource("4_yr3sb")]
+transform = Transform3D(-4.371139e-08, 0.96592575, 0.25881904, 0, 0.25881904, -0.96592575, -1, -4.2221956e-08, -1.13133405e-08, -0.25615156, 0.57273555, 0)
+
+[node name="Data signal" type="Node3D" parent="."]
+script = ExtResource("5_c45gv")
+
+[node name="wifisigfull" parent="Data signal" instance=ExtResource("5_s3ulf")]
+transform = Transform3D(0.17421363, -4.293877e-09, -0.09823244, -0.09823244, -7.61512e-09, -0.17421363, 0, 0.2, -8.742278e-09, 0.5860658, 0.28171045, 0)
+
+[node name="wifisigfull2" parent="Data signal" instance=ExtResource("5_s3ulf")]
+transform = Transform3D(0.0115128085, -8.239037e-09, 0.19966836, 0.19966836, 8.727781e-09, -0.0115128085, -8.239037e-09, 0.2, 8.727781e-09, -0.5828179, 0.28171045, 0)

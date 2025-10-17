@@ -8,7 +8,9 @@ size = Vector3(3, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_oq3uq"]
 size = Vector3(3, 1, 1)
 
-[node name="refuel_pad" type="StaticBody3D" groups=["Planet", "Refuel"]]
+[node name="refuel_pad" type="StaticBody3D" groups=["Refuel"]]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_b3o6x")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -17,3 +19,6 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_oq3uq")
+
+[node name="GPUParticlesCollisionBox3D" type="GPUParticlesCollisionBox3D" parent="."]
+size = Vector3(3, 1, 1)

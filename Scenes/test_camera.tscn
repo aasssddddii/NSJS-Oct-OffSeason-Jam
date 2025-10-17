@@ -1,0 +1,103 @@
+[gd_scene load_steps=4 format=3 uid="uid://df1cn7rrudol5"]
+
+[ext_resource type="Theme" uid="uid://gx5kr4s8mia3" path="res://fonts/themes/ui_font.tres" id="1_xg85k"]
+[ext_resource type="SphereMesh" uid="uid://dkanu6h75lrwv" path="res://Prefabs/3D files/Samples/test_sample_mesh.tres" id="2_hqvb8"]
+[ext_resource type="Script" uid="uid://73gt1t3aciur" path="res://Scripts/display_sample.gd" id="2_x2jmm"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="End_screen" type="SubViewportContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="SubViewport" type="SubViewport" parent="End_screen"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Panel" type="Panel" parent="End_screen/SubViewport"]
+offset_left = 324.0
+offset_top = 62.0
+offset_right = 871.0
+offset_bottom = 572.0
+
+[node name="Title Label" type="Label" parent="End_screen/SubViewport"]
+offset_left = 374.0
+offset_top = 82.0
+offset_right = 802.0
+offset_bottom = 172.0
+theme = ExtResource("1_xg85k")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "Summary"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="End_screen/SubViewport"]
+offset_left = 387.0
+offset_top = 176.0
+offset_right = 738.0
+offset_bottom = 334.0
+
+[node name="LeftContainer" type="VBoxContainer" parent="End_screen/SubViewport/HBoxContainer"]
+layout_mode = 2
+
+[node name="Window Label" type="Label" parent="End_screen/SubViewport/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("1_xg85k")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "samples 
+collected:"
+horizontal_alignment = 2
+
+[node name="RightContainer" type="VBoxContainer" parent="End_screen/SubViewport/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="End_screen/SubViewport/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 33
+
+[node name="ui_window" type="Label" parent="End_screen/SubViewport/HBoxContainer/RightContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_xg85k")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "-"
+
+[node name="back_button" type="Button" parent="End_screen/SubViewport"]
+offset_left = 543.0
+offset_top = 502.0
+offset_right = 653.0
+offset_bottom = 544.0
+theme = ExtResource("1_xg85k")
+theme_override_font_sizes/font_size = 24
+text = "back"
+flat = true
+
+[node name="GridContainer" type="GridContainer" parent="End_screen/SubViewport"]
+offset_left = 346.0
+offset_top = 266.0
+offset_right = 851.0
+offset_bottom = 504.0
+columns = 5
+
+[node name="display_sample" type="TextureRect" parent="End_screen/SubViewport/GridContainer"]
+layout_mode = 2
+script = ExtResource("2_x2jmm")
+
+[node name="SubViewport" type="SubViewport" parent="End_screen/SubViewport/GridContainer/display_sample"]
+transparent_bg = true
+size = Vector2i(60, 60)
+
+[node name="Node3D" type="Node3D" parent="End_screen/SubViewport/GridContainer/display_sample/SubViewport"]
+
+[node name="Camera3D" type="Camera3D" parent="End_screen/SubViewport/GridContainer/display_sample/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.27228475)
+current = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="End_screen/SubViewport/GridContainer/display_sample/SubViewport/Node3D"]
+mesh = ExtResource("2_hqvb8")
+skeleton = NodePath("../..")

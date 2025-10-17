@@ -36,3 +36,5 @@ shape = SubResource("SphereShape3D_wxoy5")
 [node name="spawner_pivot" type="Node3D" parent="."]
 
 [node name="sample_spawner" type="Node3D" parent="spawner_pivot"]
+
+[node name="GPUParticlesCollisionSphere3D" type="GPUParticlesCollisionSphere3D" parent="."]

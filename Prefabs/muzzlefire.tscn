@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbijlsklgvje8"]
+
+[ext_resource type="PackedScene" uid="uid://c1xlxvhufk54b" path="res://Prefabs/3D files/muzzlefire.glb" id="1_43wqj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_43wqj"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0, 0, 0.62352943)
+
+[node name="muzzlefire" instance=ExtResource("1_43wqj")]
+transform = Transform3D(-0.3, 4.5298744e-08, 0, -4.5298744e-08, -0.3, 0, 0, 0, 0.3, 0, 0, 0)
+
+[node name="Rocket Launcher Flames" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_43wqj")

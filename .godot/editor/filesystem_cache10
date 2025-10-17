@@ -1,11 +1,35 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1760572232
-export_presets.cfg::TextFile::-1::1760529790::0::1::::<><><>0<>0<><>::
+::res://::1760701210
+export_presets.cfg::TextFile::-1::1760668670::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::3668133926585970205::1760442119::1760442122::1::::<><><>0<>0<>7a6b4cb4ad31441ece9972589ba015e1<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile::-1::1760442011::0::1::::<><><>0<>0<><>::
-::res://fonts/::1760477290
+::res://fonts/::1760634328
 SPACE.ttf::FontFile::8991549182557578834::1760477290::1760477290::1::::<><><>0<>0<>69f56a40c1cff25659fc2b1b37d7aad4<>res://.godot/imported/SPACE.ttf-7cc5fdcac72967162ab2c8d69fcab688.fontdata::
-::res://Materials/::1760543333
+::res://fonts/themes/::1760634341
+ui_font.tres::Theme::470454056452310188::1760634341::0::1::::<><><>0<>0<><>::uid://d1dtrbtiwueww::::res://fonts/SPACE.ttf
+::res://Materials/::1760700394
+::res://Materials/Fire/::1760703020
+Fire_material.tres::StandardMaterial3D::5750698723247887971::1760703020::0::1::::<><><>0<>0<><>::
+::res://Materials/Physics/::1760589344
+asteroid_bounce.tres::PhysicsMaterial::7850946269456691250::1760589344::0::1::::<><><>0<>0<><>::
+::res://Materials/Planets/::1760661707
+planet_material1.tres::StandardMaterial3D::8761738919270914061::1760661597::0::1::::<><><>0<>0<><>::uid://sj8qegixehuf::::res://Materials/Planets/surface textures/IMG_0311.png
+planet_material2.tres::StandardMaterial3D::6269543899723259032::1760661610::0::1::::<><><>0<>0<><>::uid://cq8wkmcplis80::::res://Materials/Planets/surface textures/IMG_0312.png
+planet_material3.tres::StandardMaterial3D::8539778711570224896::1760661626::0::1::::<><><>0<>0<><>::uid://c03ahyxcy5nht::::res://Materials/Planets/surface textures/IMG_0313.png
+planet_material4.tres::StandardMaterial3D::206910569728021783::1760661707::0::1::::<><><>0<>0<><>::uid://bfkfewpbvo32n::::res://Materials/Planets/surface textures/IMG_0316.png
+planet_material5.tres::StandardMaterial3D::3806385187087914030::1760661639::0::1::::<><><>0<>0<><>::uid://c3q2hdbaw4vro::::res://Materials/Planets/surface textures/IMG_0314.png
+planet_material6.tres::StandardMaterial3D::2481644228664197885::1760661707::0::1::::<><><>0<>0<><>::uid://bfkfewpbvo32n::::res://Materials/Planets/surface textures/IMG_0316.png
+planet_material7.tres::StandardMaterial3D::551971729487167180::1760661699::0::1::::<><><>0<>0<><>::uid://bw0a5lxsfxn1v::::res://Materials/Planets/surface textures/IMG_0317.png
+planet_material8.tres::StandardMaterial3D::1763990403434017603::1760661707::0::1::::<><><>0<>0<><>::uid://b1f0psch6j68k::::res://Materials/Planets/surface textures/IMG_0318.png
+::res://Materials/Planets/surface textures/::1760661705
+IMG_0311.png::CompressedTexture2D::1284011038491504729::1760661562::1760661589::1::::<><><>0<>0<>2a4306412f6a5cf4dd5d3b027a685bb0<>res://.godot/imported/IMG_0311.png-5d85fc83a6448390b46a97af2fc44e52.s3tc.ctex::
+IMG_0312.png::CompressedTexture2D::5965341597324982035::1760661276::1760661481::1::::<><><>0<>0<>6ef0854aea4a47c1b40f66efc04d19e0<>res://.godot/imported/IMG_0312.png-aadf224c7aef5c5f94448957de37b14d.s3tc.ctex::
+IMG_0313.png::CompressedTexture2D::6585378832223062053::1760661562::1760661620::1::::<><><>0<>0<>768f98a042f5e8a76d97985c7e555ea1<>res://.godot/imported/IMG_0313.png-6cb9812364df98df18ca78211bcac0dc.s3tc.ctex::
+IMG_0314.png::CompressedTexture2D::6772811051823513004::1760661562::1760661481::1::::<><><>0<>0<>e8983275f2f4ebb34ea28b4f46e7f0fc<>res://.godot/imported/IMG_0314.png-0b3e45ba920b72c852b7f7f8d8281be0.s3tc.ctex::
+IMG_0315.png::CompressedTexture2D::7245412509527965059::1760661562::1760661645::1::::<><><>0<>0<>1ec2277cfabb0a8cbceb85155aaaecf9<>res://.godot/imported/IMG_0315.png-30b07fc59b9cff49a4aeacad3076f798.s3tc.ctex::
+IMG_0316.png::CompressedTexture2D::2758320586323164083::1760661562::1760661656::1::::<><><>0<>0<>b14f0f98af387043636e450b21b8e7e8<>res://.godot/imported/IMG_0316.png-1b2d29e35e7a4d3ca7a801f7a33286ae.s3tc.ctex::
+IMG_0317.png::CompressedTexture2D::3982238875511247173::1760661562::1760661687::1::::<><><>0<>0<>02ff0b444bb56624557aa0731957eb02<>res://.godot/imported/IMG_0317.png-d861e74257091cf6270761781a8ca548.s3tc.ctex::
+IMG_0318.png::CompressedTexture2D::4223198167649753472::1760661562::1760661705::1::::<><><>0<>0<>41a6f91d94069aae16ea6293e4d7f2d1<>res://.godot/imported/IMG_0318.png-742092b2ab6b43310c554daf909eb852.s3tc.ctex::
 ::res://Materials/Satillie_Textures/::1760496981
 ::res://Materials/Satillie_Textures/BaseSolarPanel/::1760497647
 BaseSolarPanel.tres::StandardMaterial3D::1993541207296016852::1760497647::0::1::::<><><>0<>0<><>::uid://bnfrh5ofdttv3::::res://Materials/Satillie_Textures/BaseSolarPanel/BaseSolarPanel_BaseColor.png<>uid://bl1miewcswfrg::::res://Materials/Satillie_Textures/BaseSolarPanel/BaseSolarPanel_Metallic.png<>uid://cl7mth1yik8b2::::res://Materials/Satillie_Textures/BaseSolarPanel/BaseSolarPanel_Roughness.png
@@ -53,45 +77,75 @@ TopMouth_Normal.png::CompressedTexture2D::3652318407369080137::1760496981::17604
 tubes.tres::StandardMaterial3D::3918480473258887821::1760498158::0::1::::<><><>0<>0<><>::uid://dlxcxvqve6yd1::::res://Materials/Satillie_Textures/Tubes/Tubes_BaseColor.png
 Tubes_BaseColor.png::CompressedTexture2D::7978983655354339000::1760496981::1760497898::1::::<><><>0<>0<>234bed720f36b2e4b24d829107e8ec23<>res://.godot/imported/Tubes_BaseColor.png-21306bdcd82af899c222fd6023ca4b9d.s3tc.ctex::
 Tubes_Metallic.png::CompressedTexture2D::6495963289049959828::1760496981::1760497901::1::::<><><>0<>0<>ac118d1717ddc669da005c2d096b533a<>res://.godot/imported/Tubes_Metallic.png-1a8d18b9019c228f3a289a838e130e38.s3tc.ctex::
-::res://Prefabs/::1760572587
-gravity_arrow.tscn::PackedScene::246847279073649018::1760476527::0::1::::<><><>0<>0<><>::uid://fj8lprrywjou::::res://Scripts/gravity_arrow.gd
-planet_template.tscn::PackedScene::6644453627031144801::1760566243::0::1::::<><><>0<>0<><>::uid://36rg5kglhpow::::res://Scripts/planet.gd<>uid://ci3d2riso5r1b::::res://Resources/Test_Planet.tres
-player_3d.tscn::PackedScene::7558670309643036238::1760572053::0::1::::<><><>0<>0<><>::uid://n4ubedintyk7::::res://Scripts/player_controller.gd<>uid://devlho18yfe5f::::res://Prefabs/satellite2.tscn
+::res://Prefabs/::1760705636
+asteroid1.tscn::PackedScene::3579936644559323685::1760618852::0::1::::<><><>0<>0<><>::uid://d7i0624tin2h::::res://Scripts/asteroid.gd<>uid://uqnk3bqdrh31::::res://Prefabs/3D files/Asteroids/ast1.glb<>uid://dj4b65l7mfwm1::::res://Materials/Physics/asteroid_bounce.tres
+asteroid2.tscn::PackedScene::4709832403439322780::1760618861::0::1::::<><><>0<>0<><>::uid://d7i0624tin2h::::res://Scripts/asteroid.gd<>uid://dj4b65l7mfwm1::::res://Materials/Physics/asteroid_bounce.tres<>uid://h4nlbfqhbkwo::::res://Prefabs/3D files/Asteroids/ast2.glb
+asteroid3.tscn::PackedScene::8783967315059136276::1760619625::0::1::::<><><>0<>0<><>::uid://d7i0624tin2h::::res://Scripts/asteroid.gd<>uid://c2o3ijoptp52u::::res://Prefabs/3D files/Asteroids/ast3.glb<>uid://dj4b65l7mfwm1::::res://Materials/Physics/asteroid_bounce.tres
+display_sample.tscn::PackedScene::3146469990741068237::1760654631::0::1::::<><><>0<>0<><>::uid://73gt1t3aciur::::res://Scripts/display_sample.gd<>uid://dkanu6h75lrwv::::res://Prefabs/3D files/Samples/test_sample_mesh.tres
+fire_test.tscn::PackedScene::2396815407976380005::1760703151::0::1::::<><><>0<>0<><>::uid://cn6xfx7ugs1al::::res://Materials/Fire/Fire_material.tres<>uid://dbijlsklgvje8::::res://Prefabs/muzzlefire.tscn
+gravity_arrow.tscn::PackedScene::246847279073649018::1760613687::0::1::::<><><>0<>0<><>::uid://fj8lprrywjou::::res://Scripts/gravity_arrow.gd
+muzzlefire.tscn::PackedScene::7246532974794656181::1760701507::0::1::::<><><>0<>0<><>::uid://c1xlxvhufk54b::::res://Prefabs/3D files/muzzlefire.glb
+planet_template.tscn::PackedScene::6644453627031144801::1760702463::0::1::::<><><>0<>0<><>::uid://36rg5kglhpow::::res://Scripts/planet.gd<>uid://ci3d2riso5r1b::::res://Resources/Test_Planet.tres
+player_3d.tscn::PackedScene::7558670309643036238::1760705636::0::1::::<><><>0<>0<><>::uid://n4ubedintyk7::::res://Scripts/player_controller.gd<>uid://devlho18yfe5f::::res://Prefabs/satellite2.tscn<>uid://bafbg1yxv78yb::::res://Prefabs/fire_test.tscn<>uid://dxgbomo353pn0::::res://Prefabs/air_brake.tscn
 player_prefab.tscn::PackedScene::1682086536075898415::1760447440::0::1::::<><><>0<>0<><>::uid://n4ubedintyk7::::res://Scripts/player_controller.gd<>uid://bvrfya1b6deal::::res://sprites/test sprites/cover.png
-refuel_pad.tscn::PackedScene::6561767499739376985::1760495201::0::1::::<><><>0<>0<><>::uid://x8h7ypkj0gor::::res://Scripts/spawn_refuel_pad.gd
-research_sample.tscn::PackedScene::5028218138841553331::1760562921::0::1::::<><><>0<>0<><>::uid://cvwgk5u0llkbg::::res://Scripts/research_sample.gd
+refuel_pad.tscn::PackedScene::6561767499739376985::1760702654::0::1::::<><><>0<>0<><>::uid://x8h7ypkj0gor::::res://Scripts/spawn_refuel_pad.gd
+air_brake.tscn::PackedScene::8786078092606705487::1760704485::0::1::::<><><>0<>0<><>::
+research_sample.tscn::PackedScene::5028218138841553331::1760668657::0::1::::<><><>0<>0<><>::uid://cvwgk5u0llkbg::::res://Scripts/research_sample.gd
 satellite2.tscn::PackedScene::7484050522967913433::1760571117::0::1::::<><><>0<>0<><>::uid://ccxqa8u6utuhc::::res://Prefabs/3D files/sat1.glb<>uid://62605nichpos::::res://Materials/Satillie_Textures/Body/body.tres<>uid://dwdwa6nr8fykg::::res://Materials/Satillie_Textures/BottomMouth/bottom_mouth.tres<>uid://dy8oqpu8ssrt4::::res://Materials/Satillie_Textures/Booster/Booster.tres<>uid://c21cwou7su0w2::::res://Materials/Satillie_Textures/InsideSatellite/inside satallite.tres<>uid://b5oyiiube8mbf::::res://Materials/Satillie_Textures/Nails/nails.tres<>uid://bv3e2h3qbqyp6::::res://Materials/Satillie_Textures/Tubes/tubes.tres<>uid://56noy7mw4inw::::res://Materials/Satillie_Textures/SolarPanelRim/panel base.tres<>uid://cqh4v85omtvh7::::res://Materials/Satillie_Textures/TopMouth/topmouth.tres<>uid://3nxlkjumg0b5::::res://Materials/Satillie_Textures/BaseSolarPanel/BaseSolarPanel.tres<>uid://db3d45yhc5w5l::::res://Materials/Satillie_Textures/ShipBody/shipbody.tres
 satellite.tscn::PackedScene::6715410113144785843::1760547594::0::1::::<><><>0<>0<><>::uid://respwj0mejqy::::res://Prefabs/3D files/Satellite.fbx<>uid://62605nichpos::::res://Materials/Satillie_Textures/Body/body.tres<>uid://dwdwa6nr8fykg::::res://Materials/Satillie_Textures/BottomMouth/bottom_mouth.tres<>uid://dy8oqpu8ssrt4::::res://Materials/Satillie_Textures/Booster/Booster.tres<>uid://c21cwou7su0w2::::res://Materials/Satillie_Textures/InsideSatellite/inside satallite.tres<>uid://b5oyiiube8mbf::::res://Materials/Satillie_Textures/Nails/nails.tres<>uid://bv3e2h3qbqyp6::::res://Materials/Satillie_Textures/Tubes/tubes.tres<>uid://56noy7mw4inw::::res://Materials/Satillie_Textures/SolarPanelRim/panel base.tres<>uid://cqh4v85omtvh7::::res://Materials/Satillie_Textures/TopMouth/topmouth.tres<>uid://3nxlkjumg0b5::::res://Materials/Satillie_Textures/BaseSolarPanel/BaseSolarPanel.tres<>uid://db3d45yhc5w5l::::res://Materials/Satillie_Textures/ShipBody/shipbody.tres
-::res://Prefabs/3D files/::1760572076
+sky_sphere.tscn::PackedScene::1231050297019166097::1760667026::0::1::::<><><>0<>0<><>::uid://cd4fdkapl6e5t::::res://Prefabs/3D files/backgrounds/starrybg222.glb<>uid://cnusseeiibjfr::::res://Prefabs/3D files/backgrounds/starrybg222_Sky_SphereTexture.png
+::res://Prefabs/3D files/::1760706587
+muzzlefire.glb::PackedScene::6645942065218465459::1760701099::1760701099::1::::<><><>0<>0<>7eb036c6f4e1632004074ea20b3d3a1a<>res://.godot/imported/muzzlefire.glb-d03342b9495a09ac4a645f7a0fd7c7d4.scn::
 sat1.glb::PackedScene::4961672980492543224::1760552924::1760552925::1::::<><><>0<>0<>fbb30dbd17eeffd81e421ed08061e69f<>res://.godot/imported/sat1.glb-1e73779f542d93733fea013bf30fefd8.scn::uid://kn4vgslukvt5::::res://Prefabs/3D files/sat1_InsideSatellite_BaseColor.png<>uid://c1d6fo3rg75b3::::res://Prefabs/3D files/sat1_InsideSatellite_Metallic.png-InsideSatellite_Roughness.png
 sat1_InsideSatellite_BaseColor.png::CompressedTexture2D::730523985118845928::1760551421::1760552925::1::::<><><>0<>0<>46a4a404dc8d0d9b3446134fef3d16ca<>res://.godot/imported/sat1_InsideSatellite_BaseColor.png-f5bc2323ba13dd02a152b925ccf3caef.s3tc.ctex::
 sat1_InsideSatellite_Metallic.png-InsideSatellite_Roughness.png::CompressedTexture2D::6605836370345646646::1760551421::1760552925::1::::<><><>0<>0<>6f02f940991287493289f0ce89b3d0e9<>res://.godot/imported/sat1_InsideSatellite_Metallic.png-InsideSatellite_Roughness.png-35165a36649db118e4d4f01ba1751e6b.s3tc.ctex::
 Satellite.fbx::PackedScene::1202588716210192156::1760487495::1760487567::1::::<><><>0<>0<>1842a6203ebd10817e090abec30f741d<>res://.godot/imported/Satellite.fbx-bf548c3831e09ab9e635a63c4e78bd93.scn::
-::res://Prefabs/3D files/Asteroids/::1760572693
+::res://Prefabs/3D files/Asteroids/::1760572694
 ast1.glb::PackedScene::1437615568600878566::1760572693::1760572694::1::::<><><>0<>0<>941f7b0b50141ec5b7c984b4b5a6a194<>res://.godot/imported/ast1.glb-f5019524cb1355d7e5c6ffd16d4b334c.scn::
 ast2.glb::PackedScene::551997885956623066::1760572693::1760572694::1::::<><><>0<>0<>545dc9f4e167b3470c3a9ff8d06bf0c8<>res://.godot/imported/ast2.glb-7690756af8eff1043606f060b94a3611.scn::
 ast3.glb::PackedScene::6698556291363573546::1760572693::1760572694::1::::<><><>0<>0<>d8f25a33f5253d69e2737e15cd5f6102<>res://.godot/imported/ast3.glb-6f89d58f5359cfdf7696c56bfb4838d5.scn::
-::res://Resources/::1760562331
-Planet_Resource_Template.gd::GDScript::1683606722664165729::1760561275::0::1::::PlanetResource<>Resource<><>0<>0<><>::
-PlayerResource.tres::Resource/PlayerResource::8930714318612979528::1760484616::0::1::::<><><>0<>0<><>::uid://by2subuh3wv5p::::res://Resources/Player_Resource.gd
-Player_Resource.gd::GDScript::4127819835889180335::1760484591::0::1::::PlayerResource<>Resource<><>0<>0<><>::
-Sample_Template.gd::GDScript::5731284388267346957::1760548769::0::1::::ResearchSampleResource<>Resource<><>0<>0<><>::
-Test_Planet.tres::Resource/PlanetResource::5392385967111000265::1760494233::0::1::::<><><>0<>0<><>::uid://x8s0y2cuh4sr::::res://Resources/Planet_Resource_Template.gd
-Test_Planet_2.tres::Resource/PlanetResource::672406057382298244::1760530666::0::1::::<><><>0<>0<><>::uid://x8s0y2cuh4sr::::res://Resources/Planet_Resource_Template.gd
-test_sample.tres::Resource/ResearchSampleResource::9023457796907392200::1760562331::0::1::::<><><>0<>0<><>::uid://cnwjofrbr7ew8::::res://Resources/Sample_Template.gd
-::res://Scenes/::1760562954
-test_scene.tscn::PackedScene::2751121924648058054::1760450574::0::1::::<><><>0<>0<><>::uid://x72ypy7y7gih::::res://Prefabs/player_prefab.tscn<>uid://cjoyfs0bftmct::::res://sprites/test sprites/bg.webp<>uid://4fbfw4o2ec2l::::res://sprites/test sprites/circle_noun_001_02738.png<>uid://36rg5kglhpow::::res://Scripts/planet.gd
-test_scene_3d.tscn::PackedScene::407713863295287516::1760562954::0::1::::<><><>0<>0<><>::uid://dfxqgwgng77rm::::res://Prefabs/player_3d.tscn<>uid://cjoyfs0bftmct::::res://sprites/test sprites/bg.webp<>uid://c1wvgevhcgjj2::::res://Prefabs/planet_template.tscn<>uid://dpk0jhx0nvune::::res://Scripts/camera_controller.gd<>uid://d1dtrbtiwueww::::res://fonts/SPACE.ttf<>uid://jtyouscftwhw::::res://Resources/Test_Planet_2.tres
-::res://Scripts/::1760572053
-camera_controller.gd::GDScript::8234272884502751846::1760487390::0::1::::<>Camera3D<><>0<>0<><>::
-Character_Controller.gd::GDScript::7060160526160520715::1760572053::0::1::::CharacterController<>RigidBody3D<><>0<>0<><>::
-game_manager.gd::GDScript::524827060134994827::1760561833::0::1::::<>Node<><>0<>0<><>::
+::res://Prefabs/3D files/backgrounds/::1760666404
+starrybg222.glb::PackedScene::5043584321444536359::1760666171::1760666403::1::::<><><>0<>0<>1c3722c782d32985de7949c8b7534a9e<>res://.godot/imported/starrybg222.glb-d7914f7538460cfb4beb1a29f6113e16.scn::uid://cnusseeiibjfr::::res://Prefabs/3D files/backgrounds/starrybg222_Sky_SphereTexture.png
+starrybg222_Sky_SphereTexture.png::CompressedTexture2D::5727709156568745319::1760666401::1760666404::1::::<><><>0<>0<>5111023c4ab2b8563923dbe243bd8b11<>res://.godot/imported/starrybg222_Sky_SphereTexture.png-e99ea717f1bad5e48932bc581b87f04e.s3tc.ctex::
+starrybg.glb::PackedScene::4031900583247345506::1760665023::1760665026::1::::<><><>0<>0<>1829a352bd026dda8b66327eeed78e04<>res://.godot/imported/starrybg.glb-0aa912467fbdbb1ba68bd5c938a7767d.scn::uid://8ytaxudxrtef::::res://Prefabs/3D files/backgrounds/starrybg_StarSky_Panel.png
+starrybg_StarSky_Panel.png::CompressedTexture2D::2366931768115940017::1760665024::1760665026::1::::<><><>0<>0<>b7f260cc80325ff8747196d0ff59660c<>res://.godot/imported/starrybg_StarSky_Panel.png-6033762711c9b6ce2c6ee2fba9c08c85.s3tc.ctex::
+::res://Prefabs/3D files/Samples/::1760653048
+test_sample_mesh.tres::SphereMesh::7861977164775650749::1760653048::0::1::::<><><>0<>0<><>::
+::res://Prefabs/3D files/wifisignal/::1760706724
+wifisigfull.glb::PackedScene::5508775269485042075::1760706724::1760706724::1::::<><><>0<>0<>67bf3b514bc9bff080988a9ec0d3e94b<>res://.godot/imported/wifisigfull.glb-b4bc85ba306a4a12ec21d4c246673d75.scn::
+::res://Resources/::1760705380
+Home_Planet.tres::Resource/PlanetResource::627162763888251558::1760625751::0::1::::<><><>0<>0<><>::uid://x8s0y2cuh4sr::::res://Resources/Planet_Resource_Template.gd
+mesh_n_materials.gd::GDScript::1729478145393774943::1760662297::0::1::::MeshNMaterials<>Resource<><>0<>0<><>::
+mesh_n_materials_library.tres::Resource/MeshNMaterials::7282628613792972054::1760661901::0::1::::<><><>0<>0<><>::uid://yv1it0loh8ml::::res://Resources/mesh_n_materials.gd
+Planet_Resource_Template.gd::GDScript::1683606722664165729::1760705380::0::1::::PlanetResource<>Resource<><>0<>0<><>::
+PlayerResource.tres::Resource/PlayerResource::8930714318612979528::1760667942::0::1::::<><><>0<>0<><>::uid://by2subuh3wv5p::::res://Resources/Player_Resource.gd
+Player_Resource.gd::GDScript::4127819835889180335::1760705110::0::1::::PlayerResource<>Resource<><>0<>0<><>::
+Sample_Template.gd::GDScript::5731284388267346957::1760653314::0::1::::ResearchSampleResource<>Resource<><>0<>0<><>::
+Test_Planet.tres::Resource/PlanetResource::5392385967111000265::1760667539::0::1::::<><><>0<>0<><>::uid://x8s0y2cuh4sr::::res://Resources/Planet_Resource_Template.gd
+Test_Planet_2.tres::Resource/PlanetResource::672406057382298244::1760624167::0::1::::<><><>0<>0<><>::uid://x8s0y2cuh4sr::::res://Resources/Planet_Resource_Template.gd
+test_sample.tres::Resource/ResearchSampleResource::9023457796907392200::1760661098::0::1::::<><><>0<>0<><>::uid://cnwjofrbr7ew8::::res://Resources/Sample_Template.gd<>uid://dkanu6h75lrwv::::res://Prefabs/3D files/Samples/test_sample_mesh.tres<>uid://db3d45yhc5w5l::::res://Materials/Satillie_Textures/ShipBody/shipbody.tres
+::res://Scenes/::1760700981
+test_camera.tscn::PackedScene::7564026447989458948::1760653314::0::1::::<><><>0<>0<><>::uid://gx5kr4s8mia3::::res://fonts/themes/ui_font.tres<>uid://dkanu6h75lrwv::::res://Prefabs/3D files/Samples/test_sample_mesh.tres<>uid://73gt1t3aciur::::res://Scripts/display_sample.gd
+test_scene_3d.tscn::PackedScene::407713863295287516::1760698332::0::1::::<><><>0<>0<><>::uid://dfxqgwgng77rm::::res://Prefabs/player_3d.tscn<>uid://c1wvgevhcgjj2::::res://Prefabs/planet_template.tscn<>uid://dpk0jhx0nvune::::res://Scripts/camera_controller.gd<>uid://gx5kr4s8mia3::::res://fonts/themes/ui_font.tres<>uid://jtyouscftwhw::::res://Resources/Test_Planet_2.tres<>uid://bavkjlpq3y1fb::::res://sprites/progrees bar/White.png<>uid://i62jqvof1fow::::res://Resources/Home_Planet.tres<>uid://c8h767duougeo::::res://sprites/progrees bar/Black.png<>uid://bdja5floo3ch2::::res://sprites/progrees bar/Red.png<>uid://bsbu7801if5if::::res://sprites/progrees bar/Purple.png<>uid://dd03wwv00162h::::res://sprites/NSJS.png<>uid://cxd55r1klfghx::::res://Scripts/ui_sample_description.gd<>uid://rslhovh15gu8::::res://Prefabs/sky_sphere.tscn
+::res://Scripts/::1760705636
+asteroid.gd::GDScript::277158671110685857::1760578710::0::1::::<>CharacterController<><>0<>0<><>::
+camera_controller.gd::GDScript::8234272884502751846::1760668521::0::1::::<>Camera3D<><>0<>0<><>::
+Character_Controller.gd::GDScript::7060160526160520715::1760636273::0::1::::CharacterController<>RigidBody3D<><>0<>0<><>::
+display_sample.gd::GDScript::2304245201802169897::1760656108::0::1::::<>TextureRect<><>0<>0<><>::
+game_manager.gd::GDScript::524827060134994827::1760661940::0::1::::<>Node<><>0<>0<><>::
 gravity_arrow.gd::GDScript::371547737388224164::1760473778::0::1::::<>Node3D<><>0<>0<><>::
-planet.gd::GDScript::2030327827317372758::1760563449::0::1::::Planet<>StaticBody3D<><>0<>0<><>::
-player_controller.gd::GDScript::973538262920833148::1760571601::0::1::::<>CharacterController<><>0<>0<><>::
-research_sample.gd::GDScript::6292607162017466872::1760562391::0::1::::<>CharacterController<><>0<>0<><>::
-spawn_refuel_pad.gd::GDScript::1682951318112880349::1760563396::0::1::::<>StaticBody3D<><>0<>0<><>::
-::res://sprites/::1760442408
+planet.gd::GDScript::2030327827317372758::1760705461::0::1::::Planet<>StaticBody3D<><>0<>0<><>::
+player_controller.gd::GDScript::973538262920833148::1760705636::0::1::::<>CharacterController<><>0<>0<><>::
+research_sample.gd::GDScript::6292607162017466872::1760653669::0::1::::<>CharacterController<><>0<>0<><>::
+spawn_refuel_pad.gd::GDScript::1682951318112880349::1760702654::0::1::::<>StaticBody3D<><>0<>0<><>::
+ui_sample_description.gd::GDScript::6395253921454391989::1760656216::0::1::::<>TextureRect<><>0<>0<><>::
+::res://sprites/::1760666414
+NSJS.png::CompressedTexture2D::7423178578233211993::1760644173::1760644174::1::::<><><>0<>0<>e4e0cc6c3e19acc2718470368b3da934<>res://.godot/imported/NSJS.png-7cccc1656efa0cc4ce6e30412a230039.ctex::
+::res://sprites/progrees bar/::1760623278
+Black.png::CompressedTexture2D::7105523841409096046::1760622989::1760623001::1::::<><><>0<>0<>38555c48c283b2e9606d5946e2f7eab9<>res://.godot/imported/Black.png-95a42863bf2c5e4351d29f1255da694b.ctex::
+Purple.png::CompressedTexture2D::3653157505274938037::1760622972::1760623001::1::::<><><>0<>0<>7b92e31b62a76172dc525ae15e266b9f<>res://.godot/imported/Purple.png-b54b2bd332594c24f96a841fed40cc94.ctex::
+Red.png::CompressedTexture2D::2615620468476390097::1760623276::1760623278::1::::<><><>0<>0<>d4cf01783feb4c5ad4354501fd08cde0<>res://.godot/imported/Red.png-4f41cddc08df5c630e43eee327e5c595.ctex::
+White.png::CompressedTexture2D::2430396460295440595::1760623237::1760623242::1::::<><><>0<>0<>d6ab0a3e2cf50eddd5c4f25f8cb1f053<>res://.godot/imported/White.png-fc92b7a6bad3762c330ce976448e43ea.ctex::
 ::res://sprites/test sprites/::1760453591
 bg.webp::CompressedTexture2D::5434909369574540879::1760444977::1760453591::1::::<><><>0<>0<>da49adf07e1f5af69f36a9396220de39<>res://.godot/imported/bg.webp-966520266ed8a339de1c325c401d9e4a.s3tc.ctex::
 circle_noun_001_02738.png::CompressedTexture2D::2045869201220897657::1760447379::1760447380::1::::<><><>0<>0<>f9b8746c0ea9313e891cf736a0d8ab6f<>res://.godot/imported/circle_noun_001_02738.png-4abfad2396fc30a345bc79faec746dcf.ctex::

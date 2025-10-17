@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c7h10uqshl5x"]
+
+[ext_resource type="Texture2D" uid="uid://bfkfewpbvo32n" path="res://Materials/Planets/surface textures/IMG_0316.png" id="1_ilfkt"]
+
+[resource]
+albedo_texture = ExtResource("1_ilfkt")

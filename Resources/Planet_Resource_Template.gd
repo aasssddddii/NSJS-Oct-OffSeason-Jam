@@ -9,3 +9,7 @@ class_name PlanetResource
 @export var asteroid_density:int = 0
 @export var refuel_pad:bool = true
 @export var home_planet:bool
+@export var rotate_speed:=.1
+@export var orbital_data:=.42069
+@export var download_radius:float
+#@export var material:StandardMaterial3D

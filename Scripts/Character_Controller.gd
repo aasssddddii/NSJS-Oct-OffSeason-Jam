@@ -25,6 +25,7 @@ var keep_circular_speed := true
 var speed_blend := 0.15
 
 
+
 func _integrate_forces(state: PhysicsDirectBodyState3D) -> void:
 	gravity_force = Vector3.ZERO
 	for planet in planets:
@@ -103,3 +104,4 @@ func add_planet(planet:Planet):
 	
 func remove_planet(planet:Planet):
 	planets.remove_at(planets.find(planet))
+	
