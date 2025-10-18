@@ -7,8 +7,8 @@ const refuel_speed:=.002
 const heal_speed:=.006
 const too_fast := Vector2(1.4,1.4)
 const velocity_dmg_mod:=50
-const fire_spin_speed:= 3
-const default_download_speed:=.0002
+const fire_spin_speed:= 20
+const default_download_speed:=.00014
 var time_since_stage_2:float
 var time_in_stage_2:float
 var can_stage_2:bool
@@ -42,6 +42,9 @@ var can_end_game:bool# = true
 @onready var fire_node = $Fire
 @onready var player_fire = $Fire/muzzlefire
 @onready var fire_emiition = $Fire/GPUParticles3D
+@onready var stage_2_fire_node = $Fire2
+@onready var stage_2_fire = $Fire2/muzzlefire
+@onready var stage_2_emision = $Fire2/GPUParticles3D
 
 @onready var air_brake_parent = $Air_brakes
 @onready var data_signal = $"Data signal"
@@ -49,12 +52,29 @@ var wifi_level:int
 
 var sample_in_range:bool
 var mouth_open:bool
+var playback:AudioStreamPlaybackPolyphonic
+
+#SFX
+var rocket_sfx = "res://Audio/Rocket.ogg"
+var rocket2_sfx = "res://Audio/Rocket2.ogg"
+var mouth_open_sfx = "res://Audio/door_open.ogg"
+var mouth_close_sfx = "res://Audio/door_close.ogg"
+var hit_sfx = "res://Audio/hit.ogg"
+@onready var SFX_player = $SFX
+var currently_playing_sfx:Dictionary
+#{
+#	"stream_name":stream_id
+#}
+
+
 
 func _ready() -> void:
 	#game_manager.player_node = self
 	#setup camera dynamically
 	player_cam.target = self
 	
+	SFX_player.play()
+	playback = SFX_player.get_stream_playback()
 	
 	body_entered.connect(collision_handler)
 	refuel_prob.body_entered.connect(refuelable_source)
@@ -75,7 +95,7 @@ func _process(delta: float) -> void:
 		if global_position.distance_to(planet.global_position) < distance_to_closest:
 			closest_planet = planet
 			distance_to_closest = global_position.distance_to(planet.global_position)
-	if !planets.is_empty():
+	if !planets.is_empty() and game_manager.game_on:
 		var rotation_rad = Vector2(closest_planet.global_position.x,closest_planet.global_position.y).angle_to_point(Vector2(global_position.x,global_position.y))
 		#print("looking at: ", rad_to_deg(rotation_rad)+90)
 		arrow_pivot.rotation_degrees.z = rad_to_deg(rotation_rad)+90
@@ -87,6 +107,8 @@ func _process(delta: float) -> void:
 	if in_stage_2:
 		if time_in_stage_2 > stage_2_duration:
 			in_stage_2 = false
+			show_stage2_fire(false)
+			stop_sfx(rocket2_sfx)
 		else:
 			time_in_stage_2 += delta
 			reduce_fuel(thruster_fuel_burn*20)
@@ -128,7 +150,7 @@ func _process(delta: float) -> void:
 			
 			#Display wiFi accordingly
 			display_wifi(wifi_level)
-	elif closest_planet == null:
+	elif closest_planet == null or closest_planet.planet_resource.home_planet:
 		wifi_level = 0
 
 func display_wifi(level:int)->void:
@@ -162,7 +184,8 @@ func process_movement(state: PhysicsDirectBodyState3D) -> void:
 						var download_speed:= default_download_speed * wifi_level
 						closest_planet.planet_resource.orbital_data -= download_speed
 						game_manager.player_resource.data_downloaded += download_speed
-						print("data downloaded: ", game_manager.player_resource.data_downloaded)
+						endgame_checker()
+						#print("data downloaded: ", game_manager.player_resource.data_downloaded)
 					
 		if !Input.is_action_pressed("orbital_lock"):
 			orbit_planet = null
@@ -171,7 +194,8 @@ func process_movement(state: PhysicsDirectBodyState3D) -> void:
 		if Input.is_action_pressed("player_thruster") and !in_stage_2:
 			current_thrust = global_transform.basis.y * boost_power
 			reduce_fuel(thruster_fuel_burn)
-			show_player_fire(true)			
+			show_player_fire(true)
+			play_sfx(rocket_sfx)
 		if Input.is_action_just_pressed("stage_2"):
 			#do stage 2 booster
 			if can_stage_2:
@@ -179,6 +203,8 @@ func process_movement(state: PhysicsDirectBodyState3D) -> void:
 				in_stage_2 = true
 				time_in_stage_2 = 0
 				time_since_stage_2 = 0
+				show_stage2_fire(true)
+				play_sfx(rocket2_sfx)
 			else:
 				print("no booosto :'(")
 		if in_stage_2:
@@ -200,7 +226,8 @@ func process_movement(state: PhysicsDirectBodyState3D) -> void:
 		apply_central_force(current_thrust)
 		#turn off visuals
 		if Input.is_action_just_released("player_thruster"):
-			show_player_fire(false) 
+			show_player_fire(false)
+			stop_sfx(rocket_sfx) 
 		if Input.is_action_just_released("player_brakes"):
 			show_air_brakes(false)
 	elif game_manager.player_resource.fuel <= 0:
@@ -221,20 +248,31 @@ func heal(amount):
 		game_manager.player_resource.health += amount
 
 func damage_player(amount):
-	if game_manager.player_resource.health-amount > 0:
-		game_manager.player_resource.health -= amount
-	else:
-		#end game
-		end_game(false)
-		print("player Loss")
+	if game_manager.game_on:
+		if game_manager.player_resource.health-amount > 0:
+			game_manager.player_resource.health -= amount
+		else:
+			#end game
+			visible = false
+			end_game(false)
+			#spawn new explosion
+			var explosion_FX = game_manager.explosion_prefab.instantiate()
+			player_cam.add_child(explosion_FX)
+			explosion_FX.global_position = global_position
+			explosion_FX.get_child(0).emitting = true
+			print("player Loss")
 		
 
 func end_game(win:bool):
 	if game_manager.game_on:
 		game_manager.from_game = true
 		game_manager.game_on = false
+		game_manager.player_resource.player_win = win
 		player_cam.open_end(win)
 		player_cam.reset_camera()
+		
+
+
 
 func collision_handler(body:PhysicsBody3D):
 	time_since_last_collision = 0
@@ -253,6 +291,7 @@ func collision_handler(body:PhysicsBody3D):
 			
 			print("Hit planet Too Fast : ",body.name," speed: ", linear_velocity, " taking damage: ",String.num(damage_amount,2))
 			damage_player(damage_amount)
+			play_standalone_sfx(hit_sfx)
 	if body.is_in_group("Asteroid") and first_contact:
 		first_contact = false
 		var damage_amount:float
@@ -264,6 +303,7 @@ func collision_handler(body:PhysicsBody3D):
 		else:
 			damage_amount = velocity_y / velocity_dmg_mod
 		damage_player(damage_amount)
+		play_standalone_sfx(hit_sfx)
 		print("hit asteroid with speed: ", body.linear_velocity, " taking damage: ",String.num(damage_amount,2))
 	
 	elif can_end_game and body.is_in_group("Planet"):
@@ -300,13 +340,14 @@ func collect_sample(body:PhysicsBody3D):
 		game_manager.player_resource.samples.append(body.research_resource)
 		print("sample collected player now has samples: ", game_manager.player_resource.samples)
 		body.queue_free()
-		if game_manager.player_resource.samples.size() >= game_manager.samples_needed:
+		endgame_checker()
+
+
+func endgame_checker()->void:
+	if game_manager.player_resource.samples.size() >= game_manager.samples_needed and game_manager.player_resource.data_downloaded >= 1:
 			can_end_game = true
 
-
-
 func open_mouth(body):
-	
 	if body.is_in_group("Sample"):
 		sample_in_range = true
 		sample_checker()
@@ -322,11 +363,13 @@ func sample_checker():
 		if !mouth_open:
 			if !player_animator.is_playing():
 				player_animator.play("open_mouth")
+				play_standalone_sfx(mouth_open_sfx)
 			mouth_open = true
 	else:
 		if mouth_open:
 			if !player_animator.is_playing():
 				player_animator.play("close_mouth")
+				play_standalone_sfx(mouth_close_sfx)
 			mouth_open = false
 		
 
@@ -335,15 +378,39 @@ func sample_checker():
 #var test_toggler:bool = true
 #func _unhandled_input(e):
 	#if e.is_action_pressed("ui_accept"):
-		#end_game()
-func reset_player():
-	get_tree().reload_current_scene()
+		#end_game(false)
+#func reset_player():
+	#get_tree().reload_current_scene()
 
 func show_player_fire(choice:bool)->void:
-	player_fire.visible = choice
-	fire_emiition.emitting = choice
+	if !stage_2_fire.visible:
+		player_fire.visible = choice
+		fire_emiition.emitting = choice
+	
+func show_stage2_fire(choice:bool)->void:
+	if player_fire.visible:
+		player_fire.visible = false
+		fire_emiition.emitting = false
+	stage_2_fire.visible = choice
+	stage_2_emision.emitting = choice
 	
 func show_air_brakes(choice:bool)->void:
 	for air_brake_emitter in air_brake_parent.get_children():
 		air_brake_emitter.get_child(0).emitting = choice
 	
+	
+func play_sfx(audio_path:String):
+	if currently_playing_sfx.keys().has(audio_path):
+		print("kek no")
+	else:
+		var playback_stream = playback.play_stream(load(audio_path),0,0,1)
+		print("playback stream: ", playback_stream)
+		currently_playing_sfx[audio_path] = playback_stream
+	
+func play_standalone_sfx(audio_path:String):
+	playback.play_stream(load(audio_path),0,0,1)
+	
+func stop_sfx(audio_path:String):
+	if currently_playing_sfx.keys().has(audio_path):
+		playback.stop_stream(currently_playing_sfx[audio_path])
+		currently_playing_sfx.erase(audio_path)

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PlayerResource" load_steps=4 format=3 uid="uid://dqjeiuu1gfi0d"]
+
+[ext_resource type="Script" uid="uid://cnwjofrbr7ew8" path="res://Resources/Sample_Template.gd" id="1_liv1o"]
+[ext_resource type="Script" uid="uid://by2subuh3wv5p" path="res://Resources/Player_Resource.gd" id="2_a103x"]
+[ext_resource type="Resource" uid="uid://d1tbbcq48dvmu" path="res://Resources/test_sample.tres" id="2_lxe42"]
+
+[resource]
+script = ExtResource("2_a103x")
+fuel = -0.03763333333327932
+health = 0.9122097387313854
+samples = Array[ExtResource("1_liv1o")]([ExtResource("2_lxe42"), ExtResource("2_lxe42"), ExtResource("2_lxe42"), ExtResource("2_lxe42"), ExtResource("2_lxe42")])
+data_downloaded = 0.04704
+saved_samples = Array[ExtResource("1_liv1o")]([ExtResource("2_lxe42")])
+sound_on = false
+metadata/_custom_type_script = "uid://by2subuh3wv5p"

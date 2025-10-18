@@ -1,4 +1,6 @@
 extends TextureRect
+class_name ui_sample_description
+
 
 var sample_resource:ResearchSampleResource
 @onready var ui_name = $HBoxContainer/RightContainer/ui_name

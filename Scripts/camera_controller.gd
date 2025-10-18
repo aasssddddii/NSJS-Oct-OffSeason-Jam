@@ -25,6 +25,7 @@ var current_offset:= 7
 @onready var option_back_button = $Options_Menu/SubViewport/back_button
 @onready var credits_back_button = $Credit_Screen/SubViewport/back
 @onready var start_menu = $Start_Menu
+@onready var sample_library_screen = $Samples_screen
 @onready var player_ui = $SubViewportContainer
 @onready var options_menu = $Options_Menu
 @onready var credit_screen = $Credit_Screen
@@ -43,6 +44,17 @@ var current_offset:= 7
 @onready var good_end = $"End_screen/SubViewport/Panel2/Mission Succes"
 @onready var bad_end = $"End_screen/SubViewport/Panel2/Mission Failed"
 
+@onready var sound_label = $"Options_Menu/SubViewport/HBoxContainer/MarginContainer/LeftContainer/Sound Label2"
+@onready var music_label = $"Options_Menu/SubViewport/HBoxContainer/MarginContainer/LeftContainer/music Label3"
+@onready var sfx_label = $"Options_Menu/SubViewport/HBoxContainer/MarginContainer/LeftContainer/Sfx Label4"
+@onready var ui_sound = $Options_Menu/SubViewport/HBoxContainer/RightContainer/ui_sound
+@onready var music_slider = $Options_Menu/SubViewport/HBoxContainer/RightContainer/MarginContainer/music_slider
+@onready var sfx_slider = $Options_Menu/SubViewport/HBoxContainer/RightContainer/MarginContainer2/sfx_slider
+
+@onready var sample_library_close_button = $Samples_screen/SubViewport/back_button
+@onready var sample_library_open_button = $Start_Menu/SubViewport/VBoxContainer/sample
+@onready var sample_grid = $Samples_screen/SubViewport/ScrollContainer/GridContainer
+
 var track_player:bool
 
 func _ready() -> void:
@@ -55,6 +67,11 @@ func _ready() -> void:
 	credits_back_button.button_up.connect(close_credits)
 	end_back_button.button_up.connect(open_credits)
 	ui_window.button_up.connect(cycle_window_mode)
+	ui_sound.button_up.connect(toggle_sound)
+	sample_library_open_button.button_up.connect(open_sample_library)
+	sample_library_close_button.button_up.connect(close_sample_library)
+	music_slider.value_changed.connect(update_music_volume)
+	sfx_slider.value_changed.connect(update_sfx_volume)
 	clear_all_menus()
 	start_menu.visible = true
 	
@@ -95,6 +112,7 @@ func start_game() -> void:
 	game_manager.game_on = true
 	player_ui.visible = true
 	track_player = true
+	game_manager.player_resource.reset_player()
 	
 	
 func disable_start_menu() -> void:
@@ -105,9 +123,26 @@ func enable_start_menu()->void:
 func clear_all_menus() -> void:
 	for child in get_children():
 		child.visible=false
+		
+func open_sample_library()->void:
+	clear_all_menus()
+	setup_sample_library()
+	sample_library_screen.visible = true
+func close_sample_library()->void:
+	clear_all_menus()
+	#clear sample grid
+	start_menu.visible = true
+	
+func setup_sample_library():
+	for sample in game_manager.player_resource.saved_samples:
+		var next_display_sample = game_manager.display_sample.instantiate()
+		sample_grid.add_child(next_display_sample)
+		next_display_sample.setup_display_sample(sample,false)
+	
 #start menu
 func open_options():
 	clear_all_menus()
+	setup_sliders()
 	update_options()
 	options_menu.visible=true
 func option_close()->void:
@@ -118,22 +153,26 @@ func option_close()->void:
 		clear_all_menus()
 		player_ui.visible = true
 		get_tree().paused = false
+	print("saving game: ", game_manager.save_game())
 #in game
 func toggle_options_menu()->void:
 	if options_menu.visible:
 		get_tree().paused = false
 		clear_all_menus()
 		player_ui.visible = true
-	else:
+		game_manager.manage_bg_music("unpause",null)
+		print("saving game: ", game_manager.save_game())
+	else:#paused
 		get_tree().paused = true
 		clear_all_menus()
 		update_options()
 		options_menu.visible = true
 		option_back_button.visible = false
+		game_manager.manage_bg_music("pause",null)
 	
 func update_options()->void:
 	#update window mode
-	match game_manager.window_mode:
+	match game_manager.player_resource.window_mode:
 		0:
 			ui_window.text = "Windowed"
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
@@ -145,16 +184,61 @@ func update_options()->void:
 			ui_window.text = "Borderless"
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS,true)
+	#update sound settings
+	match game_manager.player_resource.sound_on:
+		true:
+			ui_sound.text = "on"
+			show_sound_settings(true)
+		false:
+			ui_sound.text = "off"
+			show_sound_settings(false)
 	
+	
+func show_sound_settings(choice:bool):
+	music_label.visible = choice
+	music_slider.visible = choice
+	sfx_label.visible = choice
+	sfx_slider.visible = choice
+	
+		
+
+
+func toggle_sound():
+	var bus_index = AudioServer.get_bus_index("Master")
+	game_manager.player_resource.sound_on = !game_manager.player_resource.sound_on
+	if game_manager.player_resource.sound_on == true:
+		#turn music back on
+		AudioServer.set_bus_volume_db(bus_index,0)
+		game_manager.manage_bg_music("play",null)
+	else:
+		AudioServer.set_bus_volume_db(bus_index,-80)
+		game_manager.manage_bg_music("stop",null)
+	update_options()
+	
+func update_music_volume(value:float):
+	game_manager.player_resource.background_volume_db = value
+	AudioServer.set_bus_volume_linear(1,value)
+	
+func update_sfx_volume(value:float):
+	game_manager.player_resource.sfx_volume_db = value
+	AudioServer.set_bus_volume_linear(2,value)
+	#linear_to_db(value)
+	
+func setup_sliders():
+	music_slider.value = game_manager.player_resource.background_volume_db
+	sfx_slider.value = game_manager.player_resource.sfx_volume_db
 	
 #option button handling
 func cycle_window_mode()->void:
-	if game_manager.window_mode < 2:
-		game_manager.window_mode +=1
+	if game_manager.player_resource.window_mode < 2:
+		game_manager.player_resource.window_mode +=1
 	else:
-		game_manager.window_mode = 0
+		game_manager.player_resource.window_mode = 0
 	update_options()
 	
+	
+
+
 func open_credits():
 	clear_all_menus()
 	credit_screen.visible = true
@@ -169,11 +253,15 @@ func close_credits():
 	start_menu.visible = true
 	if game_manager.from_game:
 		#game_manager.reset_game()
+		game_manager.player_resource.bank_samples(game_manager.player_resource.player_win)
 		track_player = false
-		target.reset_player()
+		#target.reset_player()
+		game_manager.save_game()
+		game_manager.player_resource.reset_player()
 		game_manager.from_game = false
 		reset_cam()
-		game_manager.player_resource.reset_samples()
+		get_tree().reload_current_scene()
+		#game_manager.player_resource.reset_samples()
 		
 	
 	
@@ -190,7 +278,7 @@ func setup_end(win:bool):
 	for sample in game_manager.player_resource.samples:
 		var next_display_sample = game_manager.display_sample.instantiate()
 		sample_display_grid.add_child(next_display_sample)
-		next_display_sample.setup_display_sample(sample)
+		next_display_sample.setup_display_sample(sample,true)
 		
 	if game_manager.player_resource.samples.size()>=game_manager.samples_needed*2 and win:
 		true_end.visible = true

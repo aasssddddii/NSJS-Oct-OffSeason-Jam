@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://f2q8t37hxp45"]
+[gd_scene load_steps=21 format=3 uid="uid://f2q8t37hxp45"]
 
 [ext_resource type="PackedScene" uid="uid://dfxqgwgng77rm" path="res://Prefabs/player_3d.tscn" id="1_byp1c"]
 [ext_resource type="PackedScene" uid="uid://c1wvgevhcgjj2" path="res://Prefabs/planet_template.tscn" id="3_4ql7k"]
@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://bsbu7801if5if" path="res://sprites/progrees bar/Purple.png" id="7_r0gwe"]
 [ext_resource type="Texture2D" uid="uid://dd03wwv00162h" path="res://sprites/NSJS.png" id="9_r0gwe"]
 [ext_resource type="Script" uid="uid://cxd55r1klfghx" path="res://Scripts/ui_sample_description.gd" id="10_65vq6"]
+[ext_resource type="Script" uid="uid://bqe5pw2va8jwm" path="res://Scripts/big_sample_description.gd" id="10_caxdr"]
+[ext_resource type="SphereMesh" uid="uid://dkanu6h75lrwv" path="res://Prefabs/3D files/Samples/test_sample_mesh.tres" id="11_w30nf"]
+[ext_resource type="Script" uid="uid://b4jpbjep5df4b" path="res://Scripts/big_display_sample.gd" id="11_y83ij"]
 [ext_resource type="PackedScene" uid="uid://rslhovh15gu8" path="res://Prefabs/sky_sphere.tscn" id="13_65vq6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mj635"]
@@ -43,6 +46,7 @@ transform = Transform3D(0.87436056, 0.17493542, -0.4526491, -0.020533219, 0.9452
 script = ExtResource("3_oyc4c")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Camera3D"]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 
@@ -50,7 +54,7 @@ offset_bottom = 40.0
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1152, 648)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Panel" type="Panel" parent="Camera3D/SubViewportContainer/CanvasLayer"]
 offset_left = 10.0
@@ -211,9 +215,9 @@ text = "C0SM05"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/Start_Menu/SubViewport"]
 offset_left = 53.0
-offset_top = 424.0
-offset_right = 258.0
-offset_bottom = 636.0
+offset_top = 363.0
+offset_right = 259.0
+offset_bottom = 629.0
 
 [node name="start" type="Button" parent="Camera3D/Start_Menu/SubViewport/VBoxContainer"]
 layout_mode = 2
@@ -229,6 +233,14 @@ theme = ExtResource("4_ee5nw")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
 text = "Options"
+flat = true
+
+[node name="sample" type="Button" parent="Camera3D/Start_Menu/SubViewport/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "Samples"
 flat = true
 
 [node name="credits" type="Button" parent="Camera3D/Start_Menu/SubViewport/VBoxContainer"]
@@ -276,9 +288,9 @@ theme_override_font_sizes/font_size = 50
 text = "Options"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/Options_Menu/SubViewport"]
-offset_left = 387.0
+offset_left = 413.0
 offset_top = 259.0
-offset_right = 738.0
+offset_right = 764.0
 offset_bottom = 417.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer"]
@@ -287,6 +299,7 @@ theme_override_constants/margin_top = 3
 
 [node name="LeftContainer" type="VBoxContainer" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 13
 
 [node name="Window Label" type="Label" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer/MarginContainer/LeftContainer"]
 layout_mode = 2
@@ -295,9 +308,39 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 24
 text = "WINDOW:"
+horizontal_alignment = 2
+
+[node name="Sound Label2" type="Label" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer/MarginContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "sound:"
+horizontal_alignment = 2
+
+[node name="music Label3" type="Label" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer/MarginContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "music:"
+horizontal_alignment = 2
+
+[node name="Sfx Label4" type="Label" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer/MarginContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "SFX:"
+horizontal_alignment = 2
 
 [node name="RightContainer" type="VBoxContainer" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer"]
+custom_minimum_size = Vector2(279.245, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="ui_window" type="Button" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer/RightContainer"]
 layout_mode = 2
@@ -307,6 +350,39 @@ theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 24
 text = "-"
 flat = true
+alignment = 0
+
+[node name="ui_sound" type="Button" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "-"
+flat = true
+alignment = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 15
+
+[node name="music_slider" type="HSlider" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer/RightContainer/MarginContainer"]
+layout_mode = 2
+min_value = 0.1
+max_value = 1.0
+step = 0.1
+value = 0.1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 27
+
+[node name="sfx_slider" type="HSlider" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer/RightContainer/MarginContainer2"]
+layout_mode = 2
+min_value = 0.1
+max_value = 1.0
+step = 0.1
+value = 0.1
 
 [node name="back_button" type="Button" parent="Camera3D/Options_Menu/SubViewport"]
 offset_left = 543.0
@@ -467,6 +543,7 @@ theme_override_constants/outline_size = 6
 theme_override_font_sizes/font_size = 24
 text = "Ibram Syah
 LinkDesigns
+freesound
 "
 
 [node name="End_screen" type="SubViewportContainer" parent="Camera3D"]
@@ -663,9 +740,19 @@ theme_override_constants/separation = 30
 
 [node name="LeftContainer" type="VBoxContainer" parent="Camera3D/End_screen/SubViewport/Panel2/Mission True End/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 80
+theme_override_constants/separation = 71
 
-[node name="u" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission True End/HBoxContainer/LeftContainer"]
+[node name="ship" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission True End/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_color = Color(0.5645263, 0.0009160726, 1.4439226e-07, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "ship:"
+horizontal_alignment = 2
+
+[node name="u2" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission True End/HBoxContainer/LeftContainer"]
 layout_mode = 2
 theme = ExtResource("4_ee5nw")
 theme_override_colors/font_color = Color(0.5645263, 0.0009160726, 1.4439226e-07, 1)
@@ -693,7 +780,17 @@ horizontal_alignment = 2
 layout_mode = 2
 theme_override_constants/separation = 80
 
-[node name="ui_body2" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission True End/HBoxContainer/RightContainer2"]
+[node name="ship_name" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission True End/HBoxContainer/RightContainer2"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 16
+text = "S.S. PACMan"
+autowrap_mode = 2
+
+[node name="ui_body4" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission True End/HBoxContainer/RightContainer2"]
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 theme = ExtResource("4_ee5nw")
@@ -733,14 +830,24 @@ text = "Mission Success"
 [node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Succes"]
 layout_mode = 0
 offset_left = 19.0
-offset_top = 147.0
-offset_right = 504.0
-offset_bottom = 560.0
+offset_top = 115.0
+offset_right = 512.0
+offset_bottom = 528.0
 theme_override_constants/separation = 30
 
 [node name="LeftContainer" type="VBoxContainer" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Succes/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 80
+theme_override_constants/separation = 71
+
+[node name="ship" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Succes/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_color = Color(0.5645263, 0.0009160726, 1.4439226e-07, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "ship:"
+horizontal_alignment = 2
 
 [node name="u" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Succes/HBoxContainer/LeftContainer"]
 layout_mode = 2
@@ -754,7 +861,7 @@ horizontal_alignment = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Succes/HBoxContainer/LeftContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 95
+theme_override_constants/margin_top = 105
 
 [node name="u2" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Succes/HBoxContainer/LeftContainer/MarginContainer"]
 layout_mode = 2
@@ -769,6 +876,16 @@ horizontal_alignment = 2
 [node name="RightContainer2" type="VBoxContainer" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Succes/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 80
+
+[node name="ship_name" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Succes/HBoxContainer/RightContainer2"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 16
+text = "S.S. PACMan"
+autowrap_mode = 2
 
 [node name="ui_body2" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Succes/HBoxContainer/RightContainer2"]
 custom_minimum_size = Vector2(350, 0)
@@ -791,7 +908,6 @@ text = "More Samples are required for testing"
 autowrap_mode = 2
 
 [node name="Mission Failed" type="Control" parent="Camera3D/End_screen/SubViewport/Panel2"]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -818,7 +934,17 @@ theme_override_constants/separation = 30
 
 [node name="LeftContainer" type="VBoxContainer" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Failed/HBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 80
+theme_override_constants/separation = 71
+
+[node name="ship" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Failed/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_color = Color(0.5645263, 0.0009160726, 1.4439226e-07, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "ship:"
+horizontal_alignment = 2
 
 [node name="u" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Failed/HBoxContainer/LeftContainer"]
 layout_mode = 2
@@ -832,7 +958,7 @@ horizontal_alignment = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Failed/HBoxContainer/LeftContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 70
+theme_override_constants/margin_top = 82
 
 [node name="u2" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Failed/HBoxContainer/LeftContainer/MarginContainer"]
 layout_mode = 2
@@ -847,6 +973,16 @@ horizontal_alignment = 2
 [node name="RightContainer2" type="VBoxContainer" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Failed/HBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 80
+
+[node name="ship_name" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Failed/HBoxContainer/RightContainer2"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 16
+text = "S.S. PACMan"
+autowrap_mode = 2
 
 [node name="ui_body2" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Failed/HBoxContainer/RightContainer2"]
 custom_minimum_size = Vector2(350, 0)
@@ -867,6 +1003,198 @@ theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 16
 text = "New Satellite is required,  for sample gathering "
 autowrap_mode = 2
+
+[node name="Samples_screen" type="SubViewportContainer" parent="Camera3D"]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="SubViewport" type="SubViewport" parent="Camera3D/Samples_screen"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Panel" type="Panel" parent="Camera3D/Samples_screen/SubViewport"]
+offset_left = 52.0
+offset_top = 62.0
+offset_right = 537.0
+offset_bottom = 592.0
+
+[node name="Title Label" type="Label" parent="Camera3D/Samples_screen/SubViewport"]
+offset_left = 240.0
+offset_top = -4.0
+offset_right = 889.0
+offset_bottom = 86.0
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "Sample library"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/Samples_screen/SubViewport"]
+offset_left = 84.0
+offset_top = 79.0
+offset_right = 435.0
+offset_bottom = 237.0
+
+[node name="LeftContainer" type="VBoxContainer" parent="Camera3D/Samples_screen/SubViewport/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Window Label" type="Label" parent="Camera3D/Samples_screen/SubViewport/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "total Data:"
+horizontal_alignment = 2
+
+[node name="Window Label2" type="Label" parent="Camera3D/Samples_screen/SubViewport/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "samples 
+collected:"
+horizontal_alignment = 2
+
+[node name="RightContainer" type="VBoxContainer" parent="Camera3D/Samples_screen/SubViewport/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="ui_data" type="Label" parent="Camera3D/Samples_screen/SubViewport/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "-"
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera3D/Samples_screen/SubViewport/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 38
+
+[node name="ui_samples" type="Label" parent="Camera3D/Samples_screen/SubViewport/HBoxContainer/RightContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "-"
+
+[node name="back_button" type="Button" parent="Camera3D/Samples_screen/SubViewport"]
+offset_left = 240.0
+offset_top = 508.0
+offset_right = 350.0
+offset_bottom = 550.0
+theme = ExtResource("4_ee5nw")
+theme_override_font_sizes/font_size = 24
+text = "back
+"
+flat = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Camera3D/Samples_screen/SubViewport"]
+offset_left = 103.0
+offset_top = 214.0
+offset_right = 1456.3333
+offset_bottom = 777.3333
+scale = Vector2(0.3, 0.3)
+
+[node name="GridContainer" type="GridContainer" parent="Camera3D/Samples_screen/SubViewport/ScrollContainer"]
+layout_mode = 2
+columns = 5
+
+[node name="Panel2" type="Panel" parent="Camera3D/Samples_screen/SubViewport"]
+offset_left = 587.0
+offset_top = 62.0
+offset_right = 1134.0
+offset_bottom = 592.0
+
+[node name="big_sample_description" type="TextureRect" parent="Camera3D/Samples_screen/SubViewport/Panel2"]
+visible = false
+self_modulate = Color(0.5058824, 0.5294118, 0.5058824, 1)
+layout_mode = 0
+offset_left = 89.0
+offset_top = 347.0
+offset_right = 446.0
+offset_bottom = 464.0
+texture = SubResource("CanvasTexture_r0gwe")
+script = ExtResource("10_caxdr")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 357.0
+offset_bottom = 114.0
+
+[node name="LeftContainer" type="VBoxContainer" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/HBoxContainer"]
+layout_mode = 2
+
+[node name="name Label" type="Label" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 14
+text = "name:"
+horizontal_alignment = 2
+
+[node name="Description Label2" type="Label" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 14
+text = "info:"
+horizontal_alignment = 2
+
+[node name="RightContainer" type="VBoxContainer" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/HBoxContainer"]
+layout_mode = 2
+
+[node name="ui_name" type="Label" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 14
+text = "-"
+
+[node name="ui_description" type="Label" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 14
+text = "-"
+
+[node name="display_sample" type="TextureRect" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description"]
+layout_mode = 0
+offset_left = 159.0
+offset_top = -186.0
+offset_right = 159.0
+offset_bottom = -186.0
+script = ExtResource("11_y83ij")
+
+[node name="SubViewport" type="SubViewport" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/display_sample"]
+own_world_3d = true
+transparent_bg = true
+size = Vector2i(200, 200)
+
+[node name="Node3D" type="Node3D" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/display_sample/SubViewport"]
+
+[node name="Camera3D" type="Camera3D" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/display_sample/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.27228475)
+current = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/display_sample/SubViewport/Node3D"]
+mesh = ExtResource("11_w30nf")
+skeleton = NodePath("../..")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/display_sample/SubViewport/Node3D"]
 
 [node name="interactables" type="Node3D" parent="."]
 

@@ -1,7 +1,7 @@
 extends Resource
 class_name ResearchSampleResource
 
-
+#@export var sample_resource_path:String = "res://Resources/test_sample.tres"
 @export var sample_name:String
 @export var sample_description:String
 @export var replacement_mesh:Mesh
