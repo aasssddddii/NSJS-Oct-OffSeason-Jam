@@ -54,6 +54,12 @@ var current_offset:= 7
 @onready var sample_library_close_button = $Samples_screen/SubViewport/back_button
 @onready var sample_library_open_button = $Start_Menu/SubViewport/VBoxContainer/sample
 @onready var sample_grid = $Samples_screen/SubViewport/ScrollContainer/GridContainer
+@onready var ui_sample_data = $Samples_screen/SubViewport/HBoxContainer/RightContainer/ui_data
+@onready var ui_sample_saples = $Samples_screen/SubViewport/HBoxContainer/RightContainer/MarginContainer/ui_samples
+
+@onready var planets_node = $"../planets"
+
+@onready var player_ui_popup_panel = $SubViewportContainer/CanvasLayer/Popup_panel
 
 var track_player:bool
 
@@ -113,6 +119,11 @@ func start_game() -> void:
 	player_ui.visible = true
 	track_player = true
 	game_manager.player_resource.reset_player()
+	if game_manager.player_resource.tutorial_index == 1:
+		player_ui_popup_panel.setup_tutorial(game_manager.player_resource.tutorial_index)
+	else:
+		player_ui_popup_panel.setup_objective(1)
+		
 	
 	
 func disable_start_menu() -> void:
@@ -133,11 +144,19 @@ func close_sample_library()->void:
 	#clear sample grid
 	start_menu.visible = true
 	
+
 func setup_sample_library():
+	clear_sample_grid()
+	ui_sample_data.text = String.num(game_manager.player_resource.total_data,4) + " TB"
+	ui_sample_saples.text = var_to_str(game_manager.player_resource.saved_samples.size())
 	for sample in game_manager.player_resource.saved_samples:
 		var next_display_sample = game_manager.display_sample.instantiate()
 		sample_grid.add_child(next_display_sample)
 		next_display_sample.setup_display_sample(sample,false)
+	
+func clear_sample_grid():
+	for child in sample_grid.get_children():
+		child.queue_free()
 	
 #start menu
 func open_options():
@@ -199,6 +218,9 @@ func show_sound_settings(choice:bool):
 	music_slider.visible = choice
 	sfx_label.visible = choice
 	sfx_slider.visible = choice
+	if choice:
+		music_slider.value = game_manager.player_resource.background_volume_db
+		sfx_slider.value = game_manager.player_resource.sfx_volume_db
 	
 		
 
@@ -209,6 +231,7 @@ func toggle_sound():
 	if game_manager.player_resource.sound_on == true:
 		#turn music back on
 		AudioServer.set_bus_volume_db(bus_index,0)
+		update_options()
 		game_manager.manage_bg_music("play",null)
 	else:
 		AudioServer.set_bus_volume_db(bus_index,-80)
@@ -256,6 +279,7 @@ func close_credits():
 		game_manager.player_resource.bank_samples(game_manager.player_resource.player_win)
 		track_player = false
 		#target.reset_player()
+		game_manager.player_resource.reset_samples()
 		game_manager.save_game()
 		game_manager.player_resource.reset_player()
 		game_manager.from_game = false
@@ -295,3 +319,9 @@ func quit_game() -> void:
 func reset_cam()->void:
 	global_position = starting_position
 	rotation_degrees = starting_rotation
+
+func reset_planets():
+	for child in planets_node.get_children():
+		child.reset_planet()
+	
+	

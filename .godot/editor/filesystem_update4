@@ -12,3 +12,15 @@ res://Saves/Save_data.tres
 res://Scripts/player_controller.gd
 res://Scripts/game_manager.gd
 res://Resources/Sample_Template.gd
+res://Scripts/planet.gd
+res://Resources/Planet_Resource_Template.gd
+res://Prefabs/player_3d.tscn
+res://Resources/Test_Planet_3.tres
+res://Resources/Test_Planet_5.tres
+res://Resources/Test_Planet_6.tres
+res://Prefabs/asteroid1.tscn
+res://Prefabs/asteroid2.tscn
+res://Prefabs/asteroid3.tscn
+res://Scripts/player_popup_panel.gd
+res://Prefabs/gravity_arrow.tscn
+res://Prefabs/home_planet_arrow.tscn

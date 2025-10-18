@@ -32,3 +32,11 @@ shape = SubResource("SphereShape3D_c07mw")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46384192, -0.15805742, 0)
 shape = SubResource("SphereShape3D_c07mw")
+
+[node name="GPUParticlesCollisionSphere3D" type="GPUParticlesCollisionSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34294498, -0.2438612, 0)
+radius = 1.5599155
+
+[node name="GPUParticlesCollisionSphere3D2" type="GPUParticlesCollisionSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7236824, 0.48582578, 0)
+radius = 1.254268

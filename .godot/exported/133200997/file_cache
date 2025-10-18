@@ -1,11 +1,11 @@
 res://Prefabs/player_prefab.tscn::83da8b4d88386f793dd83c65606f4ede::1760447440::res://.godot/exported/133200997/export-268df29f6b6f2aaa3ade03c2943f6438-player_prefab.scn
-res://Prefabs/player_3d.tscn::2ad76e338db3d6fcfc3b19282ba12492::1760730650::res://.godot/exported/133200997/export-093fe6072c39a99b774dfa30d7cb4e87-player_3d.scn
+res://Prefabs/player_3d.tscn::2ad76e338db3d6fcfc3b19282ba12492::1760791369::res://.godot/exported/133200997/export-093fe6072c39a99b774dfa30d7cb4e87-player_3d.scn
 res://Prefabs/planet_template.tscn::825df6eadae8b069e8eff43c8a5ec2f7::1760715064::res://.godot/exported/133200997/export-288dca9eab17ac6a32d43482c1ba0c60-planet_template.scn
-res://Prefabs/gravity_arrow.tscn::f60f629f1ead07ef6d7d5b94e09dbdf5::1760613687::res://.godot/exported/133200997/export-b2e8de40fdb062d00e7aaec30f676d1d-gravity_arrow.scn
+res://Prefabs/gravity_arrow.tscn::f60f629f1ead07ef6d7d5b94e09dbdf5::1760794170::res://.godot/exported/133200997/export-b2e8de40fdb062d00e7aaec30f676d1d-gravity_arrow.scn
 res://Resources/PlayerResource.tres::4e99bc7eb6968c30a2afebcc6a36c86b::1760667942::res://.godot/exported/133200997/export-4f995d095a2f520310ffb2408d07e009-PlayerResource.res
 res://Resources/Test_Planet_2.tres::d16fe17147e488cd0725f004a83bbed5::1760624167::res://.godot/exported/133200997/export-16f15b2f3a38679aec3b3c622e1f3aae-Test_Planet_2.res
 res://Resources/Test_Planet.tres::82b274615118418524e8d34e37f9b667::1760667539::res://.godot/exported/133200997/export-8e975d97d159c9021aa1144af87a3fec-Test_Planet.res
-res://Scenes/test_scene_3d.tscn::27ecdb413e95070d1f6a14bde49cd167::1760733997::res://.godot/exported/133200997/export-e574e9e9009d830787df9a9904fbe146-test_scene_3d.scn
+res://Scenes/test_scene_3d.tscn::643fb880e838772779a4c21da72f8351::1760799437::res://.godot/exported/133200997/export-e574e9e9009d830787df9a9904fbe146-test_scene_3d.scn
 res://Materials/Satillie_Textures/BaseSolarPanel/BaseSolarPanel.tres::569fa6555a2b58a75176341a9370ff8c::1760497647::res://.godot/exported/133200997/export-2516e578b2797c48d43b7d688f688719-BaseSolarPanel.res
 res://Materials/Satillie_Textures/Body/body.tres::b1dc35f08e5cd44e25195eb59689b3c5::1760498158::res://.godot/exported/133200997/export-371ec12f1e757688c79497eb1a2e9d81-body.res
 res://Materials/Satillie_Textures/Booster/Booster.tres::c239dad4514c7cd9388422520658c53e::1760497641::res://.godot/exported/133200997/export-98751a2c860b0c8b0f1106b40c08d521-Booster.res
@@ -18,18 +18,17 @@ res://Materials/Satillie_Textures/TopMouth/topmouth.tres::a26e92816582c2ad4ac128
 res://Materials/Satillie_Textures/Tubes/tubes.tres::fa57342b7b5fe8bbaf0a7b7b77bd124a::1760498158::res://.godot/exported/133200997/export-c8311460c7037478e077baab49e2bc8d-tubes.res
 res://Prefabs/refuel_pad.tscn::d8d56e80705aa68c47678c706377ea8f::1760702654::res://.godot/exported/133200997/export-9276ccd6ecfe15f75269a7a0b1af749f-refuel_pad.scn
 res://Prefabs/satellite.tscn::276985252428449411ffda255915e2d9::1760547594::res://.godot/exported/133200997/export-7b390fadbf52d05b3b94398881e617bf-satellite.scn
-res://Prefabs/asteroid1.tscn::f7d5ab11354212854a19017abf3a241c::1760618852::res://.godot/exported/133200997/export-5444257460ad9e436d203b82d52b43fc-asteroid1.scn
-res://Prefabs/asteroid2.tscn::fe270f15340677efbd361f99c9e090e3::1760618861::res://.godot/exported/133200997/export-9501643c3d84bb4dc4c3db69e3708851-asteroid2.scn
-res://Prefabs/asteroid3.tscn::c12044ad98d5c3d55259a7b4ecaa22c2::1760619625::res://.godot/exported/133200997/export-3662cc0a6a6784bd0ef1308553c8501a-asteroid3.scn
+res://Prefabs/asteroid1.tscn::70e5ed0ec8d72d038e8b1631268e2493::1760790987::res://.godot/exported/133200997/export-5444257460ad9e436d203b82d52b43fc-asteroid1.scn
+res://Prefabs/asteroid2.tscn::2d0e15cee17bb4abff2d0931a30629a2::1760791034::res://.godot/exported/133200997/export-9501643c3d84bb4dc4c3db69e3708851-asteroid2.scn
+res://Prefabs/asteroid3.tscn::a905f49e4644fb5c419c862dfb0ddfab::1760791064::res://.godot/exported/133200997/export-3662cc0a6a6784bd0ef1308553c8501a-asteroid3.scn
 res://Prefabs/research_sample.tscn::bf16ab505b5062f49f0364cc45e7df9c::1760715226::res://.godot/exported/133200997/export-8b3e2da91226c6c6285a3ed5d9b236ee-research_sample.scn
 res://Prefabs/satellite2.tscn::31e391cfbc2f27268ef2ee5a72ea23f4::1760571117::res://.godot/exported/133200997/export-184e5c325ce11e38ef1d303603086716-satellite2.scn
-res://Resources/test_sample.tres::fa8c2f289fa30ff05f381fcb7b1757fd::1760661098::res://.godot/exported/133200997/export-ce90c97bbcc019e534e3f0e354944add-test_sample.res
+res://Resources/test_sample.tres::fa8c2f289fa30ff05f381fcb7b1757fd::1760740855::res://.godot/exported/133200997/export-ce90c97bbcc019e534e3f0e354944add-test_sample.res
 res://Materials/Physics/asteroid_bounce.tres::9ca219bb6585116384f27ece5c676e1e::1760589344::res://.godot/exported/133200997/export-a3ff144bb3dd41048d5771971e3e2702-asteroid_bounce.res
-res://Resources/Home_Planet.tres::42d3e2a5b1dc473f337dc1e6194dbee2::1760625751::res://.godot/exported/133200997/export-e4c014887956dd97c2b335e19bcf9f1f-Home_Planet.res
 res://fonts/themes/ui_font.tres::7e0113cee8153a6827ae62b4adbd5d94::1760634341::res://.godot/exported/133200997/export-d638bba921179b85e9598e15cbad28cc-ui_font.res
 res://Prefabs/3D files/Samples/test_sample_mesh.tres::0ca9e8272c84713c9815fd4243f3e697::1760653048::res://.godot/exported/133200997/export-847e556abc4316176b8fa3798e030a66-test_sample_mesh.res
 res://Prefabs/display_sample.tscn::a12147a9c527c2507feae05da2e64e1b::1760654631::res://.godot/exported/133200997/export-a1b348f5d0645f5320f80ebc6371608f-display_sample.scn
-res://Scenes/test_camera.tscn::e24d5cd58558cc1109d2a803250993ec::1760653314::res://.godot/exported/133200997/export-dda394a06c04ac0e3ee4f6a2d01b7364-test_camera.scn
+res://Scenes/test_camera.tscn::e24d5cd58558cc1109d2a803250993ec::1760795956::res://.godot/exported/133200997/export-dda394a06c04ac0e3ee4f6a2d01b7364-test_camera.scn
 res://Materials/Planets/planet_material1.tres::d6d0d7fb67b5fdd9520e38e9d7ae2df4::1760661597::res://.godot/exported/133200997/export-589f85d2d72568c391693ea2b6bfc662-planet_material1.res
 res://Materials/Planets/planet_material2.tres::f25ee60d055048691d7a67d3c2768c65::1760661610::res://.godot/exported/133200997/export-2287a7bc71a8b10d6e3858482e39ac4c-planet_material2.res
 res://Materials/Planets/planet_material3.tres::3fb09a4a099eafa96e3d43a861f8209c::1760661626::res://.godot/exported/133200997/export-31132df497726a5accf017e2c3034a6e-planet_material3.res
@@ -40,7 +39,7 @@ res://Materials/Planets/planet_material7.tres::da1c8d0b59c1d9c756e828b8f4534807:
 res://Materials/Planets/planet_material8.tres::0bdb656fecd6f633e8aab8aa939be020::1760661707::res://.godot/exported/133200997/export-d51334be37c125c3d62ef1eaa9028a49-planet_material8.res
 res://Resources/mesh_n_materials_library.tres::adba3cb6133a5fb69027541dcf3b4043::1760661901::res://.godot/exported/133200997/export-bd21745f2db55438dcbb7764e92c2edc-mesh_n_materials_library.res
 res://Prefabs/sky_sphere.tscn::78d3f0f791551a81bd651383deb865bb::1760667026::res://.godot/exported/133200997/export-556bd7fef4b68382155d43cf447b0f6f-sky_sphere.scn
-res://Materials/explosion/explotion mesh+material.tres::fd186ff2edb45a168fd63755da9e4b4e::1760717870::res://.godot/exported/133200997/export-480590434408e4d8b662018501f2c86c-explotion mesh+material.res
+res://Materials/explosion/explotion mesh+material.tres::fd186ff2edb45a168fd63755da9e4b4e::1760740855::res://.godot/exported/133200997/export-480590434408e4d8b662018501f2c86c-explotion mesh+material.res
 res://Materials/Fire/Fire_material.tres::147afda91835bc234637bfc15dd1762c::1760703020::res://.godot/exported/133200997/export-0e3e60aa54d5fe75fb1a4030b1d2467c-Fire_material.res
 res://Prefabs/fire_test.tscn::fc96f40b9c63cf2b8317ff00d21f625e::1760721156::res://.godot/exported/133200997/export-f83efdb5f56c9103de45eee92ed5dc71-fire_test.scn
 res://Prefabs/muzzlefire.tscn::5d657dfb2a5429b7eeeaaa6a3ee19eb7::1760701507::res://.godot/exported/133200997/export-53e2303286e058be2938f98b55f767ec-muzzlefire.scn
@@ -51,3 +50,9 @@ res://Materials/Fire/stage_2_fire_material2.tres::0eedaf68e6a7b9d0d1be205811b3d7
 res://Materials/Fire/stage_2_fire_material.tres::98058ef484837f7066aa524e26078899::1760721612::res://.godot/exported/133200997/export-664e488b348efce7dfe949600e703f61-stage_2_fire_material.res
 res://Prefabs/stage_2_fire_test.tscn::581da6e2298d456b736dbb434bdf23bc::1760721635::res://.godot/exported/133200997/export-56751ef2013c106f0868e88fc905f2d6-stage_2_fire_test.scn
 res://default_bus_layout.tres::73a7064591f34b9a5999c53dddd21696::1760728081::res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res
+res://Resources/Test_Planet_6.tres::253aefa68c04c6f76d39bf031bb97eea::1760757680::res://.godot/exported/133200997/export-def2b7048f72e323884cc90f17675d7c-Test_Planet_6.res
+res://Resources/Test_Planet_5.tres::98aa1e675feebc4d03b1be88ea4ce276::1760757752::res://.godot/exported/133200997/export-ed2dc804638ec5be31d952a51f7bbffd-Test_Planet_5.res
+res://Resources/Test_Planet_4.tres::cc0ac1ffb893cc54a864ff2358155717::1760757405::res://.godot/exported/133200997/export-cf63d7e970f101dea41d3e5db5cb5178-Test_Planet_4.res
+res://Resources/Test_Planet_3.tres::3db30ba7ee7f2578de5aeefe3c11381f::1760757552::res://.godot/exported/133200997/export-b9a5ce9f1e4b39d512666dc21636395b-Test_Planet_3.res
+res://Prefabs/home_planet_arrow.tscn::b8f2ddf4784f5cb63aaa8d191a83b13c::1760795213::res://.godot/exported/133200997/export-65796aa21bbf276c21d1adfa6bb77240-home_planet_arrow.scn
+res://Resources/Real Planets/Home_Planet.tres::42d3e2a5b1dc473f337dc1e6194dbee2::1760625751::res://.godot/exported/133200997/export-99be39adef77a1ef3f236397e6419511-Home_Planet.res

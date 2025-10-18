@@ -22,3 +22,6 @@ script = ExtResource("1_4y8f7")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18863308, 0.12629801, 0)
 shape = SubResource("SphereShape3D_4y8f7")
+
+[node name="GPUParticlesCollisionSphere3D" type="GPUParticlesCollisionSphere3D" parent="."]
+radius = 1.5364954

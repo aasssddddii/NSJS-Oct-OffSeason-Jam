@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="PlanetResource" load_steps=2 format=3 uid="uid://csc4oto8rascc"]
+
+[ext_resource type="Script" uid="uid://x8s0y2cuh4sr" path="res://Resources/Planet_Resource_Template.gd" id="1_7famv"]
+
+[resource]
+script = ExtResource("1_7famv")
+name = "Test 3"
+gravity_strength = 1.0
+radius = 35
+asteroid_density = 5
+metadata/_custom_type_script = "uid://x8s0y2cuh4sr"

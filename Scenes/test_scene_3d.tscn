@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://f2q8t37hxp45"]
+[gd_scene load_steps=26 format=3 uid="uid://f2q8t37hxp45"]
 
 [ext_resource type="PackedScene" uid="uid://dfxqgwgng77rm" path="res://Prefabs/player_3d.tscn" id="1_byp1c"]
 [ext_resource type="PackedScene" uid="uid://c1wvgevhcgjj2" path="res://Prefabs/planet_template.tscn" id="3_4ql7k"]
@@ -6,16 +6,21 @@
 [ext_resource type="Theme" uid="uid://gx5kr4s8mia3" path="res://fonts/themes/ui_font.tres" id="4_ee5nw"]
 [ext_resource type="Resource" uid="uid://jtyouscftwhw" path="res://Resources/Test_Planet_2.tres" id="5_mj635"]
 [ext_resource type="Texture2D" uid="uid://bavkjlpq3y1fb" path="res://sprites/progrees bar/White.png" id="5_y8qk3"]
-[ext_resource type="Resource" uid="uid://i62jqvof1fow" path="res://Resources/Home_Planet.tres" id="6_1xp1p"]
+[ext_resource type="Resource" uid="uid://i62jqvof1fow" path="res://Resources/Real Planets/Home_Planet.tres" id="6_1xp1p"]
 [ext_resource type="Texture2D" uid="uid://c8h767duougeo" path="res://sprites/progrees bar/Black.png" id="6_ee5nw"]
 [ext_resource type="Texture2D" uid="uid://bdja5floo3ch2" path="res://sprites/progrees bar/Red.png" id="7_ee5nw"]
 [ext_resource type="Texture2D" uid="uid://bsbu7801if5if" path="res://sprites/progrees bar/Purple.png" id="7_r0gwe"]
+[ext_resource type="Script" uid="uid://bjducrrbami" path="res://Scripts/player_popup_panel.gd" id="8_f53vd"]
 [ext_resource type="Texture2D" uid="uid://dd03wwv00162h" path="res://sprites/NSJS.png" id="9_r0gwe"]
 [ext_resource type="Script" uid="uid://cxd55r1klfghx" path="res://Scripts/ui_sample_description.gd" id="10_65vq6"]
 [ext_resource type="Script" uid="uid://bqe5pw2va8jwm" path="res://Scripts/big_sample_description.gd" id="10_caxdr"]
 [ext_resource type="SphereMesh" uid="uid://dkanu6h75lrwv" path="res://Prefabs/3D files/Samples/test_sample_mesh.tres" id="11_w30nf"]
-[ext_resource type="Script" uid="uid://b4jpbjep5df4b" path="res://Scripts/big_display_sample.gd" id="11_y83ij"]
+[ext_resource type="Script" uid="uid://73gt1t3aciur" path="res://Scripts/display_sample.gd" id="11_y83ij"]
 [ext_resource type="PackedScene" uid="uid://rslhovh15gu8" path="res://Prefabs/sky_sphere.tscn" id="13_65vq6"]
+[ext_resource type="Resource" uid="uid://cby2etueoc4ga" path="res://Resources/Test_Planet_4.tres" id="16_qq10k"]
+[ext_resource type="Resource" uid="uid://csc4oto8rascc" path="res://Resources/Test_Planet_3.tres" id="17_f53vd"]
+[ext_resource type="Resource" uid="uid://bhljufcuo18sw" path="res://Resources/Test_Planet_5.tres" id="18_rsnh0"]
+[ext_resource type="Resource" uid="uid://dtay6e357ct5m" path="res://Resources/Test_Planet_6.tres" id="19_g3p2r"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mj635"]
 cull_mode = 2
@@ -46,7 +51,6 @@ transform = Transform3D(0.87436056, 0.17493542, -0.4526491, -0.020533219, 0.9452
 script = ExtResource("3_oyc4c")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Camera3D"]
-visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 
@@ -54,7 +58,163 @@ offset_bottom = 40.0
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1152, 648)
-render_target_update_mode = 0
+render_target_update_mode = 4
+
+[node name="Popup_panel" type="Panel" parent="Camera3D/SubViewportContainer/CanvasLayer"]
+offset_left = 385.0
+offset_top = 153.0
+offset_right = 755.0
+offset_bottom = 262.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_65vq6")
+script = ExtResource("8_f53vd")
+
+[node name="objective1" type="Control" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Objective Label" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel/objective1"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 14.0
+offset_right = 208.0
+offset_bottom = 43.0
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 10
+text = "objective:"
+
+[node name="ui_objective" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel/objective1"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 26.0
+offset_right = 353.0
+offset_bottom = 87.0
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "collect data and samples"
+autowrap_mode = 2
+
+[node name="objective2" type="Control" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Objective Label" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel/objective2"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 14.0
+offset_right = 208.0
+offset_bottom = 43.0
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 10
+text = "objective:"
+
+[node name="ui_objective" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel/objective2"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 26.0
+offset_right = 353.0
+offset_bottom = 87.0
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "return to home planet"
+autowrap_mode = 2
+
+[node name="tut1" type="Control" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ui_objective" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel/tut1"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 26.0
+offset_right = 353.0
+offset_bottom = 87.0
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "w | up
+use thruster"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="tut2" type="Control" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ui_objective" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel/tut2"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 26.0
+offset_right = 353.0
+offset_bottom = 87.0
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "a/d | left/right
+turn ship"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="tut3" type="Control" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ui_objective" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel/tut3"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 26.0
+offset_right = 353.0
+offset_bottom = 87.0
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "shift
+stage 2 thrusters"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="tut4" type="Control" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ui_objective" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel/tut4"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 26.0
+offset_right = 353.0
+offset_bottom = 87.0
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "space
+orbital data lock"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Panel" type="Panel" parent="Camera3D/SubViewportContainer/CanvasLayer"]
 offset_left = 10.0
@@ -288,10 +448,10 @@ theme_override_font_sizes/font_size = 50
 text = "Options"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/Options_Menu/SubViewport"]
-offset_left = 413.0
-offset_top = 259.0
-offset_right = 764.0
-offset_bottom = 417.0
+offset_left = 388.0
+offset_top = 199.0
+offset_right = 818.0
+offset_bottom = 377.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer"]
 layout_mode = 2
@@ -908,6 +1068,7 @@ text = "More Samples are required for testing"
 autowrap_mode = 2
 
 [node name="Mission Failed" type="Control" parent="Camera3D/End_screen/SubViewport/Panel2"]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1005,6 +1166,7 @@ text = "New Satellite is required,  for sample gathering "
 autowrap_mode = 2
 
 [node name="Samples_screen" type="SubViewportContainer" parent="Camera3D"]
+visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
 
@@ -1012,7 +1174,7 @@ offset_bottom = 648.0
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1152, 648)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Panel" type="Panel" parent="Camera3D/Samples_screen/SubViewport"]
 offset_left = 52.0
@@ -1037,6 +1199,7 @@ offset_left = 84.0
 offset_top = 79.0
 offset_right = 435.0
 offset_bottom = 237.0
+theme_override_constants/separation = 18
 
 [node name="LeftContainer" type="VBoxContainer" parent="Camera3D/Samples_screen/SubViewport/HBoxContainer"]
 layout_mode = 2
@@ -1117,10 +1280,10 @@ offset_bottom = 592.0
 visible = false
 self_modulate = Color(0.5058824, 0.5294118, 0.5058824, 1)
 layout_mode = 0
-offset_left = 89.0
+offset_left = 112.0
 offset_top = 347.0
-offset_right = 446.0
-offset_bottom = 464.0
+offset_right = 469.0
+offset_bottom = 500.0
 texture = SubResource("CanvasTexture_r0gwe")
 script = ExtResource("10_caxdr")
 
@@ -1143,6 +1306,15 @@ theme_override_font_sizes/font_size = 14
 text = "name:"
 horizontal_alignment = 2
 
+[node name="status Label2" type="Label" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 14
+text = "status:"
+horizontal_alignment = 2
+
 [node name="Description Label2" type="Label" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/HBoxContainer/LeftContainer"]
 layout_mode = 2
 theme = ExtResource("4_ee5nw")
@@ -1163,6 +1335,14 @@ theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 14
 text = "-"
 
+[node name="ui_status" type="Label" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme = ExtResource("4_ee5nw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 14
+text = "-"
+
 [node name="ui_description" type="Label" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/HBoxContainer/RightContainer"]
 layout_mode = 2
 theme = ExtResource("4_ee5nw")
@@ -1173,10 +1353,11 @@ text = "-"
 
 [node name="display_sample" type="TextureRect" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description"]
 layout_mode = 0
-offset_left = 159.0
-offset_top = -186.0
-offset_right = 159.0
-offset_bottom = -186.0
+offset_left = 18.0
+offset_top = -310.0
+offset_right = 18.0
+offset_bottom = -310.0
+scale = Vector2(1.5, 1.5)
 script = ExtResource("11_y83ij")
 
 [node name="SubViewport" type="SubViewport" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/display_sample"]
@@ -1210,16 +1391,19 @@ planet_resource = ExtResource("5_mj635")
 
 [node name="Planet4" parent="planets" instance=ExtResource("3_4ql7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 168.58566, -150.80081, 1.9073486e-06)
-planet_resource = ExtResource("5_mj635")
+planet_resource = ExtResource("16_qq10k")
 
 [node name="Planet3" parent="planets" instance=ExtResource("3_4ql7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 169.60211, 117.060936, 1.9073486e-06)
+planet_resource = ExtResource("17_f53vd")
 
 [node name="Planet5" parent="planets" instance=ExtResource("3_4ql7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.595566, 186.20029, 1.9073486e-06)
+planet_resource = ExtResource("18_rsnh0")
 
 [node name="Planet6" parent="planets" instance=ExtResource("3_4ql7k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.97385, -162.11584, 1.9073486e-06)
+planet_resource = ExtResource("19_g3p2r")
 
 [node name="hazards" type="Node3D" parent="."]
 

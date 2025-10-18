@@ -19,6 +19,8 @@ class_name PlayerResource
 @export var sound_on:= true
 @export var background_volume_db:= .4
 @export var sfx_volume_db:= .4
+#tutorual
+@export var tutorial_index:=1
 
 
 func reset_samples()->void:
@@ -46,6 +48,10 @@ func bank_samples(win:bool) -> void:
 		save_sample(sample,win)
 	
 	
+func add_data(amount):
+	data_downloaded += amount
+	total_data += amount
+	print("downloading data session:", data_downloaded," total: ",total_data)
 	
 	
 	

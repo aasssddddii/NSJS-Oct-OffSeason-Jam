@@ -8,7 +8,7 @@ const heal_speed:=.006
 const too_fast := Vector2(1.4,1.4)
 const velocity_dmg_mod:=50
 const fire_spin_speed:= 20
-const default_download_speed:=.00014
+const default_download_speed:= .00014
 var time_since_stage_2:float
 var time_in_stage_2:float
 var can_stage_2:bool
@@ -18,7 +18,9 @@ const damage_timeout:float = 2.5
 var time_since_last_collision:float
 
 @onready var arrow_prefab = preload("res://Prefabs/gravity_arrow.tscn")
+@onready var home_planet_arrow_prefab = preload("res://Prefabs/home_planet_arrow.tscn")
 var arrow_pivot
+var home_planet_pivot
 
 var closest_planet:Planet
 var distance_to_closest:float = 92233720368
@@ -66,6 +68,7 @@ var currently_playing_sfx:Dictionary
 #	"stream_name":stream_id
 #}
 
+var home_planet:Planet
 
 
 func _ready() -> void:
@@ -86,7 +89,10 @@ func _ready() -> void:
 	get_parent_node_3d().add_child.call_deferred(arrow_pivot)
 	arrow_pivot.setup_arrow(self)
 	arrow_shaft = arrow_pivot.get_child(0)
-	
+	home_planet_pivot = home_planet_arrow_prefab.instantiate()
+	get_parent_node_3d().add_child.call_deferred(home_planet_pivot)
+	home_planet_pivot.setup_arrow(self)
+	home_planet_pivot.visible = false
 
 
 func _process(delta: float) -> void:
@@ -135,6 +141,8 @@ func _process(delta: float) -> void:
 	arrow_shaft.visible = orbital_lock
 	if player_fire.visible:
 		fire_node.rotation_degrees += Vector3(0,fire_spin_speed,0)
+	if stage_2_fire.visible:
+		stage_2_fire.rotation_degrees += Vector3(0,fire_spin_speed*2,0)
 		
 	#Data Download Visual handler
 	if closest_planet != null and game_manager.game_on:
@@ -152,6 +160,15 @@ func _process(delta: float) -> void:
 			display_wifi(wifi_level)
 	elif closest_planet == null or closest_planet.planet_resource.home_planet:
 		wifi_level = 0
+		display_wifi(wifi_level)
+		
+		
+	if can_end_game:
+		home_planet_pivot.visible = true
+		var rotation_rad = Vector2(home_planet.global_position.x,home_planet.global_position.y).angle_to_point(Vector2(global_position.x,global_position.y))
+		home_planet_pivot.rotation_degrees.z = rad_to_deg(rotation_rad)+90
+		
+		
 
 func display_wifi(level:int)->void:
 	data_signal.set_signal_strength(level)
@@ -178,13 +195,18 @@ func process_movement(state: PhysicsDirectBodyState3D) -> void:
 				if global_position.distance_to(closest_planet.global_position) > closest_planet.planet_resource.radius+5:
 					orbit_planet = closest_planet
 					orbital_lock = true
+					if game_manager.player_resource.tutorial_index == 4:
+						game_manager.player_resource.tutorial_index +=1
+						player_cam.player_ui_popup_panel.setup_objective(1)
 					#check if planet has data left to download
 					#check if in planets sweet spot for downloads
+					print("planet ",closest_planet.name, " orbital data left: ",closest_planet.planet_resource.orbital_data)
 					if closest_planet.planet_resource.orbital_data > 0 and wifi_level > 0:
 						var download_speed:= default_download_speed * wifi_level
 						closest_planet.planet_resource.orbital_data -= download_speed
-						game_manager.player_resource.data_downloaded += download_speed
+						game_manager.player_resource.add_data(download_speed) 
 						endgame_checker()
+						
 						#print("data downloaded: ", game_manager.player_resource.data_downloaded)
 					
 		if !Input.is_action_pressed("orbital_lock"):
@@ -196,15 +218,24 @@ func process_movement(state: PhysicsDirectBodyState3D) -> void:
 			reduce_fuel(thruster_fuel_burn)
 			show_player_fire(true)
 			play_sfx(rocket_sfx)
+			if game_manager.player_resource.tutorial_index == 1:
+				game_manager.player_resource.tutorial_index +=1
+				player_cam.player_ui_popup_panel.setup_tutorial(game_manager.player_resource.tutorial_index)
 		if Input.is_action_just_pressed("stage_2"):
 			#do stage 2 booster
-			if can_stage_2:
+			print("checking enough fuel: ", game_manager.player_resource.fuel)
+			if can_stage_2 and game_manager.player_resource.fuel > .2:
 				can_stage_2 = false
 				in_stage_2 = true
 				time_in_stage_2 = 0
 				time_since_stage_2 = 0
 				show_stage2_fire(true)
 				play_sfx(rocket2_sfx)
+				if game_manager.player_resource.tutorial_index == 3:
+					game_manager.player_resource.tutorial_index +=1
+					player_cam.player_ui_popup_panel.setup_tutorial(game_manager.player_resource.tutorial_index)
+					#player_cam.player_ui_popup_panel.setup_objective(1)
+					game_manager.save_game()
 			else:
 				print("no booosto :'(")
 		if in_stage_2:
@@ -218,6 +249,9 @@ func process_movement(state: PhysicsDirectBodyState3D) -> void:
 		
 		if rotation_dir != 0:
 			apply_torque(Vector3(0,0,-rotation_dir * rotate_power))
+			if game_manager.player_resource.tutorial_index == 2:
+				game_manager.player_resource.tutorial_index +=1
+				player_cam.player_ui_popup_panel.setup_tutorial(game_manager.player_resource.tutorial_index)
 			
 			
 			
@@ -265,6 +299,7 @@ func damage_player(amount):
 
 func end_game(win:bool):
 	if game_manager.game_on:
+		end_displayed = false
 		game_manager.from_game = true
 		game_manager.game_on = false
 		game_manager.player_resource.player_win = win
@@ -342,10 +377,15 @@ func collect_sample(body:PhysicsBody3D):
 		body.queue_free()
 		endgame_checker()
 
-
+var end_displayed:bool
 func endgame_checker()->void:
+	print("sanity check: ", game_manager.player_resource.samples.size(), " | ", game_manager.player_resource.data_downloaded)
 	if game_manager.player_resource.samples.size() >= game_manager.samples_needed and game_manager.player_resource.data_downloaded >= 1:
 			can_end_game = true
+			if !end_displayed:
+				end_displayed = true
+				player_cam.player_ui_popup_panel.setup_objective(2)
+			
 
 func open_mouth(body):
 	if body.is_in_group("Sample"):
@@ -378,7 +418,9 @@ func sample_checker():
 #var test_toggler:bool = true
 #func _unhandled_input(e):
 	#if e.is_action_pressed("ui_accept"):
-		#end_game(false)
+		#game_manager.player_resource.data_downloaded = 1.1
+		#game_manager.player_resource.samples.append_array([load("res://Resources/test_sample.tres"),load("res://Resources/test_sample.tres"),load("res://Resources/test_sample.tres"),load("res://Resources/test_sample.tres"),load("res://Resources/test_sample.tres"),])
+		#endgame_checker()
 #func reset_player():
 	#get_tree().reload_current_scene()
 
@@ -400,17 +442,20 @@ func show_air_brakes(choice:bool)->void:
 	
 	
 func play_sfx(audio_path:String):
-	if currently_playing_sfx.keys().has(audio_path):
-		print("kek no")
-	else:
-		var playback_stream = playback.play_stream(load(audio_path),0,0,1)
-		print("playback stream: ", playback_stream)
-		currently_playing_sfx[audio_path] = playback_stream
+	if game_manager.player_resource.sound_on:
+		if currently_playing_sfx.keys().has(audio_path):
+			print("kek no")
+		else:
+			var playback_stream = playback.play_stream(load(audio_path))
+			print("playback stream: ", playback_stream)
+			currently_playing_sfx[audio_path] = playback_stream
 	
 func play_standalone_sfx(audio_path:String):
-	playback.play_stream(load(audio_path),0,0,1)
+	if game_manager.player_resource.sound_on:
+		playback.play_stream(load(audio_path))
 	
 func stop_sfx(audio_path:String):
-	if currently_playing_sfx.keys().has(audio_path):
-		playback.stop_stream(currently_playing_sfx[audio_path])
-		currently_playing_sfx.erase(audio_path)
+	if game_manager.player_resource.sound_on:
+		if currently_playing_sfx.keys().has(audio_path):
+			playback.stop_stream(currently_playing_sfx[audio_path])
+			currently_playing_sfx.erase(audio_path)

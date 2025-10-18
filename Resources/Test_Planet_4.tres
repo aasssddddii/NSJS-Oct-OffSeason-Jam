@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PlanetResource" load_steps=2 format=3 uid="uid://cby2etueoc4ga"]
+
+[ext_resource type="Script" uid="uid://x8s0y2cuh4sr" path="res://Resources/Planet_Resource_Template.gd" id="1_37rtt"]
+
+[resource]
+script = ExtResource("1_37rtt")
+name = "Test"
+gravity_strength = 1.0
+mass = 1.5
+radius = 30
+sample_density = 20
+asteroid_density = 10
+metadata/_custom_type_script = "uid://x8s0y2cuh4sr"

@@ -28,6 +28,8 @@ func setup_display_sample(resource:ResearchSampleResource,from_game:bool):
 func _on_mouse_entered() -> void:
 	print("show details: ", sample_resource.sample_description)
 	ui_sample_description.setup_sample_description(sample_resource)
+	if $"../../../..".name == "Samples_screen":#LAZY kek
+		ui_sample_description.setup_big_sample(sample_resource)
 	
 
 

@@ -30,3 +30,7 @@ shape = SubResource("CapsuleShape3D_stc67")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
 transform = Transform3D(-0.38811082, 0, -0.92161274, 0, 1, 0, 0.92161274, 0, -0.38811082, 0, 0.2906494, 0)
 shape = SubResource("SphereShape3D_6fh0j")
+
+[node name="GPUParticlesCollisionSphere3D" type="GPUParticlesCollisionSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05022335, 0, 0)
+radius = 1.1958925

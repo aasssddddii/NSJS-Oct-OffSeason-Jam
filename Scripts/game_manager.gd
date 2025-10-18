@@ -16,7 +16,7 @@ var from_game:bool
 var player_node:CharacterController
 var backgound_music_player:AudioStreamPlayer
 
-var save_path := "res://Saves/Save_data.tres"
+var save_path :String
 
 
 func _ready() -> void:
@@ -26,7 +26,8 @@ func _ready() -> void:
 	add_child(backgound_music_player)
 	backgound_music_player.bus = "BG"
 	AudioServer.set_bus_volume_linear(1,player_resource.background_volume_db)
-	manage_bg_music("new","res://Audio/Ambent Music1.ogg")
+	if player_resource.sound_on:
+		manage_bg_music("new","res://Audio/Ambent Music1.ogg")
 
 
 func manage_bg_music(choice:String,audio_path)->void:
@@ -45,8 +46,14 @@ func manage_bg_music(choice:String,audio_path)->void:
 		"stop":
 			backgound_music_player.stream_paused = true
 		"play":
-			backgound_music_player.stream_paused = false
-
+			if backgound_music_player.stream_paused:
+				backgound_music_player.stream_paused = false
+			elif !game_on and !backgound_music_player.stream_paused:
+				backgound_music_player.stream = load("res://Audio/Ambent Music1.ogg")
+				backgound_music_player.play()
+			elif game_on and !backgound_music_player.stream_paused:#VVVChange to ingame music
+				backgound_music_player.stream = load("res://Audio/Ambent Music1.ogg")
+				backgound_music_player.play()
 
 func save_game():
 	var error = ResourceSaver.save(player_resource, save_path)
@@ -59,7 +66,16 @@ func save_game():
 		return true
 
 func load_game():
-	var loaded_resource = ResourceLoader.load(save_path)
+	var loaded_resource
+	if !OS.has_feature("standalone"):
+		save_path = "res://Saves/Save_data.tres"
+		loaded_resource = ResourceLoader.load(save_path)
+	else:
+		save_path = "user://Saves/Save_data.tres"
+		loaded_resource = ResourceLoader.load(save_path)
+	
+	print("sanity LOAD Path: ",save_path)
+	 
 	if loaded_resource:
 		player_resource = loaded_resource
 		print("sanity LOAD check: ", player_resource.saved_samples)
@@ -72,6 +88,8 @@ func load_game():
 #func player_resource_setter():
 	#player_resource = load("res://Resources/PlayerResource.tres")
 	#pass
+	
+
 	
 	
 	

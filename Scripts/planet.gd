@@ -57,6 +57,8 @@ func setup_planet():
 	#Change to random VVV
 	if !planet_resource.home_planet:
 		planet_resource.download_radius = planet_resource.radius * randf_range(2.0,4.0)
+		planet_resource.orbital_data = randf_range(.4,.8)
+		print(name," has downloadable data: ",planet_resource.orbital_data)
 	planer_collider_ref.radius = planet_resource.radius + (planet_resource.radius*0.0005)
 	particle_collider.radius = planet_resource.radius + (planet_resource.radius*0.0005)
 	gravity_field_collider_ref.radius = planet_resource.radius * gravity_field_modifier
@@ -68,6 +70,8 @@ func setup_planet():
 func apply_gravity(body):
 	if body.is_in_group("Player") || body.is_in_group("Sample")|| body.is_in_group("Asteroid"):
 		body.add_planet(self)
+		if planet_resource.home_planet:
+			body.home_planet = self
 		
 func remove_gravity(body):
 	if body.is_in_group("Player")|| body.is_in_group("Sample")|| body.is_in_group("Asteroid"):
@@ -100,3 +104,7 @@ func spawn_asteroids():
 		var next_asteroid = asteroid_prefabs.pick_random().instantiate()
 		hazards_node.add_child(next_asteroid)
 		next_asteroid.global_position = sample_spawner.global_position
+
+
+func reset_planet():
+	planet_resource.reset_planet()
