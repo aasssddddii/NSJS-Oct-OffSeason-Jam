@@ -1,0 +1,55 @@
+[gd_scene load_steps=14 format=3 uid="uid://b5wj253ub1npf"]
+
+[ext_resource type="PackedScene" uid="uid://5qsul620ce5f" path="res://Prefabs/3D files/Samples/glb_prefabs/monkeyhead.glb" id="1_jkl10"]
+[ext_resource type="PackedScene" uid="uid://c4whbvvoikl6k" path="res://Prefabs/3D files/Samples/glb_prefabs/tesseract.glb" id="2_jkl10"]
+[ext_resource type="PackedScene" uid="uid://c3qwosh06w4tl" path="res://Prefabs/3D files/Samples/glb_prefabs/can.glb" id="3_58ov2"]
+[ext_resource type="Shape3D" uid="uid://t7i0nr7m3123" path="res://colliders/can.tres" id="4_op41l"]
+[ext_resource type="PackedScene" uid="uid://cad72qtgfy43g" path="res://Prefabs/3D files/Samples/glb_prefabs/can2.glb" id="5_op41l"]
+[ext_resource type="PackedScene" uid="uid://dcqf8ikt6fy7f" path="res://Prefabs/3D files/Samples/glb_prefabs/isoshpere.glb" id="6_r4c8n"]
+[ext_resource type="PackedScene" uid="uid://bb2s2w5v80g3v" path="res://Prefabs/3D files/Samples/glb_prefabs/open_box.glb" id="7_wv3x6"]
+[ext_resource type="PackedScene" uid="uid://bs5j2n1slr6f0" path="res://Prefabs/3D files/Samples/glb_prefabs/message.glb" id="8_oyovm"]
+[ext_resource type="PackedScene" uid="uid://dsjd1x34mia5u" path="res://Prefabs/3D files/Samples/glb_prefabs/cone.glb" id="9_t42ey"]
+[ext_resource type="PackedScene" uid="uid://cnr8dadmiq85a" path="res://Prefabs/3D files/Samples/glb_prefabs/ore.glb" id="10_hf2ew"]
+[ext_resource type="PackedScene" uid="uid://dekji4rwqgiro" path="res://Prefabs/3D files/Samples/glb_prefabs/cozy.glb" id="11_a3gxn"]
+[ext_resource type="PackedScene" uid="uid://bqv52ecn73tnw" path="res://Prefabs/3D files/Samples/glb_prefabs/710].glb" id="12_n2ckv"]
+[ext_resource type="PackedScene" uid="uid://bhfdat22d4xdf" path="res://Prefabs/3D files/Samples/glb_prefabs/random.glb" id="13_yf0dw"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="monkeyhead" parent="." instance=ExtResource("1_jkl10")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.469401, 0, 0)
+
+[node name="tesseract" parent="." instance=ExtResource("2_jkl10")]
+
+[node name="can" parent="." instance=ExtResource("3_58ov2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.83067137, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="can"]
+shape = ExtResource("4_op41l")
+
+[node name="can2" parent="." instance=ExtResource("5_op41l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1631448, 0, 0)
+
+[node name="isoshpere" parent="." instance=ExtResource("6_r4c8n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5877886, 0, 0)
+
+[node name="open_box" parent="." instance=ExtResource("7_wv3x6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.223473, 0, 0)
+
+[node name="message" parent="." instance=ExtResource("8_oyovm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.45038408, 0, 0)
+
+[node name="cone" parent="." instance=ExtResource("9_t42ey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.92200565, 0, 0)
+
+[node name="ore" parent="." instance=ExtResource("10_hf2ew")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5509, 0, 0)
+
+[node name="cozy" parent="." instance=ExtResource("11_a3gxn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.373357, 0, 0)
+
+[node name="710]" parent="." instance=ExtResource("12_n2ckv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2513707, 0, 0)
+
+[node name="random" parent="." instance=ExtResource("13_yf0dw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.978686, 0, 0)

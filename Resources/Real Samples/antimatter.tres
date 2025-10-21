@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ResearchSampleResource" load_steps=5 format=3 uid="uid://w22ih2f182od"]
+
+[ext_resource type="Shape3D" uid="uid://n8h4v7xho8sa" path="res://colliders/test_sample_collider.tres" id="1_xeld8"]
+[ext_resource type="ArrayMesh" uid="uid://rvoncdjrp20o" path="res://Prefabs/3D files/Samples/meshes/isoshpere.tres" id="2_xeld8"]
+[ext_resource type="Material" uid="uid://y6437sal50rr" path="res://Materials/Samples/isoshpere.tres" id="3_2rgw0"]
+[ext_resource type="Script" uid="uid://cnwjofrbr7ew8" path="res://Resources/Sample_Template.gd" id="4_tu2aw"]
+
+[resource]
+script = ExtResource("4_tu2aw")
+sample_name = "Anti-Matter"
+sample_description = "research shows it can be used to whiten teeth"
+replacement_mesh = ExtResource("2_xeld8")
+sample_material = ExtResource("3_2rgw0")
+replacement_collider = ExtResource("1_xeld8")
+mass = 2.0
+metadata/_custom_type_script = "uid://cnwjofrbr7ew8"

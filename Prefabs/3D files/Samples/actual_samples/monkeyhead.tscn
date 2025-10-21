@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://d22ojuwrppm7a"]
+
+[ext_resource type="PackedScene" uid="uid://5qsul620ce5f" path="res://Prefabs/3D files/Samples/glb_prefabs/monkeyhead.glb" id="1_y2t64"]
+
+[node name="monkeyhead" instance=ExtResource("1_y2t64")]

@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://nguayhi0outx"]
+
+[ext_resource type="Texture2D" uid="uid://dpo37g2enkgf0" path="res://sprites/GasTank_Textures/GasTank_GasMeter_BaseMap.png" id="1_3ctx3"]
+[ext_resource type="Texture2D" uid="uid://lmbekdgfmare" path="res://sprites/GasTank_Textures/GasTank_GasMeter_Emissive.png" id="2_qbx40"]
+[ext_resource type="Texture2D" uid="uid://bcybo6da7tx7g" path="res://sprites/GasTank_Textures/GasTank_GasMeter_MaskMap.png" id="3_onknk"]
+[ext_resource type="Texture2D" uid="uid://dhfnnbnwbytkl" path="res://sprites/GasTank_Textures/GasTank_GasMeter_Normal.png" id="4_0rgx2"]
+
+[resource]
+albedo_texture = ExtResource("1_3ctx3")
+metallic = 1.0
+metallic_texture = ExtResource("3_onknk")
+emission_enabled = true
+emission_texture = ExtResource("2_qbx40")
+normal_enabled = true
+normal_texture = ExtResource("4_0rgx2")

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ResearchSampleResource" load_steps=5 format=3 uid="uid://xi8apx60rn25"]
+
+[ext_resource type="SphereMesh" uid="uid://dkanu6h75lrwv" path="res://Prefabs/3D files/Samples/meshes/test_sample_mesh.tres" id="1_v8bsa"]
+[ext_resource type="Material" uid="uid://br4qy6vbq81t2" path="res://Materials/Planets/planet_material12.tres" id="2_v8bsa"]
+[ext_resource type="Script" uid="uid://cnwjofrbr7ew8" path="res://Resources/Sample_Template.gd" id="3_r1nbp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hcgaq"]
+radius = 0.15
+
+[resource]
+script = ExtResource("3_r1nbp")
+sample_name = "Horren - diorama"
+sample_description = "Gas planet known for azurite dust storms and strong magnetic fields resulting in spectacular auroras"
+replacement_mesh = ExtResource("1_v8bsa")
+sample_material = ExtResource("2_v8bsa")
+replacement_collider = SubResource("SphereShape3D_hcgaq")
+mass = 2.0
+metadata/_custom_type_script = "uid://cnwjofrbr7ew8"

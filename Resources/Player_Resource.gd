@@ -9,8 +9,8 @@ class_name PlayerResource
 @export var data_downloaded:float #= .608
 @export var total_data:float
 
-@export var home_samples:Array[ResearchSampleResource]
-@export var saved_samples:Array[ResearchSampleResource]
+@export var home_samples:Array[ResearchSampleResource] 
+@export var saved_samples:Array[ResearchSampleResource] #= [load("res://Resources/Real Samples/cozy.tres")]
 
 
 @export var player_win:bool

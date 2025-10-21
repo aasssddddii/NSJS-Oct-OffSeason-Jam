@@ -158,6 +158,7 @@ func _process(delta: float) -> void:
 			
 			#Display wiFi accordingly
 			display_wifi(wifi_level)
+		
 	elif closest_planet == null or closest_planet.planet_resource.home_planet:
 		wifi_level = 0
 		display_wifi(wifi_level)
@@ -172,13 +173,14 @@ func _process(delta: float) -> void:
 
 func display_wifi(level:int)->void:
 	data_signal.set_signal_strength(level)
+	manage_data_panel(game_manager.player_resource.data_downloaded,level)
 		
 func update_ui():
 	player_cam.ui_fuel_bar.value = game_manager.player_resource.fuel
 	player_cam.ui_health_bar.value = game_manager.player_resource.health
 	player_cam.ui_stage_2_cooldown_bar.value = (time_since_stage_2/stage_2_timeout)
 	player_cam.ui_data_bar.value = game_manager.player_resource.data_downloaded
-	player_cam.ui_player_samples.text = var_to_str(game_manager.player_resource.samples.size()) + " / 5 stored"
+	player_cam.ui_player_samples.text = var_to_str(game_manager.player_resource.samples.size()) + " / "+var_to_str(game_manager.samples_needed)+ " stored"
 	
 
 func process_movement(state: PhysicsDirectBodyState3D) -> void:
@@ -196,6 +198,7 @@ func process_movement(state: PhysicsDirectBodyState3D) -> void:
 					orbit_planet = closest_planet
 					orbital_lock = true
 					if game_manager.player_resource.tutorial_index == 4:
+						print("player tut index: ", game_manager.player_resource.tutorial_index)
 						game_manager.player_resource.tutorial_index +=1
 						player_cam.player_ui_popup_panel.setup_objective(1)
 					#check if planet has data left to download
@@ -299,6 +302,7 @@ func damage_player(amount):
 
 func end_game(win:bool):
 	if game_manager.game_on:
+		stop_all_sfx()
 		end_displayed = false
 		game_manager.from_game = true
 		game_manager.game_on = false
@@ -341,6 +345,9 @@ func collision_handler(body:PhysicsBody3D):
 		play_standalone_sfx(hit_sfx)
 		print("hit asteroid with speed: ", body.linear_velocity, " taking damage: ",String.num(damage_amount,2))
 	
+	
+	
+	
 	elif can_end_game and body.is_in_group("Planet"):
 		if body.planet_resource.home_planet:
 			print("END THE GAME, PLAYER WIN")
@@ -376,6 +383,12 @@ func collect_sample(body:PhysicsBody3D):
 		print("sample collected player now has samples: ", game_manager.player_resource.samples)
 		body.queue_free()
 		endgame_checker()
+	if body.is_in_group("Fuel"):
+		game_manager.player_resource.fuel = clampf(game_manager.player_resource.fuel+.3,0,1.0) 
+		game_manager.player_resource.health =clampf(game_manager.player_resource.health+.1,0,1.0) 
+		print("player fuel | health", game_manager.player_resource.fuel," | ",game_manager.player_resource.health)
+		body.queue_free()
+		sample_checker()
 
 var end_displayed:bool
 func endgame_checker()->void:
@@ -388,13 +401,13 @@ func endgame_checker()->void:
 			
 
 func open_mouth(body):
-	if body.is_in_group("Sample"):
+	if body.is_in_group("Sample") or body.is_in_group("Fuel"):
 		sample_in_range = true
 		sample_checker()
 func close_mouth(body):
-	if body.is_in_group("Sample"):
-		print("samples left in range: ", sample_range_area.get_overlapping_bodies().filter(func(cheking_body): return cheking_body is Sample).size())
-		if sample_range_area.get_overlapping_bodies().filter(func(cheking_body): return cheking_body is Sample).size() <2:
+	if body.is_in_group("Sample") or body.is_in_group("Fuel"):
+		print("samples left in range: ", sample_range_area.get_overlapping_bodies().filter(func(cheking_body): return cheking_body is Sample || cheking_body.is_in_group("Fuel")).size())
+		if sample_range_area.get_overlapping_bodies().filter(func(cheking_body): return cheking_body is Sample || cheking_body.is_in_group("Fuel")).size() <2:
 			sample_in_range = false
 			sample_checker()
 
@@ -418,9 +431,7 @@ func sample_checker():
 #var test_toggler:bool = true
 #func _unhandled_input(e):
 	#if e.is_action_pressed("ui_accept"):
-		#game_manager.player_resource.data_downloaded = 1.1
-		#game_manager.player_resource.samples.append_array([load("res://Resources/test_sample.tres"),load("res://Resources/test_sample.tres"),load("res://Resources/test_sample.tres"),load("res://Resources/test_sample.tres"),load("res://Resources/test_sample.tres"),])
-		#endgame_checker()
+		#end_game(false)
 #func reset_player():
 	#get_tree().reload_current_scene()
 
@@ -459,3 +470,25 @@ func stop_sfx(audio_path:String):
 		if currently_playing_sfx.keys().has(audio_path):
 			playback.stop_stream(currently_playing_sfx[audio_path])
 			currently_playing_sfx.erase(audio_path)
+
+func stop_all_sfx():
+	for audio_path in currently_playing_sfx.keys():
+		playback.stop_stream(currently_playing_sfx[audio_path])
+	
+func manage_data_panel(data:float,wifi:int):
+	if wifi > 0:
+		player_cam.ui_data_downloaded.text = String.num(data,4) + " /  "+ String.num(closest_planet.planet_resource.orbital_data,4) +" TB"
+	match wifi:
+		0:
+			player_cam.data_panel.visible = false
+		1:
+			player_cam.ui_signal.text = "poor"
+			player_cam.data_panel.visible = true
+		2:
+			player_cam.ui_signal.text = "ok"
+			player_cam.data_panel.visible = true
+		3:
+			player_cam.ui_signal.text = "great"
+			player_cam.data_panel.visible = true
+	
+	

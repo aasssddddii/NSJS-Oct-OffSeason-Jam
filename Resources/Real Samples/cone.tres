@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ResearchSampleResource" load_steps=6 format=3 uid="uid://celo34f5tfj7x"]
+
+[ext_resource type="Shape3D" uid="uid://bbcow5hr6mo3l" path="res://colliders/research_sample_box.tres" id="1_rv5et"]
+[ext_resource type="Script" uid="uid://cnwjofrbr7ew8" path="res://Resources/Sample_Template.gd" id="2_0prn3"]
+[ext_resource type="ArrayMesh" uid="uid://b7fhk2m05c8yh" path="res://Prefabs/3D files/Samples/meshes/cone.tres" id="2_tqxy0"]
+[ext_resource type="Texture2D" uid="uid://ddmlioay0x3p2" path="res://sprites/Cone.png" id="3_s7xat"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8d5x2"]
+albedo_texture = ExtResource("3_s7xat")
+
+[resource]
+script = ExtResource("2_0prn3")
+sample_name = "cone"
+sample_description = "Scientists have determined this to be a cone, just a cone"
+replacement_mesh = ExtResource("2_tqxy0")
+sample_material = SubResource("StandardMaterial3D_8d5x2")
+replacement_collider = ExtResource("1_rv5et")
+mass = 2.0
+metadata/_custom_type_script = "uid://cnwjofrbr7ew8"

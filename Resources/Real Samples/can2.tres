@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ResearchSampleResource" load_steps=5 format=3 uid="uid://dum2ya7pkx4n2"]
+
+[ext_resource type="Shape3D" uid="uid://bbcow5hr6mo3l" path="res://colliders/research_sample_box.tres" id="1_ic4os"]
+[ext_resource type="ArrayMesh" uid="uid://7i4jg5cjw2w2" path="res://Prefabs/3D files/Samples/meshes/can2.tres" id="2_4mgvq"]
+[ext_resource type="Material" uid="uid://digwxmwrwmvbd" path="res://Materials/Samples/can2.tres" id="3_sf2of"]
+[ext_resource type="Script" uid="uid://cnwjofrbr7ew8" path="res://Resources/Sample_Template.gd" id="4_t4bo7"]
+
+[resource]
+script = ExtResource("4_t4bo7")
+sample_name = "unmarked can"
+sample_description = "there is a suspicious liquid sloshing inside"
+replacement_mesh = ExtResource("2_4mgvq")
+sample_material = ExtResource("3_sf2of")
+replacement_collider = ExtResource("1_ic4os")
+mass = 2.0
+metadata/_custom_type_script = "uid://cnwjofrbr7ew8"

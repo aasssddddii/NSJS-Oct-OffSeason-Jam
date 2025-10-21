@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ResearchSampleResource" load_steps=5 format=3 uid="uid://d4f01v32r5wu3"]
+
+[ext_resource type="SphereMesh" uid="uid://dkanu6h75lrwv" path="res://Prefabs/3D files/Samples/meshes/test_sample_mesh.tres" id="1_ibr26"]
+[ext_resource type="Material" uid="uid://car2mmnqeqrfl" path="res://Materials/Planets/planet_material11.tres" id="2_ibr26"]
+[ext_resource type="Script" uid="uid://cnwjofrbr7ew8" path="res://Resources/Sample_Template.gd" id="3_nbxit"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hcgaq"]
+radius = 0.15
+
+[resource]
+script = ExtResource("3_nbxit")
+sample_name = "Duneri - diorama"
+sample_description = "Desert landscape with distinct orange sands and high pressure lightning storms"
+replacement_mesh = ExtResource("1_ibr26")
+sample_material = ExtResource("2_ibr26")
+replacement_collider = SubResource("SphereShape3D_hcgaq")
+mass = 2.0
+metadata/_custom_type_script = "uid://cnwjofrbr7ew8"

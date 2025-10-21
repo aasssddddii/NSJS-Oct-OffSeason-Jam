@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://p2xqngl0jb1a"]
+
+[ext_resource type="Texture2D" uid="uid://buq8dirbq4msw" path="res://sprites/GasTank_Textures/terreract.png" id="1_42usr"]
+
+[resource]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.6901961)
+albedo_texture = ExtResource("1_42usr")
+emission_enabled = true

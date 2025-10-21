@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://7ed546l1nx5c"]
+
+[ext_resource type="PackedScene" uid="uid://bp621wsn88kti" path="res://Prefabs/3D files/Samples/glb_prefabs/datapad.glb" id="1_s27g2"]
+[ext_resource type="ArrayMesh" uid="uid://cqa8efodi0wuv" path="res://Prefabs/3D files/Samples/meshes/datapad.tres" id="2_kl1ao"]
+
+[node name="datapad" instance=ExtResource("1_s27g2")]
+
+[node name="Cube" parent="." index="0"]
+mesh = ExtResource("2_kl1ao")

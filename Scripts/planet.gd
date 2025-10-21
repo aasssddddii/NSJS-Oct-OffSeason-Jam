@@ -33,7 +33,7 @@ func _ready() -> void:
 	if planet_resource.asteroid_density > 0:
 		spawn_asteroids()
 	sample_spawner.position = Vector3(0,planet_resource.radius+2,0)
-	if !planet_resource.home_planet:
+	if !planet_resource.home_planet || game_manager.sample_testing:
 		spawn_samples()
 	begin_spinning = true
 	
@@ -70,7 +70,7 @@ func setup_planet():
 func apply_gravity(body):
 	if body.is_in_group("Player") || body.is_in_group("Sample")|| body.is_in_group("Asteroid"):
 		body.add_planet(self)
-		if planet_resource.home_planet:
+		if planet_resource.home_planet and !body.is_in_group("Sample"):
 			body.home_planet = self
 		
 func remove_gravity(body):
@@ -90,9 +90,10 @@ func spawn_home_pad():
 func spawn_samples():
 	for sample_number in planet_resource.sample_density:
 		spawner_pivot.rotation_degrees = Vector3(0,0,randi_range(0,359))
+		#VVV Randomize
 		var next_research_sample = load("res://Prefabs/research_sample.tscn").instantiate()
 		interactables_node.add_child(next_research_sample)
-		next_research_sample.setup_sample(game_manager.test_sample_resource)
+		next_research_sample.setup_sample(game_manager.all_samples.pick_random())
 		next_research_sample.global_position = sample_spawner.global_position
 	
 func spawn_asteroids():

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ResearchSampleResource" load_steps=5 format=3 uid="uid://5dgwlwvitedf"]
+
+[ext_resource type="Shape3D" uid="uid://n8h4v7xho8sa" path="res://colliders/test_sample_collider.tres" id="1_fov0w"]
+[ext_resource type="ArrayMesh" uid="uid://detqrp78h1kjg" path="res://Prefabs/3D files/Samples/meshes/ore.tres" id="2_fov0w"]
+[ext_resource type="Material" uid="uid://b415uf4733p3" path="res://Materials/Samples/Ferrite_ore.tres" id="3_3g866"]
+[ext_resource type="Script" uid="uid://cnwjofrbr7ew8" path="res://Resources/Sample_Template.gd" id="4_h31op"]
+
+[resource]
+script = ExtResource("4_h31op")
+sample_name = "ferrite ore"
+sample_description = "Common ore deposit found on most planets"
+replacement_mesh = ExtResource("2_fov0w")
+sample_material = ExtResource("3_3g866")
+replacement_collider = ExtResource("1_fov0w")
+mass = 2.0
+metadata/_custom_type_script = "uid://cnwjofrbr7ew8"

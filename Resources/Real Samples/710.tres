@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ResearchSampleResource" load_steps=5 format=3 uid="uid://bls8oby8tg166"]
+
+[ext_resource type="Shape3D" uid="uid://n8h4v7xho8sa" path="res://colliders/test_sample_collider.tres" id="1_8thai"]
+[ext_resource type="ArrayMesh" uid="uid://dex1donlgbwfy" path="res://Prefabs/3D files/Samples/meshes/710.tres" id="2_8thai"]
+[ext_resource type="Material" uid="uid://dw3gwcmsvycx7" path="res://Materials/Samples/710.tres" id="3_i1opf"]
+[ext_resource type="Script" uid="uid://cnwjofrbr7ew8" path="res://Resources/Sample_Template.gd" id="4_8oaa0"]
+
+[resource]
+script = ExtResource("4_8oaa0")
+sample_name = "interesting sample"
+sample_description = "sample with somthing engraved on it"
+replacement_mesh = ExtResource("2_8thai")
+sample_material = ExtResource("3_i1opf")
+replacement_collider = ExtResource("1_8thai")
+mass = 2.0
+metadata/_custom_type_script = "uid://cnwjofrbr7ew8"

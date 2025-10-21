@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ResearchSampleResource" load_steps=5 format=3 uid="uid://5slqcfcs46v3"]
+
+[ext_resource type="Shape3D" uid="uid://n8h4v7xho8sa" path="res://colliders/test_sample_collider.tres" id="1_3hk6y"]
+[ext_resource type="ArrayMesh" uid="uid://detqrp78h1kjg" path="res://Prefabs/3D files/Samples/meshes/ore.tres" id="2_77ci2"]
+[ext_resource type="Material" uid="uid://oj6v35fdji5y" path="res://Materials/Samples/Moolooite_ore.tres" id="3_77ci2"]
+[ext_resource type="Script" uid="uid://cnwjofrbr7ew8" path="res://Resources/Sample_Template.gd" id="3_rdfv5"]
+
+[resource]
+script = ExtResource("3_rdfv5")
+sample_name = "moolooite ore"
+sample_description = "a rare blue-green biomineral composed of hydrated copper oxalate"
+replacement_mesh = ExtResource("2_77ci2")
+sample_material = ExtResource("3_77ci2")
+replacement_collider = ExtResource("1_3hk6y")
+mass = 2.0
+metadata/_custom_type_script = "uid://cnwjofrbr7ew8"

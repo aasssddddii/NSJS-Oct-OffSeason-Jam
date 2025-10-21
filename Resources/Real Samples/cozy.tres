@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ResearchSampleResource" load_steps=5 format=3 uid="uid://buo563bj64que"]
+
+[ext_resource type="Shape3D" uid="uid://cxiwl6dbnphni" path="res://colliders/cozy.tres" id="1_7a4pp"]
+[ext_resource type="ArrayMesh" uid="uid://bdor6jw0xgcii" path="res://Prefabs/3D files/Samples/meshes/cozy.tres" id="2_qby6c"]
+[ext_resource type="Material" uid="uid://dt8g8mju1ra0y" path="res://Materials/Samples/cozy.tres" id="3_8askh"]
+[ext_resource type="Script" uid="uid://cnwjofrbr7ew8" path="res://Resources/Sample_Template.gd" id="3_qby6c"]
+
+[resource]
+script = ExtResource("3_qby6c")
+sample_name = "cozy wolf"
+sample_description = "effigy of a wolf, they seem cozy"
+replacement_mesh = ExtResource("2_qby6c")
+sample_material = ExtResource("3_8askh")
+replacement_collider = ExtResource("1_7a4pp")
+mass = 2.0
+metadata/_custom_type_script = "uid://cnwjofrbr7ew8"

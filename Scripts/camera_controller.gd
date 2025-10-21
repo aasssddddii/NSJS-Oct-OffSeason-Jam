@@ -57,9 +57,19 @@ var current_offset:= 7
 @onready var ui_sample_data = $Samples_screen/SubViewport/HBoxContainer/RightContainer/ui_data
 @onready var ui_sample_saples = $Samples_screen/SubViewport/HBoxContainer/RightContainer/MarginContainer/ui_samples
 
-@onready var planets_node = $"../planets"
+@onready var planets_node := $"../planets"
 
-@onready var player_ui_popup_panel = $SubViewportContainer/CanvasLayer/Popup_panel
+@onready var player_ui_popup_panel := $SubViewportContainer/CanvasLayer/Popup_panel
+@onready var end_game_button := $Options_Menu/SubViewport/end_game
+@onready var end_game_confirm := $Options_Menu/SubViewport/confirm
+@onready var end_game_yes := $Options_Menu/SubViewport/confirm/yes
+@onready var end_game_no :=$Options_Menu/SubViewport/confirm/no
+@onready var option_viewport := $Options_Menu/SubViewport
+
+
+@onready var data_panel := $SubViewportContainer/CanvasLayer/data_panel
+@onready var ui_signal := $SubViewportContainer/CanvasLayer/data_panel/ui_signal
+@onready var ui_data_downloaded := $SubViewportContainer/CanvasLayer/data_panel/ui_data
 
 var track_player:bool
 
@@ -74,10 +84,14 @@ func _ready() -> void:
 	end_back_button.button_up.connect(open_credits)
 	ui_window.button_up.connect(cycle_window_mode)
 	ui_sound.button_up.connect(toggle_sound)
+	end_game_button.button_up.connect(confirm_end_game)
 	sample_library_open_button.button_up.connect(open_sample_library)
 	sample_library_close_button.button_up.connect(close_sample_library)
 	music_slider.value_changed.connect(update_music_volume)
 	sfx_slider.value_changed.connect(update_sfx_volume)
+	end_game_yes.button_up.connect(end_game_early)
+	end_game_no.button_up.connect(close_confirm_end_game)
+	
 	clear_all_menus()
 	start_menu.visible = true
 	
@@ -93,7 +107,6 @@ func _process(_delta: float) -> void:
 			if current_offset < max_offset:
 				current_offset += zoom_speed
 		if Input.is_action_just_pressed("player_pause"):
-			
 			toggle_options_menu()
 			
 func start_tracking():
@@ -124,6 +137,9 @@ func start_game() -> void:
 	else:
 		player_ui_popup_panel.setup_objective(1)
 		
+	if game_manager.player_resource.sound_on:
+		game_manager.manage_bg_music("new",game_manager.game_music1)
+		
 	
 	
 func disable_start_menu() -> void:
@@ -132,6 +148,8 @@ func enable_start_menu()->void:
 	start_menu.process_mode = Node.PROCESS_MODE_INHERIT
 	
 func clear_all_menus() -> void:
+	option_viewport.gui_release_focus()
+	get_viewport().gui_release_focus()
 	for child in get_children():
 		child.visible=false
 		
@@ -164,6 +182,7 @@ func open_options():
 	setup_sliders()
 	update_options()
 	options_menu.visible=true
+	end_game_button.visible = false
 func option_close()->void:
 	if !game_manager.game_on:
 		clear_all_menus()
@@ -172,6 +191,7 @@ func option_close()->void:
 		clear_all_menus()
 		player_ui.visible = true
 		get_tree().paused = false
+	
 	print("saving game: ", game_manager.save_game())
 #in game
 func toggle_options_menu()->void:
@@ -180,11 +200,13 @@ func toggle_options_menu()->void:
 		clear_all_menus()
 		player_ui.visible = true
 		game_manager.manage_bg_music("unpause",null)
+		
 		print("saving game: ", game_manager.save_game())
 	else:#paused
 		get_tree().paused = true
 		clear_all_menus()
 		update_options()
+		end_game_button.visible = true
 		options_menu.visible = true
 		option_back_button.visible = false
 		game_manager.manage_bg_music("pause",null)
@@ -240,6 +262,7 @@ func toggle_sound():
 	
 func update_music_volume(value:float):
 	game_manager.player_resource.background_volume_db = value
+	
 	AudioServer.set_bus_volume_linear(1,value)
 	
 func update_sfx_volume(value:float):
@@ -284,8 +307,8 @@ func close_credits():
 		game_manager.player_resource.reset_player()
 		game_manager.from_game = false
 		reset_cam()
-		get_tree().reload_current_scene()
-		#game_manager.player_resource.reset_samples()
+		
+		game_manager.reload_game()
 		
 	
 	
@@ -324,4 +347,16 @@ func reset_planets():
 	for child in planets_node.get_children():
 		child.reset_planet()
 	
+
+	
+	
+func confirm_end_game():
+	end_game_confirm.visible = true
+	
+	
+func end_game_early():
+	game_manager.reload_game()
+
+func close_confirm_end_game():
+	end_game_confirm.visible = false
 	

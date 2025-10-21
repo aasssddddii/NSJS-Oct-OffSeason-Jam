@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://y6437sal50rr"]
+
+[ext_resource type="Texture2D" uid="uid://l5cilis52vn3" path="res://sprites/Icosphere.png" id="1_qikix"]
+
+[resource]
+transparency = 1
+blend_mode = 1
+albedo_texture = ExtResource("1_qikix")
+metallic = 0.81
+metallic_specular = 0.85

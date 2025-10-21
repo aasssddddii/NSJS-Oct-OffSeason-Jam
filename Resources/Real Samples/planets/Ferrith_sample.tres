@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ResearchSampleResource" load_steps=5 format=3 uid="uid://blv6d3657q4d4"]
+
+[ext_resource type="SphereMesh" uid="uid://dkanu6h75lrwv" path="res://Prefabs/3D files/Samples/meshes/test_sample_mesh.tres" id="1_lewij"]
+[ext_resource type="Material" uid="uid://dw3itbic6u17v" path="res://Materials/Planets/planet_material1.tres" id="2_lewij"]
+[ext_resource type="Script" uid="uid://cnwjofrbr7ew8" path="res://Resources/Sample_Template.gd" id="3_0prfa"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hcgaq"]
+radius = 0.15
+
+[resource]
+script = ExtResource("3_0prfa")
+sample_name = "Ferrith - diorama"
+sample_description = "This moon was hollows out for materials"
+replacement_mesh = ExtResource("1_lewij")
+sample_material = ExtResource("2_lewij")
+replacement_collider = SubResource("SphereShape3D_hcgaq")
+mass = 2.0
+metadata/_custom_type_script = "uid://cnwjofrbr7ew8"

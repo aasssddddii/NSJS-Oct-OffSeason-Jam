@@ -7,6 +7,6 @@ script = ExtResource("1_cqhf3")
 name = "EARth"
 gravity_strength = 0.6
 mass = 0.6
-sample_density = 0
+sample_density = 30
 home_planet = true
 metadata/_custom_type_script = "uid://x8s0y2cuh4sr"

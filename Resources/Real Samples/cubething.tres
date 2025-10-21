@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ResearchSampleResource" load_steps=5 format=3 uid="uid://bi0mm70enope4"]
+
+[ext_resource type="Shape3D" uid="uid://n8h4v7xho8sa" path="res://colliders/test_sample_collider.tres" id="1_y40rt"]
+[ext_resource type="ArrayMesh" uid="uid://daqsiin3nywkq" path="res://Prefabs/3D files/Samples/meshes/tesseract.tres" id="2_63mof"]
+[ext_resource type="Material" uid="uid://p2xqngl0jb1a" path="res://Materials/Samples/tesseract.tres" id="3_lia51"]
+[ext_resource type="Script" uid="uid://cnwjofrbr7ew8" path="res://Resources/Sample_Template.gd" id="4_sm5jv"]
+
+[resource]
+script = ExtResource("4_sm5jv")
+sample_name = "Weird Cube"
+sample_description = "Reachers cannot find a use for this oddity"
+replacement_mesh = ExtResource("2_63mof")
+sample_material = ExtResource("3_lia51")
+replacement_collider = ExtResource("1_y40rt")
+mass = 2.0
+metadata/_custom_type_script = "uid://cnwjofrbr7ew8"

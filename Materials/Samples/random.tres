@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://yhtbj2il18p1"]
+
+[ext_resource type="Texture2D" uid="uid://deet15u07dkw4" path="res://sprites/newCube.png" id="1_engbw"]
+
+[resource]
+transparency = 1
+albedo_color = Color(1, 1, 0.5775778, 0.321)
+albedo_texture = ExtResource("1_engbw")

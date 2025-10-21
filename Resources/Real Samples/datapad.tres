@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ResearchSampleResource" load_steps=5 format=3 uid="uid://dcme6qyq8jgc4"]
+
+[ext_resource type="Shape3D" uid="uid://bxvjgivvs4co2" path="res://colliders/datapad.tres" id="1_joir0"]
+[ext_resource type="ArrayMesh" uid="uid://cqa8efodi0wuv" path="res://Prefabs/3D files/Samples/meshes/datapad.tres" id="2_hjfst"]
+[ext_resource type="Material" uid="uid://dnga1avyokqwd" path="res://Materials/Samples/datapad.tres" id="3_3lv1f"]
+[ext_resource type="Script" uid="uid://cnwjofrbr7ew8" path="res://Resources/Sample_Template.gd" id="4_sk1q7"]
+
+[resource]
+script = ExtResource("4_sk1q7")
+sample_name = "smartpad"
+sample_description = "the data on this pad has long been forgotten"
+replacement_mesh = ExtResource("2_hjfst")
+sample_material = ExtResource("3_3lv1f")
+replacement_collider = ExtResource("1_joir0")
+mass = 2.0
+metadata/_custom_type_script = "uid://cnwjofrbr7ew8"

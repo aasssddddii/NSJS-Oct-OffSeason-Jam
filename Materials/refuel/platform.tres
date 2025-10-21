@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://b3ie4pmvvd6l4"]
+
+[ext_resource type="Texture2D" uid="uid://1uq38dk0027w" path="res://sprites/Platform_Textures/Platform_DefaultMaterial_BaseMap.png" id="1_c4di7"]
+[ext_resource type="Texture2D" uid="uid://l2rbmkso7qg5" path="res://sprites/Platform_Textures/Platform_DefaultMaterial_MaskMap.png" id="2_7xx0m"]
+[ext_resource type="Texture2D" uid="uid://cm7yjrkw0gt7y" path="res://sprites/Platform_Textures/Platform_DefaultMaterial_Normal.png" id="3_qlfdo"]
+
+[resource]
+albedo_texture = ExtResource("1_c4di7")
+metallic = 1.0
+metallic_texture = ExtResource("2_7xx0m")
+normal_enabled = true
+normal_texture = ExtResource("3_qlfdo")

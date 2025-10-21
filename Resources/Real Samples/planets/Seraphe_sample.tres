@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ResearchSampleResource" load_steps=5 format=3 uid="uid://mwyivr4dy1ah"]
+
+[ext_resource type="SphereMesh" uid="uid://dkanu6h75lrwv" path="res://Prefabs/3D files/Samples/meshes/test_sample_mesh.tres" id="1_2xrku"]
+[ext_resource type="Material" uid="uid://el7bmfybwju4" path="res://Materials/Planets/planet_material18.tres" id="2_8xh4y"]
+[ext_resource type="Script" uid="uid://cnwjofrbr7ew8" path="res://Resources/Sample_Template.gd" id="3_sf8js"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hcgaq"]
+radius = 0.15
+
+[resource]
+script = ExtResource("3_sf8js")
+sample_name = "Sofera - diorama"
+sample_description = "Gaseous planet with acidic moisture resulting in a dense heat"
+replacement_mesh = ExtResource("1_2xrku")
+sample_material = ExtResource("2_8xh4y")
+replacement_collider = SubResource("SphereShape3D_hcgaq")
+mass = 2.0
+metadata/_custom_type_script = "uid://cnwjofrbr7ew8"

@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://b3xpns8yg42dd"]
+
+[ext_resource type="Texture2D" uid="uid://cqhf8lts733ym" path="res://sprites/GasTank_Textures/GasTank_Tube_BaseMap.png" id="1_eifhv"]
+[ext_resource type="Texture2D" uid="uid://c8mdv4prwo2li" path="res://sprites/GasTank_Textures/GasTank_Tube_MaskMap.png" id="2_52occ"]
+[ext_resource type="Texture2D" uid="uid://di4r13d463tkd" path="res://sprites/GasTank_Textures/GasTank_Tube_Normal.png" id="3_woasl"]
+
+[resource]
+albedo_texture = ExtResource("1_eifhv")
+metallic = 1.0
+metallic_texture = ExtResource("2_52occ")
+normal_enabled = true
+normal_texture = ExtResource("3_woasl")

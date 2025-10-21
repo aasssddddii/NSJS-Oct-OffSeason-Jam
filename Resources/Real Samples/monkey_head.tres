@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ResearchSampleResource" load_steps=5 format=3 uid="uid://bea52xpeqx8u1"]
+
+[ext_resource type="Shape3D" uid="uid://n8h4v7xho8sa" path="res://colliders/test_sample_collider.tres" id="1_08p17"]
+[ext_resource type="Material" uid="uid://djju3huq71s6k" path="res://Materials/Samples/monkey_head.tres" id="2_08p17"]
+[ext_resource type="ArrayMesh" uid="uid://c3pbqv7gy3u8u" path="res://Prefabs/3D files/Samples/meshes/monkey_head.tres" id="2_q0w14"]
+[ext_resource type="Script" uid="uid://cnwjofrbr7ew8" path="res://Resources/Sample_Template.gd" id="3_6j7rf"]
+
+[resource]
+script = ExtResource("3_6j7rf")
+sample_name = "Monkey Head"
+sample_description = "Origins unknown, looks like an idol of some kind"
+replacement_mesh = ExtResource("2_q0w14")
+sample_material = ExtResource("2_08p17")
+replacement_collider = ExtResource("1_08p17")
+mass = 2.0
+metadata/_custom_type_script = "uid://cnwjofrbr7ew8"

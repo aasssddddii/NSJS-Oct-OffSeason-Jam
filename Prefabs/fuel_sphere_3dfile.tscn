@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://3d1p1t7gygoy"]
+
+[ext_resource type="PackedScene" uid="uid://cg3hlj21gvvep" path="res://Prefabs/3D files/Inside_Outside_Sphere.glb" id="1_i24n0"]
+[ext_resource type="Texture2D" uid="uid://cvijpua2frg15" path="res://Materials/Outside_Sphere/Outside_Sphere_Material.006_BaseMap.png" id="2_ibivr"]
+[ext_resource type="Texture2D" uid="uid://dg354jx1dghit" path="res://Materials/Outside_Sphere/Outside_Sphere_Material.006_Emissive.png" id="3_bgeoy"]
+[ext_resource type="Texture2D" uid="uid://s6y8pxqua65g" path="res://Materials/Outside_Sphere/Outside_Sphere_Material.006_MaskMap.png" id="4_2peqs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4fx3f"]
+transparency = 1
+albedo_texture = ExtResource("2_ibivr")
+metallic = 1.0
+metallic_texture = ExtResource("4_2peqs")
+emission_enabled = true
+emission_texture = ExtResource("3_bgeoy")
+
+[node name="Inside_Outside_Sphere" instance=ExtResource("1_i24n0")]
+
+[node name="Outside_Sphere" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4fx3f")

@@ -12,14 +12,19 @@ func _process(_delta: float) -> void:
 		mesh_instance.rotation_degrees += Vector3(0,rotation_speed,0)
 
 func setup_display_sample(resource:ResearchSampleResource,from_game:bool):
+	sample_resource = resource
+	mesh_instance = $SubViewport/Node3D/MeshInstance3D
 	if from_game:
 		ui_sample_description = $"../../../ui_sample_description"
 	else:
 		ui_sample_description = $"../../../Panel2/big_sample_description"
 		
+	if sample_resource.sample_name == "smartpad":
+		mesh_instance.rotation_degrees = Vector3(0,0,180)
+	else:
+		mesh_instance.rotation_degrees = Vector3.ZERO
 		
-	mesh_instance = $SubViewport/Node3D/MeshInstance3D
-	sample_resource = resource
+	
 	mesh_instance.mesh = sample_resource.replacement_mesh
 	mesh_instance.set_surface_override_material(0,sample_resource.sample_material)
 	texture = $SubViewport.get_texture()

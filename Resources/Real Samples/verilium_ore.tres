@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ResearchSampleResource" load_steps=5 format=3 uid="uid://b73k8aiasw3y2"]
+
+[ext_resource type="Shape3D" uid="uid://n8h4v7xho8sa" path="res://colliders/test_sample_collider.tres" id="1_2ka7o"]
+[ext_resource type="ArrayMesh" uid="uid://detqrp78h1kjg" path="res://Prefabs/3D files/Samples/meshes/ore.tres" id="2_fybqs"]
+[ext_resource type="Material" uid="uid://cse5tdxx38060" path="res://Materials/Samples/Verillium_ore.tres" id="3_2ka7o"]
+[ext_resource type="Script" uid="uid://cnwjofrbr7ew8" path="res://Resources/Sample_Template.gd" id="4_3rrng"]
+
+[resource]
+script = ExtResource("4_3rrng")
+sample_name = "Verillium ore"
+sample_description = "Hardest Material in the universe, though is very brittle"
+replacement_mesh = ExtResource("2_fybqs")
+sample_material = ExtResource("3_2ka7o")
+replacement_collider = ExtResource("1_2ka7o")
+mass = 2.0
+metadata/_custom_type_script = "uid://cnwjofrbr7ew8"

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://638daycm5pfm"]
+
+[ext_resource type="PackedScene" uid="uid://3d1p1t7gygoy" path="res://Prefabs/fuel_sphere_3dfile.tscn" id="1_kx2w4"]
+[ext_resource type="Script" uid="uid://bexru8eg7qyl4" path="res://Scripts/fuel_sphere_3_dfile.gd" id="2_la6ip"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_kx2w4"]
+radius = 1.1305016
+
+[node name="fuel_sphere" type="StaticBody3D" groups=["Fuel"]]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_kx2w4")
+
+[node name="Inside_Outside_Sphere2" parent="." instance=ExtResource("1_kx2w4")]
+script = ExtResource("2_la6ip")

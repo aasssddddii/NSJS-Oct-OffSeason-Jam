@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://bnwcc0375p61f"]
+
+[ext_resource type="Texture2D" uid="uid://cypkdh080ttqy" path="res://sprites/Ring_Textures/Ring_DefaultMaterial_BaseMap.png" id="1_fjy75"]
+[ext_resource type="Texture2D" uid="uid://dmi0875rs0b05" path="res://sprites/Ring_Textures/Ring_DefaultMaterial_Emissive.png" id="2_1hr2w"]
+[ext_resource type="Texture2D" uid="uid://v2hkhuu4gvjl" path="res://sprites/Ring_Textures/Ring_DefaultMaterial_MaskMap.png" id="3_v58dm"]
+[ext_resource type="Texture2D" uid="uid://b4kgef3qu2imt" path="res://sprites/Ring_Textures/Ring_DefaultMaterial_Normal.png" id="4_nn2yk"]
+
+[resource]
+albedo_texture = ExtResource("1_fjy75")
+metallic = 1.0
+metallic_texture = ExtResource("3_v58dm")
+emission_enabled = true
+emission_texture = ExtResource("2_1hr2w")
+normal_enabled = true
+normal_texture = ExtResource("4_nn2yk")

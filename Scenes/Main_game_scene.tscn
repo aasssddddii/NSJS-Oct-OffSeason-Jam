@@ -1,0 +1,1692 @@
+[gd_scene load_steps=34 format=3 uid="uid://doyut13mft55e"]
+
+[ext_resource type="PackedScene" uid="uid://dfxqgwgng77rm" path="res://Prefabs/player_3d.tscn" id="1_rhlmf"]
+[ext_resource type="Script" uid="uid://dpk0jhx0nvune" path="res://Scripts/camera_controller.gd" id="2_pmjte"]
+[ext_resource type="Script" uid="uid://bjducrrbami" path="res://Scripts/player_popup_panel.gd" id="3_w5al1"]
+[ext_resource type="Theme" uid="uid://gx5kr4s8mia3" path="res://fonts/themes/ui_font.tres" id="4_wbsv7"]
+[ext_resource type="Texture2D" uid="uid://bavkjlpq3y1fb" path="res://sprites/progrees bar/White.png" id="5_o5ob6"]
+[ext_resource type="Texture2D" uid="uid://c8h767duougeo" path="res://sprites/progrees bar/Black.png" id="6_smo3r"]
+[ext_resource type="Texture2D" uid="uid://bdja5floo3ch2" path="res://sprites/progrees bar/Red.png" id="7_uv67g"]
+[ext_resource type="Texture2D" uid="uid://bsbu7801if5if" path="res://sprites/progrees bar/Purple.png" id="8_de7p1"]
+[ext_resource type="Texture2D" uid="uid://dd03wwv00162h" path="res://sprites/NSJS.png" id="9_05dlf"]
+[ext_resource type="Script" uid="uid://cxd55r1klfghx" path="res://Scripts/ui_sample_description.gd" id="10_s72lj"]
+[ext_resource type="Script" uid="uid://bqe5pw2va8jwm" path="res://Scripts/big_sample_description.gd" id="11_h7uuw"]
+[ext_resource type="Script" uid="uid://73gt1t3aciur" path="res://Scripts/display_sample.gd" id="12_v3wf7"]
+[ext_resource type="SphereMesh" uid="uid://dkanu6h75lrwv" path="res://Prefabs/3D files/Samples/meshes/test_sample_mesh.tres" id="13_nxxoj"]
+[ext_resource type="PackedScene" uid="uid://c1wvgevhcgjj2" path="res://Prefabs/planet_template.tscn" id="14_qcdoe"]
+[ext_resource type="Resource" uid="uid://i62jqvof1fow" path="res://Resources/Real Planets/Home_Planet.tres" id="15_lnqey"]
+[ext_resource type="Script" uid="uid://x8s0y2cuh4sr" path="res://Resources/Planet_Resource_Template.gd" id="16_kkcyw"]
+[ext_resource type="Script" uid="uid://r7qebxmnh5nm" path="res://Scripts/fuel_spawners.gd" id="17_o8613"]
+[ext_resource type="PackedScene" uid="uid://rslhovh15gu8" path="res://Prefabs/sky_sphere.tscn" id="21_qb3vf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mj635"]
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 0.5372549)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mj635"]
+material = SubResource("StandardMaterial3D_mj635")
+size = Vector3(1550, 1550, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_65vq6"]
+bg_color = Color(0.5529412, 0.5529412, 0.5529412, 0.35686275)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_o8613"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_r0gwe"]
+
+[sub_resource type="Resource" id="Resource_o8613"]
+script = ExtResource("16_kkcyw")
+name = "Orbitar"
+gravity_strength = 0.55
+mass = 0.5
+radius = 5
+sample_density = 3
+asteroid_density = 5
+rotate_speed = 2.0
+metadata/_custom_type_script = "uid://x8s0y2cuh4sr"
+
+[sub_resource type="Resource" id="Resource_kkcyw"]
+script = ExtResource("16_kkcyw")
+name = "Taphao Thong"
+sample_density = 6
+asteroid_density = 10
+rotate_speed = 0.8
+metadata/_custom_type_script = "uid://x8s0y2cuh4sr"
+
+[sub_resource type="Resource" id="Resource_bsmjl"]
+script = ExtResource("16_kkcyw")
+name = "Taphao Kaew"
+gravity_strength = 1.0
+mass = 0.4
+radius = 15
+sample_density = 4
+asteroid_density = 10
+rotate_speed = 0.4
+metadata/_custom_type_script = "uid://x8s0y2cuh4sr"
+
+[sub_resource type="Resource" id="Resource_eol5t"]
+script = ExtResource("16_kkcyw")
+name = "Sancho"
+radius = 25
+sample_density = 3
+asteroid_density = 15
+rotate_speed = 4.0
+metadata/_custom_type_script = "uid://x8s0y2cuh4sr"
+
+[sub_resource type="Resource" id="Resource_rhlmf"]
+script = ExtResource("16_kkcyw")
+name = "Dimidium"
+gravity_strength = 0.6
+radius = 20
+sample_density = 5
+asteroid_density = 8
+rotate_speed = 0.06
+metadata/_custom_type_script = "uid://x8s0y2cuh4sr"
+
+[sub_resource type="Resource" id="Resource_pmjte"]
+script = ExtResource("16_kkcyw")
+name = "Thestias"
+gravity_strength = 0.7
+mass = 0.8
+radius = 8
+asteroid_density = 2
+rotate_speed = 2.0
+metadata/_custom_type_script = "uid://x8s0y2cuh4sr"
+
+[sub_resource type="Resource" id="Resource_w5al1"]
+script = ExtResource("16_kkcyw")
+name = "Smertrios"
+gravity_strength = 1.0
+radius = 40
+sample_density = 4
+asteroid_density = 9
+rotate_speed = 0.8
+metadata/_custom_type_script = "uid://x8s0y2cuh4sr"
+
+[sub_resource type="Resource" id="Resource_wbsv7"]
+script = ExtResource("16_kkcyw")
+name = "Tadmor"
+radius = 45
+sample_density = 4
+asteroid_density = 15
+rotate_speed = 0.5
+metadata/_custom_type_script = "uid://x8s0y2cuh4sr"
+
+[sub_resource type="Resource" id="Resource_o5ob6"]
+script = ExtResource("16_kkcyw")
+name = "Spe"
+radius = 60
+sample_density = 8
+asteroid_density = 25
+rotate_speed = 1.0
+metadata/_custom_type_script = "uid://x8s0y2cuh4sr"
+
+[sub_resource type="Resource" id="Resource_smo3r"]
+script = ExtResource("16_kkcyw")
+name = "Arion"
+radius = 35
+sample_density = 5
+asteroid_density = 25
+rotate_speed = 0.6
+metadata/_custom_type_script = "uid://x8s0y2cuh4sr"
+
+[node name="Main_Game" type="Node3D"]
+
+[node name="Player3D" parent="." groups=["Player"] instance=ExtResource("1_rhlmf")]
+
+[node name="game boarders visual" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18.132)
+visible = false
+mesh = SubResource("BoxMesh_mj635")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+process_mode = 3
+transform = Transform3D(0.87436056, 0.17493542, -0.4526491, -0.020533219, 0.9452658, 0.32565415, 0.4848422, -0.27544487, 0.8300953, -136.29083, 154.0037, 369.53345)
+script = ExtResource("2_pmjte")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="Camera3D"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="SubViewport" parent="Camera3D/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 0
+
+[node name="Popup_panel" type="Panel" parent="Camera3D/SubViewportContainer/CanvasLayer"]
+offset_left = 385.0
+offset_top = 153.0
+offset_right = 755.0
+offset_bottom = 262.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_65vq6")
+script = ExtResource("3_w5al1")
+
+[node name="objective1" type="Control" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Objective Label" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel/objective1"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 14.0
+offset_right = 208.0
+offset_bottom = 43.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 10
+text = "objective:"
+
+[node name="ui_objective" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel/objective1"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 26.0
+offset_right = 353.0
+offset_bottom = 87.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "collect data and samples"
+autowrap_mode = 2
+
+[node name="objective2" type="Control" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Objective Label" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel/objective2"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 14.0
+offset_right = 208.0
+offset_bottom = 43.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 10
+text = "objective:"
+
+[node name="ui_objective" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel/objective2"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 26.0
+offset_right = 353.0
+offset_bottom = 87.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "return to home planet"
+autowrap_mode = 2
+
+[node name="tut1" type="Control" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ui_objective" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel/tut1"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 26.0
+offset_right = 353.0
+offset_bottom = 87.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "w | up
+use thruster"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="tut2" type="Control" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ui_objective" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel/tut2"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 26.0
+offset_right = 353.0
+offset_bottom = 87.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "a/d | left/right
+turn ship"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="tut3" type="Control" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ui_objective" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel/tut3"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 26.0
+offset_right = 353.0
+offset_bottom = 87.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "shift
+stage 2 thrusters"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="tut4" type="Control" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ui_objective" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/Popup_panel/tut4"]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 26.0
+offset_right = 353.0
+offset_bottom = 87.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "space
+orbital data lock"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Panel" type="Panel" parent="Camera3D/SubViewportContainer/CanvasLayer"]
+offset_left = 10.0
+offset_top = 14.0
+offset_right = 376.0
+offset_bottom = 123.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_65vq6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/SubViewportContainer/CanvasLayer"]
+offset_left = 13.0
+offset_top = 20.0
+offset_right = 164.0
+offset_bottom = 62.0
+
+[node name="LeftContainer" type="VBoxContainer" parent="Camera3D/SubViewportContainer/CanvasLayer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Fuel Label" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "fuel: "
+horizontal_alignment = 2
+
+[node name="Health Label" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "health: "
+horizontal_alignment = 2
+
+[node name="Health Label2" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "stage 2: "
+horizontal_alignment = 2
+
+[node name="RightContainer" type="VBoxContainer" parent="Camera3D/SubViewportContainer/CanvasLayer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera3D/SubViewportContainer/CanvasLayer/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="ui_fuel_bar" type="TextureProgressBar" parent="Camera3D/SubViewportContainer/CanvasLayer/HBoxContainer/RightContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.01
+nine_patch_stretch = true
+texture_under = ExtResource("5_o5ob6")
+texture_progress = ExtResource("6_smo3r")
+
+[node name="ui_health_bar" type="TextureProgressBar" parent="Camera3D/SubViewportContainer/CanvasLayer/HBoxContainer/RightContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.01
+nine_patch_stretch = true
+texture_under = ExtResource("5_o5ob6")
+texture_progress = ExtResource("7_uv67g")
+
+[node name="ui_stage2_cooldown_bar" type="TextureProgressBar" parent="Camera3D/SubViewportContainer/CanvasLayer/HBoxContainer/RightContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.01
+nine_patch_stretch = true
+texture_under = ExtResource("5_o5ob6")
+texture_progress = ExtResource("8_de7p1")
+
+[node name="Panel2" type="Panel" parent="Camera3D/SubViewportContainer/CanvasLayer"]
+offset_left = 768.0
+offset_top = 14.0
+offset_right = 1138.0
+offset_bottom = 123.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_65vq6")
+
+[node name="Lore Ui" type="HBoxContainer" parent="Camera3D/SubViewportContainer/CanvasLayer"]
+offset_left = 772.0
+offset_top = 20.0
+offset_right = 1132.0
+offset_bottom = 82.0
+
+[node name="LeftContainer" type="VBoxContainer" parent="Camera3D/SubViewportContainer/CanvasLayer/Lore Ui"]
+layout_mode = 2
+
+[node name="Health Label3" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/Lore Ui/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "data: "
+horizontal_alignment = 2
+
+[node name="Health Label4" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/Lore Ui/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "samples: "
+horizontal_alignment = 2
+
+[node name="RightContainer" type="VBoxContainer" parent="Camera3D/SubViewportContainer/CanvasLayer/Lore Ui"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera3D/SubViewportContainer/CanvasLayer/Lore Ui/RightContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="ui_data_bar" type="TextureProgressBar" parent="Camera3D/SubViewportContainer/CanvasLayer/Lore Ui/RightContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+step = 0.01
+nine_patch_stretch = true
+texture_under = ExtResource("5_o5ob6")
+texture_progress = ExtResource("8_de7p1")
+
+[node name="ui_samples" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/Lore Ui/RightContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "-"
+
+[node name="data_panel" type="Panel" parent="Camera3D/SubViewportContainer/CanvasLayer"]
+visible = false
+offset_left = 844.0
+offset_top = 153.0
+offset_right = 1138.0
+offset_bottom = 262.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_65vq6")
+
+[node name="signal Label" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/data_panel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 3.0
+offset_right = 141.0
+offset_bottom = 32.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "signal:"
+horizontal_alignment = 2
+
+[node name="data Label2" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/data_panel"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 31.0
+offset_right = 273.0
+offset_bottom = 60.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "downloaded data:"
+horizontal_alignment = 2
+
+[node name="ui_signal" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/data_panel"]
+layout_mode = 0
+offset_left = 147.0
+offset_top = 3.0
+offset_right = 283.0
+offset_bottom = 32.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "-"
+
+[node name="ui_data" type="Label" parent="Camera3D/SubViewportContainer/CanvasLayer/data_panel"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 60.0
+offset_right = 240.0
+offset_bottom = 89.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "- / 1.0000 TB"
+horizontal_alignment = 1
+
+[node name="Start_Menu" type="SubViewportContainer" parent="Camera3D"]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="SubViewport" type="SubViewport" parent="Camera3D/Start_Menu"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 0
+
+[node name="Title Label" type="Label" parent="Camera3D/Start_Menu/SubViewport"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 65
+text = "C0SM05"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Camera3D/Start_Menu/SubViewport"]
+offset_left = 53.0
+offset_top = 363.0
+offset_right = 259.0
+offset_bottom = 629.0
+
+[node name="start" type="Button" parent="Camera3D/Start_Menu/SubViewport/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "START"
+flat = true
+
+[node name="options" type="Button" parent="Camera3D/Start_Menu/SubViewport/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "Options"
+flat = true
+
+[node name="sample" type="Button" parent="Camera3D/Start_Menu/SubViewport/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "Samples"
+flat = true
+
+[node name="credits" type="Button" parent="Camera3D/Start_Menu/SubViewport/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "credits"
+flat = true
+
+[node name="quit" type="Button" parent="Camera3D/Start_Menu/SubViewport/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "Quit"
+flat = true
+
+[node name="Options_Menu" type="SubViewportContainer" parent="Camera3D"]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="SubViewport" type="SubViewport" parent="Camera3D/Options_Menu"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 0
+
+[node name="Panel" type="Panel" parent="Camera3D/Options_Menu/SubViewport"]
+offset_left = 324.0
+offset_top = 62.0
+offset_right = 871.0
+offset_bottom = 572.0
+
+[node name="Title Label" type="Label" parent="Camera3D/Options_Menu/SubViewport"]
+offset_left = 424.0
+offset_top = 85.0
+offset_right = 852.0
+offset_bottom = 175.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "Options"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/Options_Menu/SubViewport"]
+offset_left = 388.0
+offset_top = 199.0
+offset_right = 818.0
+offset_bottom = 377.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 3
+
+[node name="LeftContainer" type="VBoxContainer" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 13
+
+[node name="Window Label" type="Label" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer/MarginContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "WINDOW:"
+horizontal_alignment = 2
+
+[node name="Sound Label2" type="Label" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer/MarginContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "sound:"
+horizontal_alignment = 2
+
+[node name="music Label3" type="Label" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer/MarginContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "music:"
+horizontal_alignment = 2
+
+[node name="Sfx Label4" type="Label" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer/MarginContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "SFX:"
+horizontal_alignment = 2
+
+[node name="RightContainer" type="VBoxContainer" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer"]
+custom_minimum_size = Vector2(279.245, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ui_window" type="Button" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "-"
+flat = true
+alignment = 0
+
+[node name="ui_sound" type="Button" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "-"
+flat = true
+alignment = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 15
+
+[node name="music_slider" type="HSlider" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer/RightContainer/MarginContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 0.1
+
+[node name="MarginContainer2" type="MarginContainer" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 27
+
+[node name="sfx_slider" type="HSlider" parent="Camera3D/Options_Menu/SubViewport/HBoxContainer/RightContainer/MarginContainer2"]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+value = 0.1
+
+[node name="back_button" type="Button" parent="Camera3D/Options_Menu/SubViewport"]
+offset_left = 552.0
+offset_top = 502.0
+offset_right = 662.0
+offset_bottom = 544.0
+theme = ExtResource("4_wbsv7")
+theme_override_font_sizes/font_size = 24
+text = "back"
+flat = true
+
+[node name="end_game" type="Button" parent="Camera3D/Options_Menu/SubViewport"]
+offset_left = 554.0
+offset_top = 502.0
+offset_right = 664.0
+offset_bottom = 544.0
+theme = ExtResource("4_wbsv7")
+theme_override_font_sizes/font_size = 24
+text = "quit"
+flat = true
+
+[node name="confirm" type="TextureRect" parent="Camera3D/Options_Menu/SubViewport"]
+visible = false
+self_modulate = Color(0.4, 0.4, 0.4, 1)
+offset_left = 345.0
+offset_top = 190.0
+offset_right = 844.0
+offset_bottom = 557.0
+texture = SubResource("CanvasTexture_o8613")
+
+[node name="Window Label" type="Label" parent="Camera3D/Options_Menu/SubViewport/confirm"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 110.0
+offset_right = 474.0
+offset_bottom = 181.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 18
+text = "are you sure?
+progress may be lost"
+horizontal_alignment = 1
+
+[node name="yes" type="Button" parent="Camera3D/Options_Menu/SubViewport/confirm"]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 204.0
+offset_right = 215.0
+offset_bottom = 246.0
+theme = ExtResource("4_wbsv7")
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "yes"
+flat = true
+
+[node name="no" type="Button" parent="Camera3D/Options_Menu/SubViewport/confirm"]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 204.0
+offset_right = 380.0
+offset_bottom = 246.0
+theme = ExtResource("4_wbsv7")
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "no"
+flat = true
+
+[node name="Credit_Screen" type="SubViewportContainer" parent="Camera3D"]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="SubViewport" type="SubViewport" parent="Camera3D/Credit_Screen"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 0
+
+[node name="Panel" type="Panel" parent="Camera3D/Credit_Screen/SubViewport"]
+offset_left = 17.0
+offset_top = 15.0
+offset_right = 1142.0
+offset_bottom = 631.0
+
+[node name="Title Label" type="Label" parent="Camera3D/Credit_Screen/SubViewport"]
+offset_left = 353.0
+offset_top = 10.0
+offset_right = 782.0
+offset_bottom = 100.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 65
+text = "Credits"
+
+[node name="TextureRect" type="TextureRect" parent="Camera3D/Credit_Screen/SubViewport"]
+offset_left = 779.0
+offset_top = 193.0
+offset_right = 1035.0
+offset_bottom = 447.0
+texture = ExtResource("9_05dlf")
+
+[node name="nsjs" type="Label" parent="Camera3D/Credit_Screen/SubViewport"]
+offset_left = 639.0
+offset_top = 122.0
+offset_right = 1142.0
+offset_bottom = 244.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 20
+text = "This game was created for NSJS GamJam"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="TY" type="Label" parent="Camera3D/Credit_Screen/SubViewport"]
+visible = false
+offset_left = 654.0
+offset_top = 462.0
+offset_right = 1883.0
+offset_bottom = 552.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 25
+text = "Thank You For Playing"
+
+[node name="back" type="Button" parent="Camera3D/Credit_Screen/SubViewport"]
+offset_left = 945.0
+offset_top = 567.0
+offset_right = 1105.0
+offset_bottom = 617.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+text = "back"
+flat = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/Credit_Screen/SubViewport"]
+offset_left = 51.0
+offset_top = 183.0
+offset_right = 91.0
+offset_bottom = 223.0
+theme_override_constants/separation = 10
+
+[node name="LeftContainer" type="VBoxContainer" parent="Camera3D/Credit_Screen/SubViewport/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera3D/Credit_Screen/SubViewport/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 107
+
+[node name="Art Label" type="Label" parent="Camera3D/Credit_Screen/SubViewport/HBoxContainer/LeftContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "Visual Artists:"
+horizontal_alignment = 2
+
+[node name="PG Label2" type="Label" parent="Camera3D/Credit_Screen/SubViewport/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "Programmer:"
+horizontal_alignment = 2
+
+[node name="ass Label3" type="Label" parent="Camera3D/Credit_Screen/SubViewport/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "Misc assets:"
+horizontal_alignment = 2
+
+[node name="RightContainer" type="VBoxContainer" parent="Camera3D/Credit_Screen/SubViewport/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="Camera3D/Credit_Screen/SubViewport/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "Solarzozo"
+
+[node name="Label4" type="Label" parent="Camera3D/Credit_Screen/SubViewport/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "Dom Anastasi"
+
+[node name="Label5" type="Label" parent="Camera3D/Credit_Screen/SubViewport/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "theOneLostCause"
+
+[node name="Label2" type="Label" parent="Camera3D/Credit_Screen/SubViewport/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "BM Gaming"
+
+[node name="Label3" type="Label" parent="Camera3D/Credit_Screen/SubViewport/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "Ibram Syah
+LinkDesigns
+freesound
+"
+
+[node name="End_screen" type="SubViewportContainer" parent="Camera3D"]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="SubViewport" type="SubViewport" parent="Camera3D/End_screen"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 0
+
+[node name="Panel" type="Panel" parent="Camera3D/End_screen/SubViewport"]
+offset_left = 52.0
+offset_top = 62.0
+offset_right = 537.0
+offset_bottom = 592.0
+
+[node name="Title Label" type="Label" parent="Camera3D/End_screen/SubViewport"]
+offset_left = 354.0
+offset_top = -4.0
+offset_right = 782.0
+offset_bottom = 86.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "Summary"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/End_screen/SubViewport"]
+offset_left = 84.0
+offset_top = 79.0
+offset_right = 435.0
+offset_bottom = 237.0
+
+[node name="LeftContainer" type="VBoxContainer" parent="Camera3D/End_screen/SubViewport/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Window Label" type="Label" parent="Camera3D/End_screen/SubViewport/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "Data:"
+horizontal_alignment = 2
+
+[node name="Window Label2" type="Label" parent="Camera3D/End_screen/SubViewport/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "samples 
+collected:"
+horizontal_alignment = 2
+
+[node name="RightContainer" type="VBoxContainer" parent="Camera3D/End_screen/SubViewport/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="ui_data" type="Label" parent="Camera3D/End_screen/SubViewport/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "-"
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera3D/End_screen/SubViewport/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 38
+
+[node name="ui_samples" type="Label" parent="Camera3D/End_screen/SubViewport/HBoxContainer/RightContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "-"
+
+[node name="ok_button" type="Button" parent="Camera3D/End_screen/SubViewport"]
+offset_left = 240.0
+offset_top = 508.0
+offset_right = 350.0
+offset_bottom = 550.0
+theme = ExtResource("4_wbsv7")
+theme_override_font_sizes/font_size = 24
+text = "ok
+"
+flat = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Camera3D/End_screen/SubViewport"]
+offset_left = 103.0
+offset_top = 214.0
+offset_right = 1456.3333
+offset_bottom = 777.3333
+scale = Vector2(0.3, 0.3)
+
+[node name="GridContainer" type="GridContainer" parent="Camera3D/End_screen/SubViewport/ScrollContainer"]
+layout_mode = 2
+columns = 5
+
+[node name="ui_sample_description" type="TextureRect" parent="Camera3D/End_screen/SubViewport"]
+visible = false
+self_modulate = Color(0.5058824, 0.5294118, 0.5058824, 1)
+offset_left = 123.0
+offset_top = 389.0
+offset_right = 480.0
+offset_bottom = 506.0
+texture = SubResource("CanvasTexture_r0gwe")
+script = ExtResource("10_s72lj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/End_screen/SubViewport/ui_sample_description"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 357.0
+offset_bottom = 114.0
+
+[node name="LeftContainer" type="VBoxContainer" parent="Camera3D/End_screen/SubViewport/ui_sample_description/HBoxContainer"]
+layout_mode = 2
+
+[node name="name Label" type="Label" parent="Camera3D/End_screen/SubViewport/ui_sample_description/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 14
+text = "name:"
+horizontal_alignment = 2
+
+[node name="Description Label2" type="Label" parent="Camera3D/End_screen/SubViewport/ui_sample_description/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 14
+text = "info:"
+horizontal_alignment = 2
+
+[node name="RightContainer" type="VBoxContainer" parent="Camera3D/End_screen/SubViewport/ui_sample_description/HBoxContainer"]
+layout_mode = 2
+
+[node name="ui_name" type="Label" parent="Camera3D/End_screen/SubViewport/ui_sample_description/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 14
+text = "-"
+
+[node name="ui_description" type="Label" parent="Camera3D/End_screen/SubViewport/ui_sample_description/HBoxContainer/RightContainer"]
+custom_minimum_size = Vector2(272.085, 0)
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 14
+text = "-"
+autowrap_mode = 2
+
+[node name="Panel2" type="Panel" parent="Camera3D/End_screen/SubViewport"]
+offset_left = 587.0
+offset_top = 62.0
+offset_right = 1134.0
+offset_bottom = 592.0
+
+[node name="Mission True End" type="Control" parent="Camera3D/End_screen/SubViewport/Panel2"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="u" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission True End"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 29.0
+offset_right = 494.0
+offset_bottom = 71.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Mission Success"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/End_screen/SubViewport/Panel2/Mission True End"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 147.0
+offset_right = 504.0
+offset_bottom = 560.0
+theme_override_constants/separation = 30
+
+[node name="LeftContainer" type="VBoxContainer" parent="Camera3D/End_screen/SubViewport/Panel2/Mission True End/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 71
+
+[node name="ship" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission True End/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_color = Color(0.5645263, 0.0009160726, 1.4439226e-07, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "ship:"
+horizontal_alignment = 2
+
+[node name="u2" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission True End/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_color = Color(0.5645263, 0.0009160726, 1.4439226e-07, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "notes:"
+horizontal_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera3D/End_screen/SubViewport/Panel2/Mission True End/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 68
+
+[node name="u2" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission True End/HBoxContainer/LeftContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_color = Color(0.5645263, 0.0009160726, 1.4439226e-07, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "Result:"
+horizontal_alignment = 2
+
+[node name="RightContainer2" type="VBoxContainer" parent="Camera3D/End_screen/SubViewport/Panel2/Mission True End/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="ship_name" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission True End/HBoxContainer/RightContainer2"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 16
+text = "S.S. PACMan"
+autowrap_mode = 2
+
+[node name="ui_body4" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission True End/HBoxContainer/RightContainer2"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 16
+text = "With the overabundance of samples collected we are now able to create the perfect weapon"
+autowrap_mode = 2
+
+[node name="ui_body3" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission True End/HBoxContainer/RightContainer2"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 16
+text = "Mission complete - Archive Date: 03/18/4066"
+autowrap_mode = 2
+
+[node name="Mission Succes" type="Control" parent="Camera3D/End_screen/SubViewport/Panel2"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="u" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Succes"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 29.0
+offset_right = 494.0
+offset_bottom = 71.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Mission Success"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Succes"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 115.0
+offset_right = 512.0
+offset_bottom = 528.0
+theme_override_constants/separation = 30
+
+[node name="LeftContainer" type="VBoxContainer" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Succes/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 71
+
+[node name="ship" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Succes/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_color = Color(0.5645263, 0.0009160726, 1.4439226e-07, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "ship:"
+horizontal_alignment = 2
+
+[node name="u" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Succes/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_color = Color(0.5645263, 0.0009160726, 1.4439226e-07, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "notes:"
+horizontal_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Succes/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 105
+
+[node name="u2" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Succes/HBoxContainer/LeftContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_color = Color(0.5645263, 0.0009160726, 1.4439226e-07, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "Result:"
+horizontal_alignment = 2
+
+[node name="RightContainer2" type="VBoxContainer" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Succes/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="ship_name" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Succes/HBoxContainer/RightContainer2"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 16
+text = "S.S. PACMan"
+autowrap_mode = 2
+
+[node name="ui_body2" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Succes/HBoxContainer/RightContainer2"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 16
+text = "The samples that were thought once to be benign are showing dangerous levels of biochemical activity"
+autowrap_mode = 2
+
+[node name="ui_body3" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Succes/HBoxContainer/RightContainer2"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 16
+text = "More Samples are required for testing"
+autowrap_mode = 2
+
+[node name="Mission Failed" type="Control" parent="Camera3D/End_screen/SubViewport/Panel2"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="u" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Failed"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 29.0
+offset_right = 494.0
+offset_bottom = 71.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Mission failed"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Failed"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 147.0
+offset_right = 504.0
+offset_bottom = 560.0
+theme_override_constants/separation = 30
+
+[node name="LeftContainer" type="VBoxContainer" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Failed/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 71
+
+[node name="ship" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Failed/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_color = Color(0.5645263, 0.0009160726, 1.4439226e-07, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "ship:"
+horizontal_alignment = 2
+
+[node name="u" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Failed/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_color = Color(0.5645263, 0.0009160726, 1.4439226e-07, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "notes:"
+horizontal_alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Failed/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 82
+
+[node name="u2" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Failed/HBoxContainer/LeftContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_color = Color(0.5645263, 0.0009160726, 1.4439226e-07, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 20
+text = "Result:"
+horizontal_alignment = 2
+
+[node name="RightContainer2" type="VBoxContainer" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Failed/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="ship_name" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Failed/HBoxContainer/RightContainer2"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 16
+text = "S.S. PACMan"
+autowrap_mode = 2
+
+[node name="ui_body2" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Failed/HBoxContainer/RightContainer2"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 16
+text = "We need more samples if we are ever going to understand that Monster"
+autowrap_mode = 2
+
+[node name="ui_body3" type="Label" parent="Camera3D/End_screen/SubViewport/Panel2/Mission Failed/HBoxContainer/RightContainer2"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 16
+text = "New Satellite is required,  for sample gathering "
+autowrap_mode = 2
+
+[node name="Samples_screen" type="SubViewportContainer" parent="Camera3D"]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="SubViewport" type="SubViewport" parent="Camera3D/Samples_screen"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 0
+
+[node name="Panel" type="Panel" parent="Camera3D/Samples_screen/SubViewport"]
+offset_left = 52.0
+offset_top = 62.0
+offset_right = 537.0
+offset_bottom = 592.0
+
+[node name="Title Label" type="Label" parent="Camera3D/Samples_screen/SubViewport"]
+offset_left = 240.0
+offset_top = -4.0
+offset_right = 889.0
+offset_bottom = 86.0
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "Sample library"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/Samples_screen/SubViewport"]
+offset_left = 84.0
+offset_top = 79.0
+offset_right = 435.0
+offset_bottom = 237.0
+theme_override_constants/separation = 18
+
+[node name="LeftContainer" type="VBoxContainer" parent="Camera3D/Samples_screen/SubViewport/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="Window Label" type="Label" parent="Camera3D/Samples_screen/SubViewport/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "total Data:"
+horizontal_alignment = 2
+
+[node name="Window Label2" type="Label" parent="Camera3D/Samples_screen/SubViewport/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "samples 
+identified:"
+horizontal_alignment = 2
+
+[node name="RightContainer" type="VBoxContainer" parent="Camera3D/Samples_screen/SubViewport/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="ui_data" type="Label" parent="Camera3D/Samples_screen/SubViewport/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "-"
+
+[node name="MarginContainer" type="MarginContainer" parent="Camera3D/Samples_screen/SubViewport/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 38
+
+[node name="ui_samples" type="Label" parent="Camera3D/Samples_screen/SubViewport/HBoxContainer/RightContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 24
+text = "-"
+
+[node name="back_button" type="Button" parent="Camera3D/Samples_screen/SubViewport"]
+offset_left = 240.0
+offset_top = 508.0
+offset_right = 350.0
+offset_bottom = 550.0
+theme = ExtResource("4_wbsv7")
+theme_override_font_sizes/font_size = 24
+text = "back
+"
+flat = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Camera3D/Samples_screen/SubViewport"]
+offset_left = 103.0
+offset_top = 214.0
+offset_right = 1456.3333
+offset_bottom = 777.3333
+scale = Vector2(0.3, 0.3)
+
+[node name="GridContainer" type="GridContainer" parent="Camera3D/Samples_screen/SubViewport/ScrollContainer"]
+layout_mode = 2
+columns = 5
+
+[node name="Panel2" type="Panel" parent="Camera3D/Samples_screen/SubViewport"]
+offset_left = 587.0
+offset_top = 62.0
+offset_right = 1134.0
+offset_bottom = 592.0
+
+[node name="big_sample_description" type="TextureRect" parent="Camera3D/Samples_screen/SubViewport/Panel2"]
+visible = false
+self_modulate = Color(0.5058824, 0.5294118, 0.5058824, 1)
+layout_mode = 0
+offset_left = 112.0
+offset_top = 347.0
+offset_right = 469.0
+offset_bottom = 500.0
+texture = SubResource("CanvasTexture_r0gwe")
+script = ExtResource("11_h7uuw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 357.0
+offset_bottom = 114.0
+
+[node name="LeftContainer" type="VBoxContainer" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/HBoxContainer"]
+layout_mode = 2
+
+[node name="name Label" type="Label" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 14
+text = "name:"
+horizontal_alignment = 2
+
+[node name="status Label2" type="Label" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 14
+text = "status:"
+horizontal_alignment = 2
+
+[node name="Description Label2" type="Label" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/HBoxContainer/LeftContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 14
+text = "info:"
+horizontal_alignment = 2
+
+[node name="RightContainer" type="VBoxContainer" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/HBoxContainer"]
+layout_mode = 2
+
+[node name="ui_name" type="Label" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 14
+text = "-"
+
+[node name="ui_status" type="Label" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/HBoxContainer/RightContainer"]
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 14
+text = "-"
+
+[node name="ui_description" type="Label" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/HBoxContainer/RightContainer"]
+custom_minimum_size = Vector2(248.45, 0)
+layout_mode = 2
+theme = ExtResource("4_wbsv7")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 14
+text = "-"
+autowrap_mode = 2
+
+[node name="display_sample" type="TextureRect" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = -310.0
+offset_right = 18.0
+offset_bottom = -310.0
+scale = Vector2(1.5, 1.5)
+script = ExtResource("12_v3wf7")
+
+[node name="SubViewport" type="SubViewport" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/display_sample"]
+own_world_3d = true
+transparent_bg = true
+size = Vector2i(200, 200)
+
+[node name="Node3D" type="Node3D" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/display_sample/SubViewport"]
+
+[node name="Camera3D" type="Camera3D" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/display_sample/SubViewport/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+current = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/display_sample/SubViewport/Node3D"]
+mesh = ExtResource("13_nxxoj")
+skeleton = NodePath("../..")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Camera3D/Samples_screen/SubViewport/Panel2/big_sample_description/display_sample/SubViewport/Node3D"]
+
+[node name="interactables" type="Node3D" parent="."]
+
+[node name="planets" type="Node3D" parent="."]
+
+[node name="Planet" parent="planets" instance=ExtResource("14_qcdoe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16556549, -10.849764, 1.9073486e-06)
+planet_resource = ExtResource("15_lnqey")
+
+[node name="Orbitar" parent="planets" instance=ExtResource("14_qcdoe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 369.25354, 77.22659, 1.9073486e-06)
+planet_resource = SubResource("Resource_o8613")
+
+[node name="Taphao Thong" parent="planets" instance=ExtResource("14_qcdoe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 434.38092, 20.145813, 1.9073486e-06)
+planet_resource = SubResource("Resource_kkcyw")
+
+[node name="Taphao Kaew" parent="planets" instance=ExtResource("14_qcdoe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.86551, 149.65955, 1.9073486e-06)
+planet_resource = SubResource("Resource_bsmjl")
+
+[node name="Sancho" parent="planets" instance=ExtResource("14_qcdoe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.21341, 279.8466, 1.9073486e-06)
+planet_resource = SubResource("Resource_eol5t")
+
+[node name="Dimidium" parent="planets" instance=ExtResource("14_qcdoe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -273.19815, 275.02954, 1.9073486e-06)
+planet_resource = SubResource("Resource_rhlmf")
+
+[node name="Thestias" parent="planets" instance=ExtResource("14_qcdoe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -154.70653, 192.67279, 1.9073486e-06)
+planet_resource = SubResource("Resource_pmjte")
+
+[node name="Smertrios" parent="planets" instance=ExtResource("14_qcdoe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.985596, 489.93375, 1.9073486e-06)
+planet_resource = SubResource("Resource_w5al1")
+
+[node name="Tadmor" parent="planets" instance=ExtResource("14_qcdoe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -356.5286, -155.72319, 1.9073486e-06)
+planet_resource = SubResource("Resource_wbsv7")
+
+[node name="Spe" parent="planets" instance=ExtResource("14_qcdoe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.76242, -428.62665, 1.9073486e-06)
+planet_resource = SubResource("Resource_o5ob6")
+
+[node name="Arion" parent="planets" instance=ExtResource("14_qcdoe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 357.0945, -220.74701, 1.9073486e-06)
+planet_resource = SubResource("Resource_smo3r")
+
+[node name="hazards" type="Node3D" parent="."]
+
+[node name="fuel_spawners" type="Node3D" parent="."]
+script = ExtResource("17_o8613")
+
+[node name="spawn1" type="Node3D" parent="fuel_spawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -376.6488, 91.67975, 0)
+
+[node name="spawn2" type="Node3D" parent="fuel_spawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 507.98566, 550.9282, 0)
+
+[node name="spawn3" type="Node3D" parent="fuel_spawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -513.14575, 550.9282, 0)
+
+[node name="spawn4" type="Node3D" parent="fuel_spawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -513.14575, -568.8428, 0)
+
+[node name="spawn5" type="Node3D" parent="fuel_spawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 509.05804, -568.8428, 0)
+
+[node name="spawn6" type="Node3D" parent="fuel_spawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 195.06845, -131.75656, 0)
+
+[node name="spawn7" type="Node3D" parent="fuel_spawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -256.73685, 3.081421, 0)
+
+[node name="spawn8" type="Node3D" parent="fuel_spawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.1008, 378.9071, 0)
+
+[node name="spawn9" type="Node3D" parent="fuel_spawners"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 191.5617, 118.468445, 0)
+
+[node name="Visuals" type="Node3D" parent="."]
+
+[node name="starrybg222" parent="Visuals" instance=ExtResource("21_qb3vf")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Visuals"]
+light_energy = 0.2
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="Visuals"]
+transform = Transform3D(-0.99999994, 0, 8.742277e-08, 0, 1, 0, -8.742277e-08, 0, -0.99999994, 0, 0, 0)
+light_energy = 0.2

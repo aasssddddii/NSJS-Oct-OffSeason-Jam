@@ -1,0 +1,25 @@
+[gd_scene load_steps=9 format=3 uid="uid://buescb2wrm7va"]
+
+[ext_resource type="PackedScene" uid="uid://c3tdjvqfhoc0j" path="res://Prefabs/3D files/SpaceStation_GasStation.glb" id="1_dfhsw"]
+[ext_resource type="Material" uid="uid://dbjhrwpy8rkx3" path="res://Materials/refuel/pilar_cubes.tres" id="2_d18f5"]
+[ext_resource type="Material" uid="uid://bufc8pnprsthb" path="res://Materials/refuel/pilar_material.001.tres" id="3_gt11x"]
+[ext_resource type="Material" uid="uid://bnwcc0375p61f" path="res://Materials/refuel/ring.tres" id="4_jyx8m"]
+[ext_resource type="Material" uid="uid://bt6cpfvek0s1g" path="res://Materials/refuel/gass_tank_gas_body.tres" id="5_t7c1w"]
+[ext_resource type="Material" uid="uid://o7u2pmtsoyqe" path="res://Materials/refuel/gas_tank_material.tres" id="6_41bdf"]
+[ext_resource type="Material" uid="uid://nguayhi0outx" path="res://Materials/refuel/gas_tank_gas_meter.tres" id="7_qklkq"]
+[ext_resource type="Material" uid="uid://b3xpns8yg42dd" path="res://Materials/refuel/gas_tank_tube.tres" id="8_jhesq"]
+
+[node name="SpaceStation_GasStation" instance=ExtResource("1_dfhsw")]
+
+[node name="Stand2" parent="." index="2"]
+surface_material_override/0 = ExtResource("2_d18f5")
+surface_material_override/1 = ExtResource("3_gt11x")
+
+[node name="Cylinder_001" parent="." index="3"]
+surface_material_override/0 = ExtResource("4_jyx8m")
+
+[node name="Cylinder_003" parent="." index="5"]
+surface_material_override/0 = ExtResource("5_t7c1w")
+surface_material_override/1 = ExtResource("6_41bdf")
+surface_material_override/2 = ExtResource("7_qklkq")
+surface_material_override/3 = ExtResource("8_jhesq")

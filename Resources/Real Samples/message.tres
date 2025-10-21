@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ResearchSampleResource" load_steps=6 format=3 uid="uid://b0srhq0bbjd5t"]
+
+[ext_resource type="Shape3D" uid="uid://n8h4v7xho8sa" path="res://colliders/test_sample_collider.tres" id="1_5epjg"]
+[ext_resource type="ArrayMesh" uid="uid://cx1ssoa74yccd" path="res://Prefabs/3D files/Samples/meshes/message.tres" id="2_5epjg"]
+[ext_resource type="Texture2D" uid="uid://b33nij0wmo2st" path="res://Scripts/Sphere.png" id="3_uf77b"]
+[ext_resource type="Script" uid="uid://cnwjofrbr7ew8" path="res://Resources/Sample_Template.gd" id="4_yg22t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4e12o"]
+cull_mode = 1
+albedo_texture = ExtResource("3_uf77b")
+metallic = 1.0
+
+[resource]
+script = ExtResource("4_yg22t")
+sample_name = "strange message"
+sample_description = "Researchers have been trying to find out for eons"
+replacement_mesh = ExtResource("2_5epjg")
+sample_material = SubResource("StandardMaterial3D_4e12o")
+replacement_collider = ExtResource("1_5epjg")
+mass = 2.0
+metadata/_custom_type_script = "uid://cnwjofrbr7ew8"

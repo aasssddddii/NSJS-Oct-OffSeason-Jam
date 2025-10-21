@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ResearchSampleResource" load_steps=5 format=3 uid="uid://djui2cfygs83l"]
+
+[ext_resource type="Shape3D" uid="uid://t7i0nr7m3123" path="res://colliders/can.tres" id="1_jnpmd"]
+[ext_resource type="ArrayMesh" uid="uid://drw4s64v46ttf" path="res://Prefabs/3D files/Samples/meshes/can.tres" id="2_1gulq"]
+[ext_resource type="Material" uid="uid://bkwbjjpv6wuo3" path="res://Materials/Samples/can.tres" id="3_r5wdh"]
+[ext_resource type="Script" uid="uid://cnwjofrbr7ew8" path="res://Resources/Sample_Template.gd" id="4_kq8nn"]
+
+[resource]
+script = ExtResource("4_kq8nn")
+sample_name = "the can cola"
+sample_description = "the most refreshing beverage"
+replacement_mesh = ExtResource("2_1gulq")
+sample_material = ExtResource("3_r5wdh")
+replacement_collider = ExtResource("1_jnpmd")
+mass = 2.0
+metadata/_custom_type_script = "uid://cnwjofrbr7ew8"

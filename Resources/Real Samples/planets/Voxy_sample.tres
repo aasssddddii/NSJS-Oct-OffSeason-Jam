@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="ResearchSampleResource" load_steps=5 format=3 uid="uid://dau6vguos6r8u"]
+
+[ext_resource type="SphereMesh" uid="uid://dkanu6h75lrwv" path="res://Prefabs/3D files/Samples/meshes/test_sample_mesh.tres" id="1_21ffe"]
+[ext_resource type="Material" uid="uid://c0swsa7ecm3gg" path="res://Materials/Planets/planet_material10.tres" id="2_21ffe"]
+[ext_resource type="Script" uid="uid://cnwjofrbr7ew8" path="res://Resources/Sample_Template.gd" id="3_6cred"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hcgaq"]
+radius = 0.15
+
+[resource]
+script = ExtResource("3_6cred")
+sample_name = "Voxy - diorama"
+sample_description = "This planet is all gas with no surface, it acts like a black hole it will try to suck you in and there’s no way out"
+replacement_mesh = ExtResource("1_21ffe")
+sample_material = ExtResource("2_21ffe")
+replacement_collider = SubResource("SphereShape3D_hcgaq")
+mass = 2.0
+metadata/_custom_type_script = "uid://cnwjofrbr7ew8"

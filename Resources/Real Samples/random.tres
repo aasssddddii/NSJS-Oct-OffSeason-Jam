@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ResearchSampleResource" load_steps=5 format=3 uid="uid://rup73lbl6tst"]
+
+[ext_resource type="Shape3D" uid="uid://bbcow5hr6mo3l" path="res://colliders/research_sample_box.tres" id="1_j3jud"]
+[ext_resource type="ArrayMesh" uid="uid://comu7lttobb2y" path="res://Prefabs/3D files/Samples/meshes/random.tres" id="2_lswjo"]
+[ext_resource type="Material" uid="uid://brx31x838b77o" path="res://Materials/Samples/cubething.tres" id="3_7lvyy"]
+[ext_resource type="Script" uid="uid://cnwjofrbr7ew8" path="res://Resources/Sample_Template.gd" id="4_t6hel"]
+
+[resource]
+script = ExtResource("4_t6hel")
+sample_name = "pure entropy"
+sample_description = "Research on this sample yeilds random results"
+replacement_mesh = ExtResource("2_lswjo")
+sample_material = ExtResource("3_7lvyy")
+replacement_collider = ExtResource("1_j3jud")
+mass = 2.0
+metadata/_custom_type_script = "uid://cnwjofrbr7ew8"
